@@ -488,3 +488,49 @@ dialog[open]{animation:dlg .5s var(--ease)}
 .gal__play{position:absolute;left:50%;top:50%;translate:-50% -50%;width:4.2rem;height:4.2rem;display:grid;place-items:center;border-radius:50%;background:rgba(10,10,9,.6);border:1px solid var(--cream);font-size:1.2rem;padding-left:.2rem}
 .gal__thumbs{grid-template-columns:repeat(auto-fill,minmax(5.2rem,1fr))}
 @media (max-width:900px){.rrow--path{grid-template-columns:5.6rem minmax(0,1fr)}.rrow--path .rrow__l{grid-column:2}}
+
+/* ===== Update: Stage (multi-pengalaman), Recommendations, CV, status Concept/Project ===== */
+.btn--cv:hover b{transform:translateY(3px)}
+.pill--concept i,.pill--prototype i{background:transparent;border:1.5px dashed var(--red)}
+.stagebox{align-items:end}
+.sxchips{display:flex;flex-wrap:wrap;gap:.45rem;align-content:flex-end}
+.sxchip{border:1px solid var(--line-d);border-radius:999px;padding:.5rem 1rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--cream);transition:background .3s,color .3s,border-color .3s}
+.sxchip sup{color:var(--red);font-weight:700}
+.sxchip:hover{border-color:var(--cream)}
+.sxchip[aria-pressed="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.sxlist{list-style:none;margin:clamp(2rem,5vw,4rem) 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,2.4vw,2rem)}
+.sx__card{display:flex;flex-direction:column;height:100%;background:#121211;border:1px solid var(--line-d)}
+.sx__ph{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:#0d0d0c;cursor:zoom-in}
+.sx__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.sx__ph:hover img{transform:scale(1.04)}
+.sx__body{display:flex;flex-direction:column;gap:.55rem;padding:clamp(1.1rem,2.2vw,1.8rem);flex:1}
+.sx__cat{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--red)}
+.sx__t{font-family:var(--f-head);font-weight:900;letter-spacing:-.035em;line-height:1.02;text-transform:uppercase;font-size:clamp(1.3rem,2.3vw,1.9rem);overflow-wrap:anywhere}
+.sx__role{font-weight:700;font-size:.95rem}
+.sx__meta{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.sx__status{align-self:flex-start;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border:1px solid var(--red);color:var(--red);border-radius:999px;padding:.3rem .75rem}
+.sx__d{color:rgba(236,233,225,.85);font-size:.98rem;line-height:1.6}
+.sx__body .chips{margin-top:auto;padding-top:.6rem}
+.recs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,2.4vw,2rem)}
+.rcard{position:relative;margin:0;display:flex;flex-direction:column;gap:1.2rem;overflow:hidden;padding:clamp(1.6rem,3.4vw,3rem);min-height:clamp(22rem,36vw,31rem);transform-style:preserve-3d;will-change:transform}
+.rcard--ink{background:var(--ink);color:var(--cream)}
+.rcard--paper{background:var(--cream);color:var(--ink);border:1px solid var(--line-l)}
+.rcard__mark{position:absolute;right:clamp(1rem,2.4vw,2rem);top:-.02em;font-family:var(--f-serif);font-style:italic;font-size:clamp(9rem,16vw,15rem);line-height:1;color:var(--red);opacity:.9;pointer-events:none}
+.rcard__kick{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:var(--red)}
+.rcard__q{margin:0;max-width:34ch}
+.rcard__q p{margin:0;font-family:var(--f-serif);font-style:italic;font-size:clamp(1.45rem,2.5vw,2.15rem);line-height:1.22;letter-spacing:-.01em}
+.rcard__tags li{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.rcard--paper .rcard__tags li{border-color:var(--line-l)}
+.rcard__who{margin-top:auto;display:flex;align-items:center;gap:1rem;padding-top:1.2rem;border-top:1px solid var(--line-d)}
+.rcard--paper .rcard__who{border-color:var(--line-l)}
+.rcard__ph{width:3.6rem;height:3.6rem;border-radius:50%;object-fit:cover;flex:none}
+.rcard__id{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.rcard__id strong{font-family:var(--f-head);font-weight:900;letter-spacing:-.02em;font-size:1.05rem;line-height:1.15}
+.rcard__id span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.rcard--paper .rcard__id span{color:#6b6b66}
+@media (max-width:900px){
+  .stagebox{align-items:start}
+  .sxlist,.recs{grid-template-columns:1fr}
+  .rcard{min-height:0}
+}
+@media (prefers-reduced-motion:reduce){.sx__ph img{transition:none}}

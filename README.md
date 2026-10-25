@@ -42,3 +42,10 @@ python3 -m http.server 8000      # lalu buka http://localhost:8000
 ## Galeri, path, afiliasi
 - Galeri (`gallery` di content.js): tiap item punya `title`, `meta`, `desc`. Klik foto atau "Read the story" membuka deskripsi. Item video: isi `video` (poster = `src`).
 - `path`: pengalaman & pendidikan (section Person). `affiliations`: strip logo di bawah hero.
+
+## Update terbaru
+- **Skill**: 5 bidang di `skills` (urutan 1 = AI Engineering & Data Science). Kubus otomatis mengikuti jumlah item.
+- **Stage**: entri di `stage.items` (jumlah di section = jumlah entri; kategori di `stage.categories`). Foto = aset asli per acara.
+- **Recommendations**: array `recommendations`. Kutipan jangan diedit. `photo: null` = kartu tanpa foto; file siap di `assets/testimonials/photo-a.webp` & `photo-b.webp` — isi path hanya setelah identitas foto dikonfirmasi.
+- **CV**: file di `assets/cv/`, diatur lewat `person.cv` (tombol hero + baris di Connect). Hapus `person.cv` untuk menyembunyikan tombol.
+- **Project**: field `supports` menampilkan skill yang didukung di modal detail. Status "Live" hanya untuk project yang terverifikasi.

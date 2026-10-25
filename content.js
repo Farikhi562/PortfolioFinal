@@ -13,7 +13,8 @@ window.CONTENT = {
     email: "ojann4318@gmail.com",
     instagram: { handle: "@thedailycommitt", url: "https://www.instagram.com/thedailycommitt/" },
     linkedin: "https://www.linkedin.com/in/fauzanalfarikhi",
-    github: "https://github.com/Farikhi562"
+    github: "https://github.com/Farikhi562",
+    cv: { file: "assets/cv/Muhamad-Fauzan-Al-Farikhi-CV.pdf", label: "Download CV", filename: "Muhamad-Fauzan-Al-Farikhi-CV.pdf" }
   },
 
   nav: [
@@ -22,6 +23,7 @@ window.CONTENT = {
     { id: "projects", label: "Projects" },
     { id: "record",  label: "Record" },
     { id: "stage",   label: "Stage" },
+    { id: "recs",    label: "Recs" },
     { id: "writing", label: "Writing" },
     { id: "life",    label: "Life" },
     { id: "connect", label: "Connect" }
@@ -87,9 +89,10 @@ window.CONTENT = {
     projects:{ no: "03", label: "The Work",       a: "THINGS I'VE",  b: "shipped." },
     record:  { no: "04", label: "The Record",     a: "BUILT THROUGH", b: "experience." },
     stage:   { no: "05", label: "The Stage",      a: "IDEAS WORTH",   b: "sharing." },
-    writing: { no: "06", label: "The Writing",    a: "THOUGHTS,",     b: "in print." },
-    life:    { no: "07", label: "The Off-Hours",  a: "LIFE,",         b: "unfiltered." },
-    connect: { no: "08", label: "The Next Step",  a: "LET’S",         b: "connect." }
+    recs:    { no: "06", label: "Recommendations", a: "IN THEIR",     b: "own words." },
+    writing: { no: "07", label: "The Writing",    a: "THOUGHTS,",     b: "in print." },
+    life:    { no: "08", label: "The Off-Hours",  a: "LIFE,",         b: "unfiltered." },
+    connect: { no: "09", label: "The Next Step",  a: "LET’S",         b: "connect." }
   },
 
   /* Ringkasan isi tiap section (hanya dipakai di kerangka tahap 1) */
@@ -98,7 +101,8 @@ window.CONTENT = {
     craft:   "Skill Atlas — kubus 3D, 5 bidang, panel detail",
     projects:"Kartu project · status · detail",
     record:  "Total prestasi · cari · filter · daftar 2021–2026",
-    stage:   "Statistik bicara · foto panggung",
+    stage:   "Pengalaman bicara · pitching · presentasi",
+    recs:    "Kartu rekomendasi",
     writing: "Daftar publikasi · filter · link",
     life:    "Galeri foto · thumbnail · ← →",
     connect: "Email · LinkedIn · GitHub · Instagram"
@@ -121,19 +125,38 @@ window.CONTENT = {
       url: "https://forecasting.frikhii.my.id", cta: "Visit Project",
       problem: null,
       solution: "A forecasting project that explores data-driven methods to analyze historical data and generate predictions.",
-      role: null, stack: null, statusNote: "Live — link not yet verified by the editor (TODO: konfirmasi).", repo: null },
+      role: null, stack: null, statusNote: "Live — deployed at the link below.", repo: null,
+      supports: ["AI Engineering & Data Science"] },
     { id: "petroleum", name: "Petroleum", category: "Engineering web", status: "Live", motif: "derrick", tone: "ink", thumb: "assets/projects/petroleum.webp", thumbRatio: "833/307", thumbAlt: "Sampul project Petroleum — Engineering Energy Systems",
       desc: "A petroleum engineering project focused on presenting technical concepts and information through a dedicated web experience.",
       url: "https://petroleum.frikhii.my.id", cta: "Visit Project",
       problem: null,
       solution: "A dedicated web experience that presents petroleum engineering concepts and information.",
-      role: null, stack: null, statusNote: "Live — link not yet verified by the editor (TODO: konfirmasi).", repo: null },
+      role: null, stack: null, statusNote: "Live — deployed at the link below.", repo: null },
     { id: "nexa-campus", name: "NEXA Campus", category: "SaaS · NEXA Tech Labs", status: "Live", motif: "campus", tone: "cream", thumb: "assets/projects/nexa-campus.webp", thumbRatio: "829/307", thumbAlt: "Sampul project NEXA Campus — A Connected Campus Ecosystem",
       desc: "A campus-focused SaaS platform developed under NEXA Tech Labs to support student needs through a digital ecosystem.",
       url: "https://campus.nexatechlabs.my.id", cta: "Visit Live Project",
       problem: null,
       solution: "A campus-focused SaaS platform that supports student needs through a digital ecosystem.",
-      role: null, stack: null, statusNote: "Live — link not yet verified by the editor (TODO: konfirmasi).", repo: null },
+      role: null, stack: null, statusNote: "Live — deployed at the link below.", repo: null,
+      supports: ["Software Development", "System Architecture", "Product Management"] },
+    { id: "nexa-sphere", name: "NEXA-Sphere", category: "AI-SaaS · NEXA Tech Labs", status: "Prototype", motif: "chain", tone: "ink", thumb: null,
+      desc: "A B2B AI-SaaS platform concept for optimizing inventory and supply-chain operations of multi-outlet F&B businesses, built around demand forecasting, procurement recommendations, and a centralized dashboard.",
+      url: null, cta: "View Project Details",
+      problem: "Multi-outlet F&B SMEs (2–10 branches) are too small for enterprise ERP yet too complex for manual, instinct-based purchasing — leading to overstock, stockout, and food waste.",
+      solution: "A B2B AI-SaaS platform that turns historical point-of-sale data into purchasing recommendations: demand forecasting, procurement recommendations with owner approval, and a centralized multi-outlet dashboard.",
+      role: "Team Lead & AI/ML Engineer",
+      contribution: "Technology architecture direction, predictive-model (demand forecasting) development, and algorithm risk management; presented the proposal at ICBC 2026 as team lead.",
+      stack: ["Time-series forecasting (ARIMA, Prophet) — proposed", "Gradient boosting (XGBoost / LightGBM) — proposed", "Cloud (AWS / GCP) — planned"],
+      statusNote: "Business-proposal concept with interface prototypes — finalist (Top 4, Juara Harapan 1) at ICBC 2026. Not released and not yet in wide use. Screenshots in the proposal use simulated internal data.",
+      repo: null,
+      supports: ["AI Engineering & Data Science", "Product Management", "Business & Entrepreneurship"],
+      extra: [
+        { title: "Core pillars (proposed)", label: "Proposal", items: ["AI demand forecasting (daily / weekly sales per menu item)", "Procurement recommendations with owner approve-or-modify control", "Centralized dashboard across outlets (mobile and desktop)"] },
+        { title: "Prototype shown in the proposal (simulated data)", label: "Prototype", items: ["POS Terminal with an AI Engine Analytics view", "Floor Plan Manager and Admin dashboard (Dynamic Pricing toggle, Live Metrics)", "Prototype navigation tabs: Kitchen Display, Table Map, Data Science HQ, Inventory, Live Chat, Public Web", "Dimsum Manager with design partner Dimsum Mentai Kemayoran — role-based login (Owner / Admin / Kasir) live; about 80% complete at the time of the proposal"] },
+        { title: "Planned, not yet built", label: "Planned", items: ["Integration with local POS providers (Moka, Pawoon, Majoo, ESB)", "Phased rollout: API sync → shadow-mode validation → active recommendations", "Supplier B2B integration (year-2 roadmap)", "Regional expansion in Southeast Asia"] },
+        { title: "Not yet validated", label: "Unvalidated", items: ["Forecast accuracy (calibration planned over a client’s first 4–6 weeks)", "Measured food-waste reduction", "Market-size, pricing, and revenue projections (indicative only)"] }
+      ] },
     { id: "loki", name: "LOKi: IoT Smart Locker", category: "IoT · PWA · GDGoC ITB 2026", status: "Ongoing", motif: "locker", tone: "red", thumb: "assets/projects/loki.webp", thumbRatio: "1380/307", thumbAlt: "Sampul project LOKi: IoT Smart Locker — IoT Smart Locker for Campus — In Development", featured: true,
       program: "GDGoC ITB 2026",
       desc: "A shared smart-locker concept for campus environments, combining a Progressive Web App (PWA), backend authorization, ESP32-based IoT control, electronic solenoid locks, and door-state monitoring.",
@@ -145,6 +168,7 @@ window.CONTENT = {
       stack: ["Progressive Web App (PWA)", "Backend authorization", "ESP32 (IoT control)", "Electronic solenoid locks", "Door-state monitoring"],
       statusNote: "Ongoing — a concept under development in the GDGoC ITB 2026 program. Not yet deployed or officially adopted at any campus.",
       repo: null,
+      supports: ["Product Management", "IoT product development", "Project planning"],
       extra: [
         { title: "Architecture (design)", label: "Design", items: [
             "PWA — user-facing app", "Backend — authorization of locker access and access records",
@@ -168,6 +192,16 @@ window.CONTENT = {
   ],
 
   skills: [
+    { id: "ai", proof: [
+        "Sertifikat Gunadarma: Pengantar Ilmu Data (Fundamental of Data Science) · 2026",
+        "Sertifikat Gunadarma: Dasar Pemrograman Python · 2026, dan Dicoding: Memulai Pemrograman dengan Python",
+        "NEXA Assistant — asisten belajar berbasis NLP dan RAG di NEXA Campus (flashcard, kuis, latihan soal, ringkasan)",
+        "NEXA-Sphere — konsep AI-SaaS (demand forecasting, rekomendasi pengadaan) dengan prototipe antarmuka; Team Lead & AI/ML Engineer · Top 4 ICBC 2026",
+        "Project Forecasting — eksplorasi analisis data historis dan prediksi",
+        "Peserta KOMPRES 16, Divisi AI Innovation · 2026 (tahap registrasi)"],
+      title: "AI Engineering & Data Science",
+      line: "Designing and building AI-driven solutions by combining machine learning, data analysis, predictive modeling, and software engineering to solve real-world problems.",
+      keywords: ["Artificial Intelligence", "Machine Learning", "Data Science", "Predictive Analytics", "Time-Series Forecasting", "AI Integration"] },
     { id: "software", proof: [
         "1 tahun pengalaman sebagai Python Developer",
         "Peserta Unlimited Software Building (USB), Divisi Desain UI/UX · 2026",
@@ -200,7 +234,6 @@ window.CONTENT = {
       title: "Leadership & Project Management",
       line: "Leading collaborative teams, coordinating execution, and driving projects toward shared goals.",
       keywords: ["Team Leadership", "Project Planning", "Team Coordination", "Problem Solving", "Communication", "Strategic Thinking"] }
-    /* TODO: bidang #1 (kamu mulai dari nomor 2) — kirim teksnya kalau mau ditambahkan, mis. AI Engineering / Data Science. */
   ],
 
   achievements: [
@@ -216,13 +249,61 @@ window.CONTENT = {
     { year: 2021, name: "Olimpiade Fisika — Liga Olimpiade", rank: "Medali Emas", level: "Olimpiade" }
   ],
 
-  talks: {
-    count: 1,
-    text: "1 pengalaman presentasi internal secara online sebagai Vice Chairman I NCD, menjelaskan profil, tujuan, dan kegiatan komunitas kepada anggota.",
-    facts: ["Internal", "Online", "Vice Chairman I · NCD"],
-    photo: "assets/ncd-online.webp",
-    alt: "Tangkapan layar presentasi online NCD: slide “The People Behind NCD”"
+  /* ====== STAGE: pengalaman bicara, pitching, presentasi ======
+     Jumlah di section = jumlah entri di `items` (tiap acara dihitung sekali). Foto = aset asli per acara.
+     Tidak ada klaim audiens / juara / penghargaan di luar yang tercatat. */
+  stage: {
+    categories: ["Pitching & Competition", "Professional Presentation", "Event Participation", "Community Leadership"],
+    intro: "Pitching, presenting, and showing up — documented with the original photos from each event.",
+    items: [
+      { id: "icbc", category: "Pitching & Competition",
+        title: "International Canvas Business Competition (ICBC) 2026",
+        role: "Team Lead / Presenter — NEXA Tech Labs",
+        meta: "ICBC 2026 · Universitas Dian Nuswantoro · April 25, 2026",
+        desc: "Presented NEXA-Sphere, an AI-SaaS concept for optimizing inventory and supply-chain operations for multi-outlet F&B businesses, as part of the International Canvas Business Competition 2026.",
+        status: "Finalist · Top 4 (Juara Harapan 1)",
+        skills: ["AI Engineering & Data Science", "Product Management", "Business & Entrepreneurship"],
+        photo: "assets/icbc-pitch.webp", alt: "Tim berjas almamater biru presentasi di depan juri ICBC 2026 dengan penghitung waktu di layar", fit: "center" },
+      { id: "prudential", category: "Professional Presentation",
+        title: "Agency Partner Briefing — Prudential Indonesia",
+        role: "Agency Partner representative",
+        meta: "Prudential Indonesia · 2026",
+        desc: "Delivered a presentation in the “So, What Are You Waiting For?” session as an Agency Partner representative at Prudential Indonesia.",
+        status: null,
+        skills: ["Communication", "Business & Entrepreneurship"],
+        photo: "assets/flipchart.webp", alt: "Presentasi di depan flipchart dan layar “So what are you waiting for?”", fit: "top" },
+      { id: "gief", category: "Event Participation",
+        title: "Gunadarma Industrial Engineering Fair (GIEF) 2026",
+        role: "Participant",
+        meta: "GIEF 2026 · Universitas Gunadarma · July 22–23, 2026",
+        desc: "Participated in the Gunadarma Industrial Engineering Fair 2026, with event documentation featuring the presentation and certificate associated with the event.",
+        status: null,
+        skills: ["Software Development", "Product Management"],
+        photo: "assets/certificate.webp", alt: "Foto bersama sambil memegang sertifikat GIEF 2026", fit: "center" },
+      { id: "ncd", category: "Community Leadership",
+        title: "NCD Internal Presentation",
+        role: "Vice Chairman I — NCD",
+        meta: "NEXA Community Development · Online · Internal",
+        desc: "Online internal presentation explaining NCD’s profile, goals, and activities to its members.",
+        status: null,
+        skills: ["Leadership & Project Management"],
+        photo: "assets/ncd-online.webp", alt: "Tangkapan layar presentasi online NCD: slide “The People Behind NCD”", fit: "center" }
+    ]
   },
+
+  /* ====== RECOMMENDATIONS: kutipan HARUS persis seperti dari pemberinya — jangan diedit.
+     `photo`: null = kartu tanpa foto. Isi path hanya jika identitas foto sudah terkonfirmasi
+     (file siap di assets/testimonials/photo-a.webp & photo-b.webp). ====== */
+  recommendations: [
+    { kicker: "Endorsement", name: "Pak Risdiandri Iskandar, S.Kom., M.M.",
+      role: "Sekretariat Jurusan Informatika", org: "Universitas Gunadarma",
+      quote: "Fauzan orangnya rajin, amanah, bisa dipercaya, dia punya semangat dan ambisi yang bagus, sehingga sangat tepat dijadikan sebagai leader",
+      tags: ["Character", "Responsibility", "Trust", "Leadership"], photo: null, photoAlt: "" },
+    { kicker: "Appreciation", name: "Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.",
+      role: "Kaprodi Informatika", org: "Universitas Gunadarma",
+      quote: "Terimakasih telah berusaha dan berjuang tim tim NEXA, jangan pernah patah semangat",
+      tags: ["Effort", "Perseverance", "Team NEXA"], photo: null, photoAlt: "" }
+  ],
 
   publications: [
     { title: "NEXA Story", publisher: "NEXA", year: 2026, url: "https://s.id/nexa-story" }
@@ -231,21 +312,21 @@ window.CONTENT = {
   /* Galeri: `title` & `meta` tampil di bawah foto; klik "Read the story" membuka `desc`.
      Item video: isi `video`, `src` dipakai sebagai poster. */
   gallery: [
-    { src: "assets/flipchart.webp", alt: "Presentasi di depan flipchart dan layar “So what are you waiting for?”", caption: "The Agency Partner Briefing",
-      title: "The Agency Partner Briefing", meta: "Prudential Indonesia · 2026",
-      desc: "A presentation on the Agency Business Partner opportunity at Prudential Indonesia, where I work in financial consulting in 2026." },
-    { src: "assets/stage.webp", alt: "Lima orang berjas almamater biru berdiri di panggung", caption: "The Final Pitch",
-      title: "The Final Pitch", meta: "ICBC 2026 · Universitas Dian Nuswantoro",
-      desc: "Final-round pitching at the International Canvas Business Competition 2026, held on April 25, 2026 under the theme “Digital Business Ecosystem for Global Market Expansion.” Our team reached the finals." },
-    { src: "assets/certificate.webp", alt: "Empat orang berfoto sambil memegang sertifikat", caption: "On Exhibit",
-      title: "On Exhibit", meta: "GIEF 2026 · Universitas Gunadarma",
-      desc: "Showing our work at the 8th Gunadarma Industrial Engineering Fair 2026, a student exhibition of innovative products built on digital technology and standardization, held on July 22–23, 2026." },
-    { src: "assets/classroom.webp", alt: "Foto bersama di ruang kelas", caption: "Learning the Language of Data",
-      title: "Learning the Language of Data", meta: "Fundamental of Data Science · Universitas Gunadarma",
-      desc: "Group photo from the Fundamental of Data Science training at Universitas Gunadarma (May 25 – June 6, 2026). The material covered matrices, working with data in Python, NumPy and Pandas, and the data science methodology." },
-    { src: "assets/cafe.webp", alt: "Foto bersama di kafe Coklat Extra", caption: "The NCD Crew",
-      title: "The NCD Crew", meta: "NEXA Community Development",
-      desc: "The NEXA Community Development (NCD) crew, together after hours. I serve as Vice Chairman I, helping explain the community’s profile, goals, and activities to its members." },
+    { src: "assets/flipchart.webp", alt: "Presentasi di depan flipchart dan layar “So what are you waiting for?”", caption: "So, What Are You Waiting For?",
+      title: "So, What Are You Waiting For?", meta: "Agency Partner Briefing · Prudential Indonesia · 2026",
+      desc: "Presentation documentation from the “So, What Are You Waiting For?” session, delivered as an Agency Partner representative at Prudential Indonesia." },
+    { src: "assets/stage.webp", alt: "Tim berjas almamater biru berdiri di depan layar presentasi pada acara final ICBC 2026", caption: "ICBC 2026 — Finalist Presentation",
+      title: "ICBC 2026 — Finalist Presentation", meta: "ICBC 2026 · Universitas Dian Nuswantoro",
+      desc: "Team photo in alma mater jackets at the final presentation of the International Canvas Business Competition 2026, held on April 25, 2026 under the theme “Digital Business Ecosystem for Global Market Expansion.” Our team reached the finals." },
+    { src: "assets/certificate.webp", alt: "Foto bersama sambil memegang sertifikat GIEF 2026", caption: "GIEF 2026 — Certificate",
+      title: "GIEF 2026 — Certificate", meta: "GIEF 2026 · Universitas Gunadarma · July 22–23, 2026",
+      desc: "Holding the certificate from the 8th Gunadarma Industrial Engineering Fair 2026, a student exhibition of innovative products built on digital technology and standardization." },
+    { src: "assets/classroom.webp", alt: "Foto bersama peserta kursus Data Science di ruang kelas", caption: "Data Science Course — Universitas Gunadarma",
+      title: "Data Science Course — Universitas Gunadarma", meta: "Fundamental of Data Science · May 25 – June 6, 2026",
+      desc: "Group photo with fellow participants of the Fundamental of Data Science course at Universitas Gunadarma. The material covered matrices, working with data in Python, NumPy and Pandas, and the data science methodology." },
+    { src: "assets/cafe.webp", alt: "Foto bersama anggota NCD di sebuah kafe", caption: "NCD Community Gathering",
+      title: "NCD Community Gathering", meta: "NEXA Community Development",
+      desc: "Group photo with NCD (NEXA Community Development) members at a café." },
     { src: "assets/warteg-interview.webp", alt: "Berjabat tangan dengan pemilik warteg saat wawancara validasi ide", caption: "Ground Truth",
       title: "Ground Truth", meta: "Idea validation · AI Innovation division",
       desc: "Interviewing a warteg owner face to face to validate the “Kompres” idea for the AI Innovation division — talking to real users before building." },

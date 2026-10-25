@@ -15,6 +15,13 @@
   $("#tagline").textContent = P.tagline;
   var rolesEl = $("#roles");
   P.roles.forEach(function (r) { rolesEl.appendChild(el("li", null, r)); });
+  /* Tombol Download CV (hanya dibuat jika file CV terdaftar di content.js) */
+  if (P.cv && P.cv.file) {
+    var cvBtn = el("a", "btn btn--line btn--cv"); cvBtn.href = P.cv.file; cvBtn.setAttribute("download", P.cv.filename || "");
+    cvBtn.setAttribute("data-magnetic", ""); cvBtn.appendChild(el("span", null, P.cv.label));
+    var cvArrow = el("b", null, "↓"); cvArrow.setAttribute("aria-hidden", "true"); cvBtn.appendChild(cvArrow);
+    $(".hero__cta").appendChild(cvBtn);
+  }
 
   /* ---------- Nav (desktop + mobile menu) ---------- */
   var navLinks = $("#navLinks"), menuLinks = $("#menuLinks");
@@ -205,6 +212,7 @@
     if (k === "projects") { buildProjects(sec); return true; }
     if (k === "record") { buildRecord(sec); return true; }
     if (k === "stage") { buildStage(sec); return true; }
+    if (k === "recs") { buildRecs(sec); return true; }
     if (k === "writing") { buildWriting(sec); return true; }
     if (k === "life") { buildLife(sec); return true; }
     if (k === "connect") { buildConnect(sec); return true; }
@@ -501,6 +509,7 @@
     chart: '<path d="M40 35 V165 H285"/><path d="M60 140 L100 115 L140 125 L180 85 L220 70"/><path class="a dash" d="M220 70 L255 48 L285 38"/><circle class="a" cx="220" cy="70" r="5"/>',
     derrick: '<path d="M120 165 L160 40 L200 165"/><path d="M133 125 H187"/><path d="M143 85 H177"/><path d="M60 165 H260"/><circle class="a" cx="160" cy="40" r="5"/>',
     campus: '<path d="M50 165 H270"/><path d="M70 165 V95 H250 V165"/><path d="M60 95 L160 45 L260 95"/><path d="M145 165 V125 H175 V165"/><path d="M95 120 H115 M205 120 H225"/><circle class="a" cx="160" cy="75" r="6"/>',
+    chain: '<circle cx="60" cy="100" r="14"/><circle cx="160" cy="55" r="14"/><circle cx="160" cy="145" r="14"/><circle class="a" cx="262" cy="100" r="18"/><path d="M74 94 L146 60 M74 106 L146 140 M174 60 L244 94 M174 140 L244 106"/><path d="M40 180 H280"/>',
     locker: '<rect x="50" y="35" width="70" height="60"/><rect x="130" y="35" width="70" height="60"/><rect x="210" y="35" width="70" height="60"/><rect x="50" y="105" width="70" height="60"/><rect class="a" x="130" y="105" width="70" height="60"/><rect x="210" y="105" width="70" height="60"/><circle cx="108" cy="65" r="3.5"/><circle cx="188" cy="65" r="3.5"/><circle cx="268" cy="65" r="3.5"/><circle cx="108" cy="135" r="3.5"/><circle class="a" cx="188" cy="135" r="3.5"/><circle cx="268" cy="135" r="3.5"/>'
   }; }
   function visual(p, cls) {
@@ -556,6 +565,7 @@
     field(body, "My Role", p.role ? p.role : null);
     if (p.contribution) field(body, "Contribution focus", p.contribution);
     field(body, "Technology Stack", p.stack); field(body, "Current Status", p.statusNote);
+    if (p.supports && p.supports.length) field(body, "Supports skills", p.supports);
     (p.extra || []).forEach(function (e) { field(body, e.title, e.items, e.label); });
     pd.appendChild(body);
     var foot = el("div", "pd__foot");
@@ -566,22 +576,65 @@
     document.documentElement.classList.add("lock"); pd.showModal(); pd.scrollTop = 0;
   }
 
-  /* ---------- 04 / Stage ---------- */
+  /* ---------- 05 / Stage: pengalaman bicara, pitching, presentasi ---------- */
   function buildStage(sec) {
-    var T = C.talks;
-    var g = el("div", "stagebox"); g.setAttribute("data-reveal", "");
+    var T = C.stage, items = T.items, f = "All";
+    var top = el("div", "stagebox"); top.setAttribute("data-reveal", "");
     var left = el("div", "stagebox__txt");
-    var n = el("p", "stagebox__n", String(T.count).padStart(2, "0"));
-    left.appendChild(n);
-    left.appendChild(el("p", "stagebox__l", T.count === 1 ? "Speaking experience" : "Speaking experiences"));
-    left.appendChild(el("p", "stagebox__p", T.text));
-    var tags = el("ul", "chips"); (T.facts || []).forEach(function (f) { tags.appendChild(el("li", null, f)); }); left.appendChild(tags);
+    left.appendChild(el("p", "stagebox__n", String(items.length).padStart(2, "0")));
+    left.appendChild(el("p", "stagebox__l", items.length === 1 ? "Stage experience" : "Stage experiences"));
+    left.appendChild(el("p", "stagebox__p", T.intro));
+    top.appendChild(left);
+    var chips = el("div", "sxchips"); chips.setAttribute("role", "group"); chips.setAttribute("aria-label", "Filter kategori");
+    var keys = ["All"].concat(T.categories.filter(function (c) { return items.some(function (it) { return it.category === c; }); }));
+    var btns = {};
+    keys.forEach(function (k) {
+      var n = k === "All" ? items.length : items.filter(function (it) { return it.category === k; }).length;
+      var b = el("button", "sxchip"); b.type = "button"; b.appendChild(document.createTextNode(k + " ")); b.appendChild(el("sup", null, String(n)));
+      b.addEventListener("click", function () { f = k; render(); }); chips.appendChild(b); btns[k] = b;
+    });
+    top.appendChild(chips); sec.appendChild(top);
+    var list = el("ul", "sxlist"); sec.appendChild(list);
+    function render() {
+      keys.forEach(function (k) { btns[k].setAttribute("aria-pressed", k === f); });
+      list.textContent = "";
+      items.filter(function (it) { return f === "All" || it.category === f; }).forEach(function (it, i) {
+        var li = el("li", "sx"); var card = el("article", "sx__card");
+        var ph = el("button", "sx__ph"); ph.type = "button"; ph.setAttribute("aria-label", "Buka foto: " + it.title);
+        var im = new Image(); im.src = it.photo; im.alt = it.alt; im.loading = "lazy"; im.decoding = "async"; im.style.objectPosition = it.fit === "top" ? "50% 18%" : "50% 50%";
+        ph.appendChild(im); ph.addEventListener("click", function () { openLightbox([it.photo], it.title, ph, { desc: it.desc, meta: it.meta }); });
+        var body = el("div", "sx__body");
+        body.appendChild(el("p", "sx__cat", it.category));
+        body.appendChild(el("h3", "sx__t", it.title));
+        body.appendChild(el("p", "sx__role", it.role));
+        body.appendChild(el("p", "sx__meta", it.meta));
+        if (it.status) body.appendChild(el("p", "sx__status", it.status));
+        body.appendChild(el("p", "sx__d", it.desc));
+        if (it.skills && it.skills.length) { var ul = el("ul", "chips"); it.skills.forEach(function (w) { ul.appendChild(el("li", null, w)); }); body.appendChild(ul); }
+        card.appendChild(ph); card.appendChild(body); li.appendChild(card); list.appendChild(li);
+        if (!M.reduced && li.animate) li.animate([{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "none" }], { duration: 650, delay: i * 70, easing: M.ease, fill: "backwards" });
+      });
+    }
+    render();
+  }
 
-    var fig = el("figure", "scard"); fig.setAttribute("data-tilt", "");
-    var fr = el("div", "scard__frame"); var im = new Image(); im.src = T.photo; im.alt = T.alt; im.loading = "lazy"; im.decoding = "async";
-    im.setAttribute("data-parallax", "0.05"); fr.appendChild(im); fig.appendChild(fr);
-    fig.appendChild(el("figcaption", null, "Online presentation · NCD"));
-    g.appendChild(left); g.appendChild(fig); sec.appendChild(g);
+  /* ---------- 06 / Recommendations ---------- */
+  function buildRecs(sec) {
+    var R = C.recommendations;
+    var grid = el("div", "recs"); grid.setAttribute("data-reveal", "");
+    R.forEach(function (r, i) {
+      var card = el("figure", "rcard " + (i % 2 === 0 ? "rcard--ink" : "rcard--paper")); card.setAttribute("data-tilt", "");
+      var q = el("span", "rcard__mark", "“"); q.setAttribute("aria-hidden", "true"); card.appendChild(q);
+      card.appendChild(el("p", "rcard__kick", r.kicker));
+      var bq = el("blockquote", "rcard__q"); bq.appendChild(el("p", null, "“" + r.quote + "”")); card.appendChild(bq);
+      if (r.tags && r.tags.length) { var ul = el("ul", "chips rcard__tags"); r.tags.forEach(function (t) { ul.appendChild(el("li", null, t)); }); card.appendChild(ul); }
+      var cap = el("figcaption", "rcard__who");
+      if (r.photo) { var im = new Image(); im.src = r.photo; im.alt = r.photoAlt || r.name; im.loading = "lazy"; im.decoding = "async"; im.className = "rcard__ph"; cap.appendChild(im); }
+      var tx = el("div", "rcard__id"); tx.appendChild(el("strong", null, r.name));
+      tx.appendChild(el("span", null, r.role + (r.org ? " · " + r.org : ""))); cap.appendChild(tx);
+      card.appendChild(cap); grid.appendChild(card);
+    });
+    sec.appendChild(grid);
   }
 
 
@@ -676,8 +729,10 @@
     var box = el("div", "connect"); box.setAttribute("data-reveal", "");
     var ul = el("ul", "clinks");
     [["Instagram", P.instagram.handle, P.instagram.url], ["Email", P.email, "mailto:" + P.email],
-     ["LinkedIn", "/in/fauzanalfarikhi", P.linkedin], ["GitHub", "Farikhi562", P.github]].forEach(function (l) {
+     ["LinkedIn", "/in/fauzanalfarikhi", P.linkedin], ["GitHub", "Farikhi562", P.github]]
+      .concat(P.cv && P.cv.file ? [["CV", "Download PDF", P.cv.file, P.cv.filename || ""]] : []).forEach(function (l) {
       var li = el("li"); var a = el("a", "clink"); a.href = l[2]; if (l[2].indexOf("http") === 0) { a.target = "_blank"; a.rel = "noopener"; }
+      if (l[3] != null) a.setAttribute("download", l[3]);
       a.appendChild(el("span", "clink__k", l[0])); a.appendChild(el("span", "clink__v", l[1])); var ar = el("span", "clink__a", "↗"); ar.setAttribute("aria-hidden", "true"); a.appendChild(ar);
       li.appendChild(a); ul.appendChild(li);
     });
