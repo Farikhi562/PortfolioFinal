@@ -292,17 +292,16 @@ window.CONTENT = {
   },
 
   /* ====== RECOMMENDATIONS: kutipan HARUS persis seperti dari pemberinya — jangan diedit.
-     `photo`: null = kartu tanpa foto. Isi path hanya jika identitas foto sudah terkonfirmasi
-     (file siap di assets/testimonials/photo-a.webp & photo-b.webp). ====== */
+     `photo`: null = kartu tanpa foto. Identitas kedua foto sudah dikonfirmasi pemilik portfolio. ====== */
   recommendations: [
     { kicker: "Endorsement", name: "Pak Risdiandri Iskandar, S.Kom., M.M.",
       role: "Sekretariat Jurusan Informatika", org: "Universitas Gunadarma",
       quote: "Fauzan orangnya rajin, amanah, bisa dipercaya, dia punya semangat dan ambisi yang bagus, sehingga sangat tepat dijadikan sebagai leader",
-      tags: ["Character", "Responsibility", "Trust", "Leadership"], photo: null, photoAlt: "" },
+      tags: ["Character", "Responsibility", "Trust", "Leadership"], photo: "assets/testimonials/photo-a.webp", photoAlt: "Foto Pak Risdiandri Iskandar, S.Kom., M.M." },
     { kicker: "Appreciation", name: "Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.",
       role: "Kaprodi Informatika", org: "Universitas Gunadarma",
       quote: "Terimakasih telah berusaha dan berjuang tim tim NEXA, jangan pernah patah semangat",
-      tags: ["Effort", "Perseverance", "Team NEXA"], photo: null, photoAlt: "" }
+      tags: ["Effort", "Perseverance", "Team NEXA"], photo: "assets/testimonials/photo-b.webp", photoAlt: "Foto Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc." }
   ],
 
   publications: [
