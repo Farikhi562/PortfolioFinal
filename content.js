@@ -39,7 +39,16 @@ window.CONTENT = {
   affiliations: [
     { name: "Universitas Gunadarma", note: "Kampus · Student · IPK 3.71",             logo: "assets/logos/gunadarma.webp" },
     { name: "NEXA Tech Labs",        note: "Perusahaan · Founder & CEO",             logo: "assets/logos/nexa.webp" },
-    { name: "NCD",                   note: "Komunitas · NEXA Community Development · Vice Chairman I", logo: "assets/logos/ncd.webp" }
+    { name: "NCD",                   note: "Komunitas · NEXA Community Development · Vice Chairman I", logo: "assets/logos/ncd.webp" },
+    { name: "Prudential Indonesia", note: "Karier · Agency Business Partner · Financial Consulting · 2026", logo: "assets/logos/prudential.webp" },
+    { name: "SMA Taman Madya 1 Jakarta", note: "Sekolah · MIPA · 2021–2024", logo: "assets/logos/tamansiswa.webp" }
+  ],
+
+  /* Pengalaman & pendidikan (tampil di section Person). type: Experience | Education | Organization */
+  path: [
+    { years: "2026",      role: "Agency Business Partner · Financial Consulting", place: "Prudential Indonesia", type: "Experience" },
+    { years: "2021–2024", role: "SMA, jurusan MIPA",                               place: "SMA Taman Madya 1 Jakarta", type: "Education" },
+    { years: "2021–2022", role: "Anggota OSIS · Divisi Acara",                     place: "SMA Taman Madya 1 Jakarta", type: "Organization" }
   ],
 
   /* Sertifikat & piagam. `url` = link verifikasi (kalau ada). Tanpa url, kartu membuka lightbox dari `full`.
@@ -101,31 +110,31 @@ window.CONTENT = {
      status: "Live" | "Ongoing". motif: ilustrasi vektor sederhana (BUKAN screenshot). tone: ink | cream | red.
      Ganti `thumb: "assets/projects/xxx.webp"` kalau sudah punya screenshot asli. */
   projects: [
-    { id: "smarthomeai", name: "SmartHomeAI", category: "Web platform", status: "Live", motif: "home", tone: "ink", thumb: null,
+    { id: "smarthomeai", name: "SmartHomeAI", category: "Web platform", status: "Live", motif: "home", tone: "ink", thumb: "assets/projects/smarthomeai.webp", thumbRatio: "833/309", thumbAlt: "Sampul project SmartHomeAI — Smarter Living, Simplified by AI",
       desc: "A smart home web platform designed to help users keep track of household items and make it easier to remember or locate where their belongings are stored.",
       url: "https://smarthome.frikhii.my.id", cta: "Visit Live Project",
       problem: "Household items are easy to forget or misplace, and it is hard to remember where they are stored.",
       solution: "A smart home web platform that helps users keep track of household items and locate where their belongings are stored.",
       role: null, stack: null, statusNote: "Live — deployed at the link below.", repo: null },
-    { id: "forecasting", name: "Forecasting", category: "Data project", status: "Live", motif: "chart", tone: "cream", thumb: null,
+    { id: "forecasting", name: "Forecasting", category: "Data project", status: "Live", motif: "chart", tone: "cream", thumb: "assets/projects/forecasting.webp", thumbRatio: "829/309", thumbAlt: "Sampul project Forecasting — Turning Data into Foresight",
       desc: "A forecasting project focused on exploring data-driven methods to analyze historical data and generate predictions.",
       url: "https://forecasting.frikhii.my.id", cta: "Visit Project",
       problem: null,
       solution: "A forecasting project that explores data-driven methods to analyze historical data and generate predictions.",
       role: null, stack: null, statusNote: "Live — link not yet verified by the editor (TODO: konfirmasi).", repo: null },
-    { id: "petroleum", name: "Petroleum", category: "Engineering web", status: "Live", motif: "derrick", tone: "ink", thumb: null,
+    { id: "petroleum", name: "Petroleum", category: "Engineering web", status: "Live", motif: "derrick", tone: "ink", thumb: "assets/projects/petroleum.webp", thumbRatio: "833/307", thumbAlt: "Sampul project Petroleum — Engineering Energy Systems",
       desc: "A petroleum engineering project focused on presenting technical concepts and information through a dedicated web experience.",
       url: "https://petroleum.frikhii.my.id", cta: "Visit Project",
       problem: null,
       solution: "A dedicated web experience that presents petroleum engineering concepts and information.",
       role: null, stack: null, statusNote: "Live — link not yet verified by the editor (TODO: konfirmasi).", repo: null },
-    { id: "nexa-campus", name: "NEXA Campus", category: "SaaS · NEXA Tech Labs", status: "Live", motif: "campus", tone: "cream", thumb: null,
+    { id: "nexa-campus", name: "NEXA Campus", category: "SaaS · NEXA Tech Labs", status: "Live", motif: "campus", tone: "cream", thumb: "assets/projects/nexa-campus.webp", thumbRatio: "829/307", thumbAlt: "Sampul project NEXA Campus — A Connected Campus Ecosystem",
       desc: "A campus-focused SaaS platform developed under NEXA Tech Labs to support student needs through a digital ecosystem.",
       url: "https://campus.nexatechlabs.my.id", cta: "Visit Live Project",
       problem: null,
       solution: "A campus-focused SaaS platform that supports student needs through a digital ecosystem.",
       role: null, stack: null, statusNote: "Live — link not yet verified by the editor (TODO: konfirmasi).", repo: null },
-    { id: "loki", name: "LOKi: IoT Smart Locker", category: "IoT · PWA · GDGoC ITB 2026", status: "Ongoing", motif: "locker", tone: "red", thumb: null, featured: true,
+    { id: "loki", name: "LOKi: IoT Smart Locker", category: "IoT · PWA · GDGoC ITB 2026", status: "Ongoing", motif: "locker", tone: "red", thumb: "assets/projects/loki.webp", thumbRatio: "1380/307", thumbAlt: "Sampul project LOKi: IoT Smart Locker — IoT Smart Locker for Campus — In Development", featured: true,
       program: "GDGoC ITB 2026",
       desc: "A shared smart-locker concept for campus environments, combining a Progressive Web App (PWA), backend authorization, ESP32-based IoT control, electronic solenoid locks, and door-state monitoring.",
       url: null, cta: "View Project Details",
@@ -219,12 +228,32 @@ window.CONTENT = {
     { title: "NEXA Story", publisher: "NEXA", year: 2026, url: "https://s.id/nexa-story" }
   ],
 
-  /* Caption galeri = placeholder, silakan ganti dengan keterangan aslinya */
+  /* Galeri: `title` & `meta` tampil di bawah foto; klik "Read the story" membuka `desc`.
+     Item video: isi `video`, `src` dipakai sebagai poster. */
   gallery: [
-    { src: "assets/flipchart.webp",    alt: "Presentasi di depan flipchart dan layar “So what are you waiting for?”", caption: "Business opportunity talk" },
-    { src: "assets/stage.webp",        alt: "Lima orang berjas almamater biru berdiri di panggung",                   caption: "On stage" },
-    { src: "assets/certificate.webp",  alt: "Empat orang berfoto sambil memegang sertifikat",                         caption: "Certificate day" },
-    { src: "assets/classroom.webp",    alt: "Foto bersama di ruang kelas",                                            caption: "The whole crew" },
-    { src: "assets/cafe.webp",         alt: "Foto bersama di kafe Coklat Extra",                                      caption: "After hours" }
+    { src: "assets/flipchart.webp", alt: "Presentasi di depan flipchart dan layar “So what are you waiting for?”", caption: "The Agency Partner Briefing",
+      title: "The Agency Partner Briefing", meta: "Prudential Indonesia · 2026",
+      desc: "A presentation on the Agency Business Partner opportunity at Prudential Indonesia, where I work in financial consulting in 2026." },
+    { src: "assets/stage.webp", alt: "Lima orang berjas almamater biru berdiri di panggung", caption: "The Final Pitch",
+      title: "The Final Pitch", meta: "ICBC 2026 · Universitas Dian Nuswantoro",
+      desc: "Final-round pitching at the International Canvas Business Competition 2026, held on April 25, 2026 under the theme “Digital Business Ecosystem for Global Market Expansion.” Our team reached the finals." },
+    { src: "assets/certificate.webp", alt: "Empat orang berfoto sambil memegang sertifikat", caption: "On Exhibit",
+      title: "On Exhibit", meta: "GIEF 2026 · Universitas Gunadarma",
+      desc: "Showing our work at the 8th Gunadarma Industrial Engineering Fair 2026, a student exhibition of innovative products built on digital technology and standardization, held on July 22–23, 2026." },
+    { src: "assets/classroom.webp", alt: "Foto bersama di ruang kelas", caption: "Learning the Language of Data",
+      title: "Learning the Language of Data", meta: "Fundamental of Data Science · Universitas Gunadarma",
+      desc: "Group photo from the Fundamental of Data Science training at Universitas Gunadarma (May 25 – June 6, 2026). The material covered matrices, working with data in Python, NumPy and Pandas, and the data science methodology." },
+    { src: "assets/cafe.webp", alt: "Foto bersama di kafe Coklat Extra", caption: "The NCD Crew",
+      title: "The NCD Crew", meta: "NEXA Community Development",
+      desc: "The NEXA Community Development (NCD) crew, together after hours. I serve as Vice Chairman I, helping explain the community’s profile, goals, and activities to its members." },
+    { src: "assets/warteg-interview.webp", alt: "Berjabat tangan dengan pemilik warteg saat wawancara validasi ide", caption: "Ground Truth",
+      title: "Ground Truth", meta: "Idea validation · AI Innovation division",
+      desc: "Interviewing a warteg owner face to face to validate the “Kompres” idea for the AI Innovation division — talking to real users before building." },
+    { src: "assets/icbc-pitch.webp", alt: "Tim berjas almamater biru presentasi di depan juri dengan penghitung waktu di layar", caption: "Live on the Floor",
+      title: "Live on the Floor", meta: "ICBC 2026",
+      desc: "Pitching in front of the judges at ICBC 2026, with the countdown timer running on the screen behind us." },
+    { src: "assets/video/icbc-reel-poster.webp", video: "assets/video/icbc-reel.mp4", alt: "Cuplikan video tim saat pitching di ICBC 2026", caption: "ICBC, in Motion",
+      title: "ICBC, in Motion", meta: "ICBC 2026 · 17-second reel",
+      desc: "A short reel from ICBC 2026 — the team on stage during the pitching session." }
   ]
 };

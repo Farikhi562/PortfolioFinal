@@ -460,3 +460,31 @@ dialog[open]{animation:dlg .5s var(--ease)}
   .pd__head,.pd__body{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){.prj,.pv svg,dialog[open]{transition:none;animation:none}}
+
+/* ==========================================================================
+   Update: sampul project, galeri deskriptif, path, afiliasi 5 kolom
+   ========================================================================== */
+.aff__list{grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr))}
+.rrow--path{grid-template-columns:7rem minmax(0,1fr) 8rem}
+.rrow--path .rrow__l{grid-column:auto}
+.path{margin-top:clamp(2rem,4vw,3.5rem)}
+.pv--img{display:block;background:var(--ink)}
+.pv--img img{transition:transform .8s var(--ease)}
+.prj:hover .pv--img img{transform:scale(1.04)}
+.prj--feat.prj--img .prj__main{flex-direction:column}
+.prj--feat.prj--img .prj__vis{flex:none;min-height:0}
+.pd__head--img{grid-template-columns:1fr;align-items:start}
+.pd__head--img .pd__vis{width:100%}
+.lb__stage [hidden],.lb__info[hidden]{display:none!important}
+.lb__stage video{display:block;margin:0 auto;max-height:76vh;max-width:100%;width:auto;background:#000}
+.lb__info{padding:0 1.2rem 1.6rem;max-width:46rem}
+.lb__meta{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:.7rem}
+.lb__desc{line-height:1.65;color:rgba(236,233,225,.88)}
+.gal__info{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin:-.2rem 0 1.4rem}
+.gal__meta{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.gal__open{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--red);border-bottom:1px solid currentColor;padding-bottom:.15rem;will-change:transform}
+.gal__open:hover{color:var(--cream)}
+.gal__stage{cursor:pointer}
+.gal__play{position:absolute;left:50%;top:50%;translate:-50% -50%;width:4.2rem;height:4.2rem;display:grid;place-items:center;border-radius:50%;background:rgba(10,10,9,.6);border:1px solid var(--cream);font-size:1.2rem;padding-left:.2rem}
+.gal__thumbs{grid-template-columns:repeat(auto-fill,minmax(5.2rem,1fr))}
+@media (max-width:900px){.rrow--path{grid-template-columns:5.6rem minmax(0,1fr)}.rrow--path .rrow__l{grid-column:2}}

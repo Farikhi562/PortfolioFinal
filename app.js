@@ -239,6 +239,16 @@
     });
     sec.appendChild(ul);
 
+    if (C.path && C.path.length) {
+      var pl = el("ul", "rlist path"); pl.setAttribute("data-reveal", ""); pl.setAttribute("aria-label", "Pengalaman dan pendidikan");
+      C.path.forEach(function (r) {
+        var li = el("li", "rrow rrow--path");
+        li.appendChild(el("span", "rrow__y", r.years)); li.appendChild(el("span", "rrow__n", r.role + " — " + r.place));
+        li.appendChild(el("span", "rrow__l", r.type)); pl.appendChild(li);
+      });
+      sec.appendChild(pl);
+    }
+
     var cio = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return; cio.unobserve(e.target);
@@ -452,28 +462,36 @@
   }
 
 
-  /* ---------- Lightbox (sertifikat tanpa link verifikasi) ---------- */
+  /* ---------- Lightbox (sertifikat & galeri; mendukung video + deskripsi) ---------- */
   var lb;
-  function openLightbox(imgs, label, opener) {
-    var i = 0;
+  function openLightbox(imgs, label, opener, extra) {
+    var i = 0; extra = extra || {};
     if (!lb) {
       lb = el("dialog", "lb");
       var x = el("button", "lb__x", "Close ✕"); x.type = "button"; x.addEventListener("click", function () { lb.close(); });
-      var st = el("div", "lb__stage"), im = el("img"); im.decoding = "async"; st.appendChild(im);
+      var st = el("div", "lb__stage"), im = el("img"), vd = el("video"); im.decoding = "async";
+      vd.controls = true; vd.playsInline = true; vd.preload = "metadata"; st.appendChild(im); st.appendChild(vd);
       var bar = el("div", "lb__bar"), cap = el("p", "lb__cap");
       var pv = el("button", "lb__n", "←"), nx = el("button", "lb__n", "→"); pv.type = nx.type = "button";
       pv.setAttribute("aria-label", "Halaman sebelumnya"); nx.setAttribute("aria-label", "Halaman berikutnya");
       bar.appendChild(pv); bar.appendChild(cap); bar.appendChild(nx);
-      lb.appendChild(x); lb.appendChild(st); lb.appendChild(bar); document.body.appendChild(lb);
-      lb._u = function () { im.src = lb._imgs[i]; im.alt = lb._label + (lb._imgs.length > 1 ? " — halaman " + (i + 1) : "");
-        cap.textContent = lb._label + (lb._imgs.length > 1 ? " · " + (i + 1) + " / " + lb._imgs.length : ""); bar.classList.toggle("lb__bar--one", lb._imgs.length < 2); };
+      var info = el("div", "lb__info"), meta = el("p", "lb__meta"), desc = el("p", "lb__desc"); info.appendChild(meta); info.appendChild(desc);
+      lb.appendChild(x); lb.appendChild(st); lb.appendChild(bar); lb.appendChild(info); document.body.appendChild(lb);
+      lb._u = function () {
+        var E = lb._extra, many = lb._imgs.length > 1;
+        if (E.video) { im.hidden = true; vd.hidden = false; vd.poster = lb._imgs[0]; vd.src = E.video; vd.setAttribute("aria-label", lb._label); }
+        else { vd.pause(); vd.removeAttribute("src"); vd.hidden = true; im.hidden = false; im.src = lb._imgs[i]; im.alt = lb._label + (many ? " — halaman " + (i + 1) : ""); }
+        cap.textContent = lb._label + (many ? " · " + (i + 1) + " / " + lb._imgs.length : "");
+        meta.textContent = E.meta || ""; desc.textContent = E.desc || ""; info.hidden = !(E.meta || E.desc);
+        bar.classList.toggle("lb__bar--one", !many);
+      };
       pv.addEventListener("click", function () { i = (i - 1 + lb._imgs.length) % lb._imgs.length; lb._u(); });
       nx.addEventListener("click", function () { i = (i + 1) % lb._imgs.length; lb._u(); });
       lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
       lb.addEventListener("keydown", function (e) { if (lb._imgs.length > 1 && (e.key === "ArrowRight" || e.key === "ArrowLeft")) (e.key === "ArrowRight" ? nx : pv).click(); });
-      lb.addEventListener("close", function () { document.documentElement.classList.remove("lock"); i = 0; });
+      lb.addEventListener("close", function () { vd.pause(); document.documentElement.classList.remove("lock"); i = 0; });
     }
-    lb._imgs = imgs; lb._label = label; i = 0; lb._u();
+    lb._imgs = imgs; lb._label = label; lb._extra = extra; i = 0; lb._u();
     document.documentElement.classList.add("lock"); lb.showModal();
   }
 
@@ -487,7 +505,7 @@
   }; }
   function visual(p, cls) {
     var v = el("div", cls + " pv pv--" + p.tone);
-    if (p.thumb) { var im = new Image(); im.src = p.thumb; im.alt = "Tampilan " + p.name; im.loading = "lazy"; v.appendChild(im); }
+    if (p.thumb) { v.classList.add("pv--img"); if (p.thumbRatio) v.style.aspectRatio = p.thumbRatio; var im = new Image(); im.src = p.thumb; im.alt = p.thumbAlt || ("Sampul project " + p.name); im.loading = "lazy"; im.decoding = "async"; v.appendChild(im); }
     else { v.innerHTML = '<svg viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + MOTIF()[p.motif] + "</svg>"; }
     return v;
   }
@@ -495,7 +513,7 @@
   function buildProjects(sec) {
     var grid = el("div", "pgrid"); grid.setAttribute("data-reveal", "");
     C.projects.forEach(function (p, n) {
-      var card = el("article", "prj" + (p.featured ? " prj--feat" : ""));
+      var card = el("article", "prj" + (p.featured ? " prj--feat" : "") + (p.thumb ? " prj--img" : ""));
       var main = el("button", "prj__main"); main.type = "button"; main.setAttribute("aria-label", p.name + " — buka detail project");
       main.addEventListener("click", function () { openProject(p, main); });
       var vis = visual(p, "prj__vis"); vis.appendChild(pill(p)); main.appendChild(vis);
@@ -529,7 +547,7 @@
       pd.addEventListener("close", function () { document.documentElement.classList.remove("lock"); }); }
     pd.textContent = ""; pd.setAttribute("aria-label", p.name);
     var x = el("button", "lb__x", "Close ✕"); x.type = "button"; x.addEventListener("click", function () { pd.close(); }); pd.appendChild(x);
-    var head = el("div", "pd__head"); head.appendChild(visual(p, "pd__vis"));
+    var head = el("div", "pd__head" + (p.thumb ? " pd__head--img" : "")); head.appendChild(visual(p, "pd__vis"));
     var ht = el("div", "pd__ht"); ht.appendChild(el("p", "prj__cat", p.category)); ht.appendChild(el("h3", "pd__name", p.name));
     var meta = el("p", "pd__meta"); meta.appendChild(pill(p)); if (p.program) meta.appendChild(el("span", null, p.program)); ht.appendChild(meta);
     head.appendChild(ht); pd.appendChild(head);
@@ -604,6 +622,7 @@
     var box = el("div", "gal"); box.setAttribute("data-reveal", "");
     box.setAttribute("role", "region"); box.setAttribute("aria-roledescription", "carousel"); box.setAttribute("aria-label", "Galeri foto");
     var stage = el("div", "gal__stage"); stage.tabIndex = 0;
+    var info = el("div", "gal__info"); var capMeta = el("p", "gal__meta"); var openBtn = el("button", "gal__open"); openBtn.type = "button"; openBtn.setAttribute("data-magnetic", ""); info.appendChild(capMeta); info.appendChild(openBtn);
     var cap = el("div", "gal__cap"); var capNo = el("span", "gal__no"); var capTx = el("span", "gal__tx"); cap.appendChild(capNo); cap.appendChild(capTx);
     var nav = el("div", "gal__nav");
     var prev = el("button", "gal__btn", "←"); prev.type = "button"; prev.setAttribute("aria-label", "Foto sebelumnya"); prev.setAttribute("data-magnetic", "");
@@ -617,14 +636,15 @@
     });
     var live = el("p", "sr"); live.setAttribute("aria-live", "polite");
     var foot = el("div", "gal__foot"); foot.appendChild(cap); foot.appendChild(nav);
-    box.appendChild(stage); box.appendChild(foot); box.appendChild(thumbs); box.appendChild(live); sec.appendChild(box);
+    box.appendChild(stage); box.appendChild(foot); box.appendChild(info); box.appendChild(thumbs); box.appendChild(live); sec.appendChild(box);
 
     function slide(i) {
       var s = el("div", "gal__slide"); var bg = el("div", "gal__bg"); bg.style.backgroundImage = 'url("' + G[i].src + '")';
-      var im = new Image(); im.src = G[i].src; im.alt = G[i].alt; im.decoding = "async"; s.appendChild(bg); s.appendChild(im); return s;
+      var im = new Image(); im.src = G[i].src; im.alt = G[i].alt; im.decoding = "async"; s.appendChild(bg); s.appendChild(im); if (G[i].video) { var pl = el("span", "gal__play", "▶"); pl.setAttribute("aria-hidden", "true"); s.appendChild(pl); } return s;
     }
     function label(i) {
-      capNo.textContent = String(i + 1).padStart(2, "0") + " / " + String(n).padStart(2, "0"); capTx.textContent = G[i].caption;
+      capNo.textContent = String(i + 1).padStart(2, "0") + " / " + String(n).padStart(2, "0"); capTx.textContent = G[i].title || G[i].caption; capMeta.textContent = G[i].meta || "";
+      openBtn.textContent = G[i].video ? "Play the reel ▶" : "Read the story ↗"; openBtn.setAttribute("aria-label", (G[i].video ? "Putar video: " : "Baca cerita: ") + (G[i].title || G[i].caption));
       tb.forEach(function (b, k) { if (k === i) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
       live.textContent = "Foto " + (i + 1) + " dari " + n + ": " + G[i].caption;
     }
@@ -641,9 +661,12 @@
     prev.addEventListener("click", function () { go(cur - 1, -1); });
     next.addEventListener("click", function () { go(cur + 1, 1); });
     stage.addEventListener("keydown", function (e) { if (e.key === "ArrowLeft") { e.preventDefault(); go(cur - 1, -1); } if (e.key === "ArrowRight") { e.preventDefault(); go(cur + 1, 1); } });
+    function openItem() { var g = G[cur]; openLightbox([g.src], g.title || g.caption, openBtn, { desc: g.desc, meta: g.meta, video: g.video }); }
+    openBtn.addEventListener("click", openItem);
     var sx = null;
     stage.addEventListener("pointerdown", function (e) { sx = e.clientX; });
-    stage.addEventListener("pointerup", function (e) { if (sx == null) return; var dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1); });
+    stage.addEventListener("pointerup", function (e) { if (sx == null) return; var dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1); else if (Math.abs(dx) < 6) openItem(); });
+    stage.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); openItem(); } });
     stage.appendChild(slide(0)); label(0);
     G.forEach(function (g) { var p = new Image(); p.src = g.src; });
   }

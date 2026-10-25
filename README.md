@@ -38,3 +38,7 @@ python3 -m http.server 8000      # lalu buka http://localhost:8000
 ## Projects & sertifikat
 - Project: array `projects` di `content.js`. Field `null` tampil "To be documented". Ganti ilustrasi dengan screenshot asli lewat `thumb: "assets/projects/xxx.webp"`.
 - Sertifikat: array `certificates`. Isi `url` untuk tombol Verify; tanpa `url`, kartu membuka lightbox dari `full`.
+
+## Galeri, path, afiliasi
+- Galeri (`gallery` di content.js): tiap item punya `title`, `meta`, `desc`. Klik foto atau "Read the story" membuka deskripsi. Item video: isi `video` (poster = `src`).
+- `path`: pengalaman & pendidikan (section Person). `affiliations`: strip logo di bawah hero.
