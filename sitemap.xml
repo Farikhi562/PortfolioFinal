@@ -1,10 +1,274 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://frikhii.my.id/</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/"/>
     <image:image><image:loc>https://frikhii.my.id/assets/og-image.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/projects/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/projects/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/projects/smarthomeai/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/smarthomeai/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/smarthomeai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/smarthomeai/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/projects/smarthomeai/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/smarthomeai/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/smarthomeai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/smarthomeai/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/projects/forecasting/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/forecasting/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/forecasting/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/forecasting/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/projects/forecasting/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/forecasting/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/forecasting/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/forecasting/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/projects/petroleum/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/petroleum/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/petroleum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/petroleum/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/projects/petroleum/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/petroleum/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/petroleum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/petroleum/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/projects/nexa-campus/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/nexa-campus/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/nexa-campus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/nexa-campus/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/projects/nexa-campus/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/nexa-campus/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/nexa-campus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/nexa-campus/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/projects/nexa-sphere/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/nexa-sphere/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/nexa-sphere/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/nexa-sphere/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/projects/nexa-sphere/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/nexa-sphere/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/nexa-sphere/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/nexa-sphere/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/projects/loki/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/loki/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/loki/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/loki/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/projects/loki/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/projects/loki/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/projects/loki/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/projects/loki/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/achievements/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/achievements/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/achievements/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/achievements/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/achievements/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/achievements/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/achievements/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/achievements/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/achievements/icbc-2026/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/achievements/icbc-2026/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/achievements/icbc-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/achievements/icbc-2026/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/achievements/icbc-2026/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/achievements/icbc-2026/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/achievements/icbc-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/achievements/icbc-2026/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/achievements/gemastik-2026/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/achievements/gemastik-2026/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/achievements/gemastik-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/achievements/gemastik-2026/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/achievements/gemastik-2026/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/achievements/gemastik-2026/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/achievements/gemastik-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/achievements/gemastik-2026/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/writing/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/writing/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/writing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/writing/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/writing/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/writing/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/writing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/writing/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/writing/nexa-sphere-icbc-2026/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/writing/nexa-sphere-icbc-2026/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/writing/nexa-sphere-icbc-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/writing/nexa-sphere-icbc-2026/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/writing/nexa-sphere-icbc-2026/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/writing/nexa-sphere-icbc-2026/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/writing/nexa-sphere-icbc-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/writing/nexa-sphere-icbc-2026/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/writing/loki-smart-locker-product-notes/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/writing/loki-smart-locker-product-notes/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/writing/loki-smart-locker-product-notes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/writing/loki-smart-locker-product-notes/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/writing/loki-smart-locker-product-notes/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/writing/loki-smart-locker-product-notes/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/writing/loki-smart-locker-product-notes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/writing/loki-smart-locker-product-notes/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/writing/python-to-ai-learning-path-2026/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/writing/python-to-ai-learning-path-2026/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/writing/python-to-ai-learning-path-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/writing/python-to-ai-learning-path-2026/"/>
+  </url>
+  <url>
+    <loc>https://frikhii.my.id/id/writing/python-to-ai-learning-path-2026/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://frikhii.my.id/writing/python-to-ai-learning-path-2026/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://frikhii.my.id/id/writing/python-to-ai-learning-path-2026/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frikhii.my.id/writing/python-to-ai-learning-path-2026/"/>
   </url>
 </urlset>

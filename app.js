@@ -420,6 +420,7 @@
           li.appendChild(el("span", "rrow__y", String(x.year)));
           var nm = el("span", "rrow__n", x.name);
           if (x.url) { var sa = el("a", "rrow__src", "Source ↗"); sa.href = x.url; sa.target = "_blank"; sa.rel = "noopener noreferrer"; sa.setAttribute("aria-label", "Sumber resmi: " + (x.src || "pengumuman") + " (tab baru)"); nm.appendChild(document.createTextNode(" ")); nm.appendChild(sa); }
+          if (x.page) { var dl = el("a", "rrow__src", "Details →"); dl.href = x.page; nm.appendChild(document.createTextNode(" ")); nm.appendChild(dl); }
           li.appendChild(nm);
           li.appendChild(el("span", "rrow__r", x.rank));
           li.appendChild(el("span", "rrow__l", x.level));
@@ -576,6 +577,7 @@
     if (p.url) { var a = el("a", "btn btn--solid"); a.href = p.url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.appendChild(el("span", p.cta ? null : null, p.cta)); a.appendChild(el("b", null, "↗")); foot.appendChild(a); }
     if (p.repo) { var r = el("a", "btn btn--line"); r.href = p.repo; r.target = "_blank"; r.rel = "noopener noreferrer"; r.appendChild(el("span", null, "Repository")); r.appendChild(el("b", null, "↗")); foot.appendChild(r); }
     if (!p.url && !p.repo) foot.appendChild(el("p", "pd__tbd", "No public demo or repository yet."));
+    var more = el("a", "btn btn--line"); more.href = "/projects/" + p.id + "/"; more.appendChild(el("span", null, "Full page")); more.appendChild(el("b", null, "→")); foot.appendChild(more);
     pd.appendChild(foot);
     document.documentElement.classList.add("lock"); pd.showModal(); pd.scrollTop = 0;
   }
@@ -661,12 +663,12 @@
       var items = W.filter(function (w) { return f === "Semua" || String(w.year) === f || w.publisher === f; });
       empty.hidden = items.length > 0;
       items.forEach(function (w, i) {
-        var li = el("li"); var a = el("a", "witem"); a.href = w.url; a.target = "_blank"; a.rel = "noopener";
-        a.setAttribute("aria-label", w.title + ", " + w.publisher + " " + w.year + " (tab baru)");
+        var li = el("li"); var a = el("a", "witem"); a.href = w.url; if (!w.internal) { a.target = "_blank"; a.rel = "noopener"; }
+        a.setAttribute("aria-label", w.title + ", " + w.publisher + " " + w.year + (w.internal ? "" : " (tab baru)"));
         a.appendChild(el("span", "witem__y", String(w.year)));
         var t = el("span", "witem__t"); t.appendChild(document.createTextNode(w.title)); a.appendChild(t);
         a.appendChild(el("span", "witem__p", w.publisher));
-        var ar = el("span", "witem__a", "↗"); ar.setAttribute("aria-hidden", "true"); a.appendChild(ar);
+        var ar = el("span", "witem__a", w.internal ? "→" : "↗"); ar.setAttribute("aria-hidden", "true"); a.appendChild(ar);
         li.appendChild(a); list.appendChild(li);
         if (!M.reduced) li.animate([{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "none" }], { duration: 650, delay: i * 70, easing: M.ease, fill: "backwards" });
       });

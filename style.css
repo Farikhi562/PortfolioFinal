@@ -544,3 +544,7 @@ dialog[open]{animation:dlg .5s var(--ease)}
 .js #seo-static{display:none}
 #seo-static{max-width:60rem;margin:0 auto;padding:3rem 1.25rem;background:#ECE9E1;color:#0A0A09}
 #seo-static a{color:inherit;text-decoration:underline}
+
+.foot__nav{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;margin-top:.75rem;font-size:.9rem}
+.foot__nav a{opacity:.7;text-decoration:underline;text-underline-offset:.2em}
+.foot__nav a:hover{opacity:1}

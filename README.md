@@ -55,3 +55,27 @@ python3 -m http.server 8000      # lalu buka http://localhost:8000
 - Ikon: `favicon.ico`, `favicon.svg`, `assets/icons/*` (apple-touch, 192, 512), `site.webmanifest`. Gambar preview share: `assets/og-image.jpg` (1200×630).
 - `robots.txt` dan `sitemap.xml` sudah ada; jika domain berubah, ganti URL di keduanya dan di `index.html`.
 - Teks h1 statis + blok statis `#seo-static` (ringkasan konten + link sumber Gunadarma) dibuat otomatis: jalankan `node tools/seo-build.js` (dari folder `site/`) setiap selesai edit `content.js`.
+
+## Halaman statis, bahasa Indonesia, dan SEO lanjutan
+Selain SPA di `index.html`, ada halaman statis yang dibangun dari `content.js` + `tools/pages-data.js`:
+
+| URL | Isi |
+|---|---|
+| `/projects/`, `/projects/<id>/` | hub + satu halaman per project (masalah, solusi, peran, status) |
+| `/achievements/`, `/achievements/icbc-2026/`, `/achievements/gemastik-2026/` | tabel prestasi + sertifikat, halaman detail + link sumber Gunadarma |
+| `/writing/`, `/writing/<slug>/` | 3 artikel + daftar pers |
+| `/id/**` | versi Indonesia dari semuanya (`/id/` = beranda statis) |
+| `404.html` | halaman 404 dwibahasa (noindex) |
+
+Setiap halaman punya title/description sendiri, canonical, hreflang (en/id/x-default), Open Graph + kartu gambar sendiri (`assets/og/`), dan JSON-LD (BreadcrumbList + CreativeWork / BlogPosting / WebPage).
+
+**Setelah mengedit `content.js` atau `tools/pages-data.js`, jalankan (dari folder `site/`):**
+```bash
+node tools/build-pages.js    # halaman statis + sitemap.xml
+node tools/og-build.js       # kartu OG (butuh: npm i -D playwright && npx playwright install chromium)
+node tools/seo-build.js      # blok SEO statis di index.html
+```
+- Artikel & terjemahan: `tools/pages-data.js` (`ARTICLES`, `ID_PROJECTS`, `ACH_PAGES`). Isi artikel hanya memakai fakta yang sudah ada di `content.js`; tambahkan cerita/angka aslimu di sana.
+- `_headers` (Netlify / Cloudflare Pages): cache aset 1 tahun + header keamanan dasar. GitHub Pages tidak membacanya.
+- `tools/backlink-snippet.html`: potongan footer untuk subdomain project (backlink ke portfolio).
+- Analytics: belum dipasang (butuh akun). Cloudflare Web Analytics / Plausible cukup dengan satu `<script>` di `index.html` dan `tools/build-pages.js` (fungsi `layout`).

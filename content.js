@@ -238,8 +238,8 @@ window.CONTENT = {
 
   achievements: [
     { year: 2026, name: "8th Gunadarma Industrial Engineering Fair (GIEF) 2026 — Pameran Produk Inovasi Mahasiswa (sertifikat atas nama Tim Mahasiswa Informatika)", rank: "Peserta", level: "Universitas" },
-    { year: 2026, name: "Delegasi Utama Universitas Gunadarma — GEMASTIK 2026, Divisi Pengembangan Bisnis TIK", rank: "Delegasi Utama", level: "Nasional", url: "https://kemahasiswaan.gunadarma.ac.id/pengumuman-penetapan-delegasi-universitas-gunadarma-pada-gemastik-tahun-2026-hasil-seleksi-internal-gelombang-iii", src: "Kemahasiswaan Universitas Gunadarma" },
-    { year: 2026, name: "International Canvas Business Competition (ICBC), Universitas Dian Nuswantoro", rank: "Top 4 (Juara Harapan 1)", level: "Internasional", url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026", src: "Kemahasiswaan Universitas Gunadarma" },
+    { year: 2026, name: "Delegasi Utama Universitas Gunadarma — GEMASTIK 2026, Divisi Pengembangan Bisnis TIK", rank: "Delegasi Utama", level: "Nasional", url: "https://kemahasiswaan.gunadarma.ac.id/pengumuman-penetapan-delegasi-universitas-gunadarma-pada-gemastik-tahun-2026-hasil-seleksi-internal-gelombang-iii", src: "Kemahasiswaan Universitas Gunadarma", page: "/achievements/gemastik-2026/" },
+    { year: 2026, name: "International Canvas Business Competition (ICBC), Universitas Dian Nuswantoro", rank: "Top 4 (Juara Harapan 1)", level: "Internasional", url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026", src: "Kemahasiswaan Universitas Gunadarma", page: "/achievements/icbc-2026/" },
     { year: 2026, name: "Business Plan Competition HIMAMEN Universitas Gunadarma", rank: "Peserta", level: "Universitas" },
     { year: 2026, name: "Unlimited Software Building (USB) — Divisi Desain UI/UX", rank: "Peserta", level: "Universitas" },
     { year: 2026, name: "UG GBIC — diselenggarakan UGpreneurs", rank: "Peserta", level: "Universitas" },
@@ -306,6 +306,9 @@ window.CONTENT = {
   ],
 
   publications: [
+    { title: "NEXA-Sphere: an AI-SaaS concept for multi-outlet F&B inventory, and the road to ICBC 2026 Top 4", publisher: "frikhii.my.id", year: 2026, url: "/writing/nexa-sphere-icbc-2026/", internal: true },
+    { title: "LOKi: product notes on a campus IoT smart locker (GDGoC ITB 2026)", publisher: "frikhii.my.id", year: 2026, url: "/writing/loki-smart-locker-product-notes/", internal: true },
+    { title: "My 2026 learning path: from Python fundamentals to data science and cloud AI", publisher: "frikhii.my.id", year: 2026, url: "/writing/python-to-ai-learning-path-2026/", internal: true },
     { title: "Tim Mahasiswa Universitas Gunadarma Raih Juara Harapan I pada International Canvas Business Competition 2026", publisher: "Kemahasiswaan Universitas Gunadarma", year: 2026,
       url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026" },
     { title: "Pengumuman Penetapan Delegasi Universitas Gunadarma pada GEMASTIK Tahun 2026 (Hasil Seleksi Internal Gelombang III)", publisher: "Kemahasiswaan Universitas Gunadarma", year: 2026,

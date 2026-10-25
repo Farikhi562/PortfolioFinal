@@ -1,0 +1,142 @@
+[
+ {
+  "key": "en-projects",
+  "kicker": "PORTFOLIO",
+  "title": "Projects"
+ },
+ {
+  "key": "en-projects-smarthomeai",
+  "kicker": "PROJECTS · LIVE",
+  "title": "SmartHomeAI"
+ },
+ {
+  "key": "en-projects-forecasting",
+  "kicker": "PROJECTS · LIVE",
+  "title": "Forecasting"
+ },
+ {
+  "key": "en-projects-petroleum",
+  "kicker": "PROJECTS · LIVE",
+  "title": "Petroleum"
+ },
+ {
+  "key": "en-projects-nexa-campus",
+  "kicker": "PROJECTS · LIVE",
+  "title": "NEXA Campus"
+ },
+ {
+  "key": "en-projects-nexa-sphere",
+  "kicker": "PROJECTS · PROTOTYPE",
+  "title": "NEXA-Sphere"
+ },
+ {
+  "key": "en-projects-loki",
+  "kicker": "PROJECTS · ONGOING",
+  "title": "LOKi: IoT Smart Locker"
+ },
+ {
+  "key": "en-achievements",
+  "kicker": "PORTFOLIO",
+  "title": "Achievements"
+ },
+ {
+  "key": "en-achievements-icbc-2026",
+  "kicker": "ACHIEVEMENTS · 2026",
+  "title": "International Canvas Business Competition 2026"
+ },
+ {
+  "key": "en-achievements-gemastik-2026",
+  "kicker": "ACHIEVEMENTS · 2026",
+  "title": "GEMASTIK 2026 — ICT Business Development"
+ },
+ {
+  "key": "en-writing",
+  "kicker": "PORTFOLIO",
+  "title": "Writing"
+ },
+ {
+  "key": "en-writing-nexa-sphere-icbc-2026",
+  "kicker": "WRITING · 4 MIN READ",
+  "title": "NEXA-Sphere: an AI-SaaS concept for multi-outlet F&B inventory, and the road to ICBC 2026 Top 4"
+ },
+ {
+  "key": "en-writing-loki-smart-locker-product-notes",
+  "kicker": "WRITING · 3 MIN READ",
+  "title": "LOKi: product notes on a campus IoT smart locker (GDGoC ITB 2026)"
+ },
+ {
+  "key": "en-writing-python-to-ai-learning-path-2026",
+  "kicker": "WRITING · 3 MIN READ",
+  "title": "My 2026 learning path: from Python fundamentals to data science and cloud AI"
+ },
+ {
+  "key": "id-projects",
+  "kicker": "PORTFOLIO",
+  "title": "Project"
+ },
+ {
+  "key": "id-projects-smarthomeai",
+  "kicker": "PROJECT · LIVE",
+  "title": "SmartHomeAI"
+ },
+ {
+  "key": "id-projects-forecasting",
+  "kicker": "PROJECT · LIVE",
+  "title": "Forecasting"
+ },
+ {
+  "key": "id-projects-petroleum",
+  "kicker": "PROJECT · LIVE",
+  "title": "Petroleum"
+ },
+ {
+  "key": "id-projects-nexa-campus",
+  "kicker": "PROJECT · LIVE",
+  "title": "NEXA Campus"
+ },
+ {
+  "key": "id-projects-nexa-sphere",
+  "kicker": "PROJECT · PROTOTYPE",
+  "title": "NEXA-Sphere"
+ },
+ {
+  "key": "id-projects-loki",
+  "kicker": "PROJECT · ONGOING",
+  "title": "LOKi: IoT Smart Locker"
+ },
+ {
+  "key": "id-achievements",
+  "kicker": "PORTFOLIO",
+  "title": "Prestasi"
+ },
+ {
+  "key": "id-achievements-icbc-2026",
+  "kicker": "PRESTASI · 2026",
+  "title": "International Canvas Business Competition 2026"
+ },
+ {
+  "key": "id-achievements-gemastik-2026",
+  "kicker": "PRESTASI · 2026",
+  "title": "GEMASTIK 2026 — Pengembangan Bisnis TIK"
+ },
+ {
+  "key": "id-writing",
+  "kicker": "PORTFOLIO",
+  "title": "Tulisan"
+ },
+ {
+  "key": "id-writing-nexa-sphere-icbc-2026",
+  "kicker": "TULISAN · 4 MENIT BACA",
+  "title": "NEXA-Sphere: konsep AI-SaaS untuk inventaris F&B multi-outlet dan perjalanan menuju Top 4 ICBC 2026"
+ },
+ {
+  "key": "id-writing-loki-smart-locker-product-notes",
+  "kicker": "TULISAN · 3 MENIT BACA",
+  "title": "LOKi: catatan produk smart locker IoT untuk kampus (GDGoC ITB 2026)"
+ },
+ {
+  "key": "id-writing-python-to-ai-learning-path-2026",
+  "kicker": "TULISAN · 3 MENIT BACA",
+  "title": "Jalur belajar saya di 2026: dari dasar Python ke data science dan AI di cloud"
+ }
+]
