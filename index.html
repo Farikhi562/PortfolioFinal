@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muhamad Fauzan Al Farikhi — Entrepreneur, Data Scientist, Product Management</title>
+  <meta name="description" content="I don’t just build technology. I build what the future runs on. Portfolio of Muhamad Fauzan Al Farikhi — AI engineering, software, product and business.">
+  <meta name="theme-color" content="#0A0A09">
+  <link rel="preload" href="assets/fonts/archivo-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="nav" data-nav>
+    <a class="nav__mark" href="#top" aria-label="Muhamad Fauzan Al Farikhi — back to top">FA<span>.</span></a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary"></nav>
+    <button class="nav__burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button>
+  </header>
+  <div class="menu" id="menu" hidden>
+    <nav class="menu__links" id="menuLinks" aria-label="Mobile"></nav>
+    <p class="menu__foot" id="menuFoot"></p>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-reveal>Portfolio · 2026</p>
+          <h1 class="hero__name" aria-label="Muhamad Fauzan Al Farikhi">
+            <span class="line"><span class="line__in" id="nameFirst"></span></span>
+            <span class="line"><span class="line__in serif" id="nameLast"></span></span>
+          </h1>
+          <ul class="roles" id="roles" aria-label="Roles"></ul>
+          <p class="hero__tag" id="tagline" data-reveal></p>
+          <div class="hero__cta" data-reveal>
+            <a class="btn btn--solid" href="#person" data-magnetic><span>Meet me</span><b aria-hidden="true">↓</b></a>
+            <a class="btn btn--line" href="#craft" data-magnetic><span>See the skills</span><b aria-hidden="true">↗</b></a>
+          </div>
+        </div>
+
+        <div class="hero__stage" id="heroStage" data-reveal>
+          <div class="ring" aria-hidden="true"></div>
+          <div class="tilt" data-tilt-soft>
+            <canvas id="turn" width="640" height="480" role="img" aria-label="" tabindex="0"></canvas>
+            <img id="fallback" class="fallback" alt="Portrait of Muhamad Fauzan Al Farikhi" hidden>
+          </div>
+          <p class="stage__hint" aria-hidden="true">360° · drag to rotate</p>
+          <div class="ctrl" role="group" aria-label="3D portrait controls">
+            <button type="button" id="pp" class="ctrl__btn" aria-pressed="false">Pause</button>
+            <span class="ctrl__sep" aria-hidden="true"></span>
+            <button type="button" class="ctrl__btn" data-angle="0">Front</button>
+            <button type="button" class="ctrl__btn" data-angle="90">Side</button>
+            <button type="button" class="ctrl__btn" data-angle="180">Back</button>
+            <label class="ctrl__range">
+              <span class="sr">Rotation angle</span>
+              <input type="range" id="angle" min="0" max="359" step="1" value="0">
+              <output id="angleOut" for="angle">000°</output>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__foot">
+        <p class="clock"><span class="clock__dot" aria-hidden="true"></span><span id="city"></span> <time id="clock" datetime=""></time></p>
+        <p class="scrollcue" aria-hidden="true">Scroll</p>
+      </div>
+    </section>
+
+    <!-- AFFILIATIONS -->
+    <section class="aff" aria-label="Affiliations">
+      <ul class="aff__list" id="aff"></ul>
+    </section>
+
+    <!-- Section shells (tahap 1 = kerangka; isi dikerjakan bertahap) -->
+    <section class="sec sec--cream" id="person"  data-sec="person"></section>
+    <section class="sec sec--ink"   id="craft"   data-sec="craft"></section>
+    <section class="sec sec--warm"  id="projects" data-sec="projects"></section>
+    <section class="sec sec--cream" id="record"  data-sec="record"></section>
+    <section class="sec sec--ink"   id="stage" data-sec="stage"></section>
+    <section class="sec sec--cream" id="writing" data-sec="writing"></section>
+    <section class="sec sec--ink"   id="life"    data-sec="life"></section>
+    <section class="sec sec--red"   id="connect" data-sec="connect"></section>
+  </main>
+
+  <footer class="foot">
+    <p id="footTxt"></p>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="motion.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
