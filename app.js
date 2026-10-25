@@ -14,6 +14,7 @@
   $("#nameFirst").textContent = P.first;
   var last = $("#nameLast"); last.textContent = P.last;
   var dot = el("span", "dot", "."); last.appendChild(dot);
+  $("#edu").textContent = P.edu;
   $("#tagline").textContent = P.tagline;
   var rolesEl = $("#roles");
   P.roles.forEach(function (r) { rolesEl.appendChild(el("li", null, r)); });

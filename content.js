@@ -7,6 +7,7 @@ window.CONTENT = {
     last: "Al Farikhi",               // baris 2 (serif italic, diakhiri titik merah)
     roles: ["Entrepreneur", "Data Scientist", "Product Management"],
     tagline: "I don’t just build technology. I build what the future runs on.",
+    edu: "Informatics Student · Semester 3 · Universitas Gunadarma · 2025–Now",   // baris status di hero
     city: "Jakarta Pusat",
     timezone: "Asia/Jakarta",
     tzLabel: "WIB",
@@ -39,7 +40,7 @@ window.CONTENT = {
   /* Logo: isi `logo: "assets/logos/nama.svg"` kalau sudah punya file logonya.
      Kalau kosong, otomatis tampil sebagai wordmark teks. */
   affiliations: [
-    { name: "Universitas Gunadarma", note: "Kampus · Student · IPK 3.71",             logo: "assets/logos/gunadarma.webp" },
+    { name: "Universitas Gunadarma", note: "Kampus · Mahasiswa Informatika · Semester 3 · IPK 3.71",             logo: "assets/logos/gunadarma.webp" },
     { name: "NEXA Tech Labs",        note: "Perusahaan · Founder & CEO",             logo: "assets/logos/nexa.webp" },
     { name: "NCD",                   note: "Komunitas · NEXA Community Development · Vice Chairman I", logo: "assets/logos/ncd.webp" },
     { name: "Prudential Indonesia", note: "Karier · Agency Business Partner · Financial Consulting · 2026", logo: "assets/logos/prudential.webp" },
@@ -48,6 +49,7 @@ window.CONTENT = {
 
   /* Pengalaman & pendidikan (tampil di section Person). type: Experience | Education | Organization */
   path: [
+    { years: "2025–Now",  role: "S1 Informatika · Semester 3 (mahasiswa aktif)",   place: "Universitas Gunadarma", type: "Education" },
     { years: "2026",      role: "Agency Business Partner · Financial Consulting", place: "Prudential Indonesia", type: "Experience" },
     { years: "2021–2024", role: "SMA, jurusan MIPA",                               place: "SMA Taman Madya 1 Jakarta", type: "Education" },
     { years: "2021–2022", role: "Anggota OSIS · Divisi Acara",                     place: "SMA Taman Madya 1 Jakarta", type: "Organization" }
@@ -181,7 +183,7 @@ window.CONTENT = {
   ],
 
   bio: [
-    "I’m a technology enthusiast focused on AI Engineering, Software Development, and Product Management. I enjoy turning complex problems into practical solutions by combining engineering, strategic thinking, and a deep understanding of user needs. For me, technology is not just about writing code, it’s about creating something meaningful, scalable, and impactful.",
+    "I’m an Informatics student at Universitas Gunadarma, studying since 2025 and now in semester 3, and a technology enthusiast focused on AI Engineering, Software Development, and Product Management. I enjoy turning complex problems into practical solutions by combining engineering, strategic thinking, and a deep understanding of user needs. For me, technology is not just about writing code, it’s about creating something meaningful, scalable, and impactful.",
     "My ambition is to build products that solve real-world problems, create value, and push boundaries. From experimenting with AI to developing software products and exploring business opportunities, I believe every project is a step toward something bigger. I’m not here just to follow the future, I’m here to help build it."
   ],
 

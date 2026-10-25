@@ -48,8 +48,9 @@ const GROUP_EN = { "Kompetisi": "Competition", "Kursus": "Course", "Olimpiade": 
 const ID_PERSON = {
   tagline: "Saya tidak hanya membangun teknologi. Saya membangun apa yang akan menjalankan masa depan.",
   roles: ["Entrepreneur", "Data Scientist", "Product Management"],
+  edu: "Mahasiswa Informatika · Semester 3 · Universitas Gunadarma · 2025–sekarang",
   bio: [
-    "Saya antusias di bidang teknologi, dengan fokus pada AI Engineering, Software Development, dan Product Management. Saya senang mengubah masalah yang rumit menjadi solusi praktis dengan memadukan rekayasa, pemikiran strategis, dan pemahaman mendalam tentang kebutuhan pengguna. Bagi saya, teknologi bukan sekadar menulis kode, tetapi menciptakan sesuatu yang bermakna, skalabel, dan berdampak.",
+    "Saya mahasiswa Informatika Universitas Gunadarma, berkuliah sejak 2025 dan kini di semester 3, sekaligus antusias di bidang teknologi, dengan fokus pada AI Engineering, Software Development, dan Product Management. Saya senang mengubah masalah yang rumit menjadi solusi praktis dengan memadukan rekayasa, pemikiran strategis, dan pemahaman mendalam tentang kebutuhan pengguna. Bagi saya, teknologi bukan sekadar menulis kode, tetapi menciptakan sesuatu yang bermakna, skalabel, dan berdampak.",
     "Ambisi saya adalah membangun produk yang menyelesaikan masalah nyata, menciptakan nilai, dan mendorong batas. Dari bereksperimen dengan AI, mengembangkan produk perangkat lunak, hingga menjajaki peluang bisnis, saya percaya setiap proyek adalah langkah menuju sesuatu yang lebih besar. Saya tidak sekadar mengikuti masa depan, saya ikut membangunnya."
   ],
   skillLines: {
@@ -64,7 +65,7 @@ const ID_PERSON = {
     "SMA, jurusan MIPA": "SMA, jurusan MIPA",
     "Anggota OSIS · Divisi Acara": "Anggota OSIS · Divisi Acara"
   },
-  descShort: "Portofolio Muhamad Fauzan Al Farikhi, mahasiswa Informatika Universitas Gunadarma dan pendiri NEXA Tech Labs. Juara Harapan 1 (Top 4) ICBC 2026, delegasi GEMASTIK 2026."
+  descShort: "Portofolio Muhamad Fauzan Al Farikhi, mahasiswa Informatika semester 3 Universitas Gunadarma dan pendiri NEXA Tech Labs. Top 4 ICBC 2026, delegasi GEMASTIK 2026."
 };
 
 /* ---------- Terjemahan Indonesia: project ---------- */

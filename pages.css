@@ -123,3 +123,6 @@ td .more{white-space:nowrap;font-weight:700;font-size:.85rem}
 
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 @media(max-width:34rem){.pnav{padding:.75rem var(--pad)}.pnav__links{gap:.25rem .85rem;font-size:.85rem}.pnav__links .pnav__lang{padding:.1rem .55rem}}
+
+.ph__edu{display:flex;align-items:center;gap:.6rem;margin-top:1.25rem;font-weight:500;color:var(--cream)}
+.ph__edu::before{content:"";flex:none;width:.5rem;height:.5rem;border-radius:50%;background:var(--red)}

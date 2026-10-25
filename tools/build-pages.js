@@ -227,7 +227,7 @@ function idHome() {
   const ach = C.achievements.slice(0, 6).map(a => { const k = pageFor(a); return "<li>" + a.year + " — " + (k ? '<a href="/id/achievements/' + k + '/">' + esc(a.name) + "</a>" : esc(a.name)) + " — <strong>" + esc(a.rank) + "</strong></li>"; }).join("");
   const path = C.path.map(r => "<li><strong>" + esc(r.years) + "</strong> — " + esc(r.role) + ", " + esc(r.place) + "</li>").join("");
   const arts = D.ARTICLES.map(a => '<li><a href="/id/writing/' + a.slug + '/">' + esc(a.id.title) + "</a></li>").join("");
-  const body = '<section class="pg"><header class="ph ph--home"><p class="ph__k">Portofolio · 2026</p><h1>' + esc(P.first) + ' <span class="serif">' + esc(P.last) + '.</span></h1><p class="ph__m">' + I.roles.map(r => "<span>" + esc(r) + "</span>").join("") + '</p><p class="ph__lede">' + esc(I.tagline) + '</p><p class="cta"><a class="btn" href="/">' + esc(T.fullPortfolio) + ' <b aria-hidden="true">↗</b></a></p></header><div class="pc">' +
+  const body = '<section class="pg"><header class="ph ph--home"><p class="ph__k">Portofolio · 2026</p><h1>' + esc(P.first) + ' <span class="serif">' + esc(P.last) + '.</span></h1><p class="ph__edu">' + esc(I.edu) + '</p><p class="ph__m">' + I.roles.map(r => "<span>" + esc(r) + "</span>").join("") + '</p><p class="ph__lede">' + esc(I.tagline) + '</p><p class="cta"><a class="btn" href="/">' + esc(T.fullPortfolio) + ' <b aria-hidden="true">↗</b></a></p></header><div class="pc">' +
     "<h2>" + esc(T.aboutH) + "</h2>" + I.bio.map(b => "<p>" + esc(b) + "</p>").join("") +
     "<h2>" + esc(T.skillsH) + '</h2><ul class="cards">' + skills + "</ul>" +
     "<h2>" + esc(T.projectsH) + '</h2><ul class="cards">' + projects + '</ul><p><a href="/id/projects/">' + esc(T.allProjects) + " →</a></p>" +

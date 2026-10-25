@@ -548,3 +548,6 @@ dialog[open]{animation:dlg .5s var(--ease)}
 .foot__nav{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;margin-top:.75rem;font-size:.9rem}
 .foot__nav a{opacity:.7;text-decoration:underline;text-underline-offset:.2em}
 .foot__nav a:hover{opacity:1}
+
+.hero__edu{display:flex;align-items:center;gap:.6rem;margin-bottom:1.1rem;font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--grey)}
+.hero__edu::before{content:"";flex:none;width:.5rem;height:.5rem;border-radius:50%;background:var(--red)}
