@@ -3,6 +3,8 @@
    ========================================================================== */
 (function () {
   "use strict";
+  /* Blok statis untuk crawler non-JS: buang begitu konten dirender */
+  var seoStatic = document.getElementById("seo-static"); if (seoStatic) seoStatic.remove();
   var C = window.CONTENT, M = window.Motion;
   var $ = function (s, r) { return (r || document).querySelector(s); };
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
@@ -416,7 +418,9 @@
         items.forEach(function (x) {
           var li = el("li", "rrow");
           li.appendChild(el("span", "rrow__y", String(x.year)));
-          li.appendChild(el("span", "rrow__n", x.name));
+          var nm = el("span", "rrow__n", x.name);
+          if (x.url) { var sa = el("a", "rrow__src", "Source ↗"); sa.href = x.url; sa.target = "_blank"; sa.rel = "noopener noreferrer"; sa.setAttribute("aria-label", "Sumber resmi: " + (x.src || "pengumuman") + " (tab baru)"); nm.appendChild(document.createTextNode(" ")); nm.appendChild(sa); }
+          li.appendChild(nm);
           li.appendChild(el("span", "rrow__r", x.rank));
           li.appendChild(el("span", "rrow__l", x.level));
           list.appendChild(li);
@@ -610,6 +614,7 @@
         body.appendChild(el("p", "sx__meta", it.meta));
         if (it.status) body.appendChild(el("p", "sx__status", it.status));
         body.appendChild(el("p", "sx__d", it.desc));
+        if (it.source) { var sl = el("a", "sx__src", it.source.label + " ↗"); sl.href = it.source.url; sl.target = "_blank"; sl.rel = "noopener noreferrer"; body.appendChild(sl); }
         if (it.skills && it.skills.length) { var ul = el("ul", "chips"); it.skills.forEach(function (w) { ul.appendChild(el("li", null, w)); }); body.appendChild(ul); }
         card.appendChild(ph); card.appendChild(body); li.appendChild(card); list.appendChild(li);
         if (!M.reduced && li.animate) li.animate([{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "none" }], { duration: 650, delay: i * 70, easing: M.ease, fill: "backwards" });

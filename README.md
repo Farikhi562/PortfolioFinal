@@ -49,3 +49,9 @@ python3 -m http.server 8000      # lalu buka http://localhost:8000
 - **Recommendations**: array `recommendations`. Kutipan jangan diedit. `photo: null` = kartu tanpa foto; file siap di `assets/testimonials/photo-a.webp` & `photo-b.webp` — isi path hanya setelah identitas foto dikonfirmasi.
 - **CV**: file di `assets/cv/`, diatur lewat `person.cv` (tombol hero + baris di Connect). Hapus `person.cv` untuk menyembunyikan tombol.
 - **Project**: field `supports` menampilkan skill yang didukung di modal detail. Status "Live" hanya untuk project yang terverifikasi.
+
+## SEO & ikon
+- `index.html` berisi title, meta description, canonical (`https://frikhii.my.id/` — ganti jika domain berbeda), Open Graph/Twitter, dan JSON-LD (Person + WebSite).
+- Ikon: `favicon.ico`, `favicon.svg`, `assets/icons/*` (apple-touch, 192, 512), `site.webmanifest`. Gambar preview share: `assets/og-image.jpg` (1200×630).
+- `robots.txt` dan `sitemap.xml` sudah ada; jika domain berubah, ganti URL di keduanya dan di `index.html`.
+- Teks h1 statis + blok statis `#seo-static` (ringkasan konten + link sumber Gunadarma) dibuat otomatis: jalankan `node tools/seo-build.js` (dari folder `site/`) setiap selesai edit `content.js`.

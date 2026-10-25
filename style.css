@@ -534,3 +534,13 @@ dialog[open]{animation:dlg .5s var(--ease)}
   .rcard{min-height:0}
 }
 @media (prefers-reduced-motion:reduce){.sx__ph img{transition:none}}
+
+.rrow__src{display:inline-block;margin-left:.4rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--red);white-space:nowrap;border-bottom:1px solid currentColor}
+.rrow__src:hover{color:var(--ink)}
+.sx__src{align-self:flex-start;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--cream);border-bottom:1px solid var(--red);padding-bottom:.1rem;transition:color .3s}
+.sx__src:hover{color:var(--red)}
+
+/* Blok SEO statis: tampil hanya tanpa JS */
+.js #seo-static{display:none}
+#seo-static{max-width:60rem;margin:0 auto;padding:3rem 1.25rem;background:#ECE9E1;color:#0A0A09}
+#seo-static a{color:inherit;text-decoration:underline}

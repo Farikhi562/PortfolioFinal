@@ -90,7 +90,7 @@ window.CONTENT = {
     record:  { no: "04", label: "The Record",     a: "BUILT THROUGH", b: "experience." },
     stage:   { no: "05", label: "The Stage",      a: "IDEAS WORTH",   b: "sharing." },
     recs:    { no: "06", label: "Recommendations", a: "IN THEIR",     b: "own words." },
-    writing: { no: "07", label: "The Writing",    a: "THOUGHTS,",     b: "in print." },
+    writing: { no: "07", label: "Writing & Press",    a: "THOUGHTS,",     b: "in print." },
     life:    { no: "08", label: "The Off-Hours",  a: "LIFE,",         b: "unfiltered." },
     connect: { no: "09", label: "The Next Step",  a: "LET’S",         b: "connect." }
   },
@@ -238,8 +238,8 @@ window.CONTENT = {
 
   achievements: [
     { year: 2026, name: "8th Gunadarma Industrial Engineering Fair (GIEF) 2026 — Pameran Produk Inovasi Mahasiswa (sertifikat atas nama Tim Mahasiswa Informatika)", rank: "Peserta", level: "Universitas" },
-    { year: 2026, name: "Delegasi Utama Universitas Gunadarma — GEMASTIK 2026, Divisi Pengembangan Bisnis TIK", rank: "Delegasi Utama", level: "Nasional" },
-    { year: 2026, name: "International Canvas Business Competition (ICBC), Universitas Dian Nuswantoro", rank: "Top 4 (Juara Harapan 1)", level: "Internasional" },
+    { year: 2026, name: "Delegasi Utama Universitas Gunadarma — GEMASTIK 2026, Divisi Pengembangan Bisnis TIK", rank: "Delegasi Utama", level: "Nasional", url: "https://kemahasiswaan.gunadarma.ac.id/pengumuman-penetapan-delegasi-universitas-gunadarma-pada-gemastik-tahun-2026-hasil-seleksi-internal-gelombang-iii", src: "Kemahasiswaan Universitas Gunadarma" },
+    { year: 2026, name: "International Canvas Business Competition (ICBC), Universitas Dian Nuswantoro", rank: "Top 4 (Juara Harapan 1)", level: "Internasional", url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026", src: "Kemahasiswaan Universitas Gunadarma" },
     { year: 2026, name: "Business Plan Competition HIMAMEN Universitas Gunadarma", rank: "Peserta", level: "Universitas" },
     { year: 2026, name: "Unlimited Software Building (USB) — Divisi Desain UI/UX", rank: "Peserta", level: "Universitas" },
     { year: 2026, name: "UG GBIC — diselenggarakan UGpreneurs", rank: "Peserta", level: "Universitas" },
@@ -262,6 +262,7 @@ window.CONTENT = {
         meta: "ICBC 2026 · Universitas Dian Nuswantoro · April 25, 2026",
         desc: "Presented NEXA-Sphere, an AI-SaaS concept for optimizing inventory and supply-chain operations for multi-outlet F&B businesses, as part of the International Canvas Business Competition 2026.",
         status: "Finalist · Top 4 (Juara Harapan 1)",
+        source: { label: "Official announcement — Kemahasiswaan Universitas Gunadarma", url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026" },
         skills: ["AI Engineering & Data Science", "Product Management", "Business & Entrepreneurship"],
         photo: "assets/icbc-pitch.webp", alt: "Tim berjas almamater biru presentasi di depan juri ICBC 2026 dengan penghitung waktu di layar", fit: "center" },
       { id: "prudential", category: "Professional Presentation",
@@ -305,6 +306,10 @@ window.CONTENT = {
   ],
 
   publications: [
+    { title: "Tim Mahasiswa Universitas Gunadarma Raih Juara Harapan I pada International Canvas Business Competition 2026", publisher: "Kemahasiswaan Universitas Gunadarma", year: 2026,
+      url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026" },
+    { title: "Pengumuman Penetapan Delegasi Universitas Gunadarma pada GEMASTIK Tahun 2026 (Hasil Seleksi Internal Gelombang III)", publisher: "Kemahasiswaan Universitas Gunadarma", year: 2026,
+      url: "https://kemahasiswaan.gunadarma.ac.id/pengumuman-penetapan-delegasi-universitas-gunadarma-pada-gemastik-tahun-2026-hasil-seleksi-internal-gelombang-iii" },
     { title: "NEXA Story", publisher: "NEXA", year: 2026, url: "https://s.id/nexa-story" }
   ],
 
