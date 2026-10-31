@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Berkas bantuan pengembang (bukan halaman situs) — tidak perlu di-crawl.
+Disallow: /tools/
+
 Sitemap: https://frikhii.my.id/sitemap.xml

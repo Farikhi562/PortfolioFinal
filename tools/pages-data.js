@@ -19,7 +19,7 @@ const UI = {
     cv: "Download CV", email: "Email", fullPortfolio: "Interactive portfolio", updated: "Published", minRead: "min read", by: "By",
     factComp: "Competition", factOrg: "Organizer", factDate: "Final presentation", factTheme: "Theme", factResult: "Result", factRole: "Role", factProject: "Project",
     factEvent: "Event", factDivision: "Division", factStatus: "Status", factSelection: "Selection",
-    notFoundT: "Page not found", notFoundP: "The page you are looking for does not exist or has moved.",
+    notFoundT: "Page not found", notFoundP: "The page you are looking for does not exist or has moved. Return to the homepage to browse projects, achievements, and writing.",
     aboutH: "About", skillsH: "Skills", projectsH: "Projects", achievementsH: "Highlights", pathH: "Experience and education", moreH: "Explore"
   },
   id: {
@@ -33,7 +33,7 @@ const UI = {
     cv: "Unduh CV", email: "Email", fullPortfolio: "Portofolio interaktif", updated: "Terbit", minRead: "menit baca", by: "Oleh",
     factComp: "Kompetisi", factOrg: "Penyelenggara", factDate: "Presentasi final", factTheme: "Tema", factResult: "Hasil", factRole: "Peran", factProject: "Project",
     factEvent: "Acara", factDivision: "Divisi", factStatus: "Status", factSelection: "Seleksi",
-    notFoundT: "Halaman tidak ditemukan", notFoundP: "Halaman yang kamu cari tidak ada atau sudah dipindahkan.",
+    notFoundT: "Halaman tidak ditemukan", notFoundP: "Halaman yang kamu cari tidak ada atau sudah dipindahkan. Kembali ke beranda untuk menelusuri project, prestasi, dan tulisan.",
     aboutH: "Tentang", skillsH: "Skill", projectsH: "Project", achievementsH: "Sorotan", pathH: "Pengalaman dan pendidikan", moreH: "Jelajahi"
   }
 };
@@ -162,7 +162,7 @@ const ACH_PAGES = {
       ]
     },
     id: {
-      title: "ICBC 2026 Top 4 (Juara Harapan 1) | Fauzan Al Farikhi",
+      title: "Juara Harapan 1 ICBC 2026 | Fauzan Al Farikhi",
       h1: "International Canvas Business Competition 2026",
       desc: "Muhamad Fauzan Al Farikhi memimpin tim Universitas Gunadarma meraih Top 4 (Juara Harapan 1) di ICBC 2026 lewat NEXA-Sphere, konsep AI-SaaS untuk F&B.",
       lede: "Tim Universitas Gunadarma yang dipimpin Muhamad Fauzan Al Farikhi lolos ke final dan meraih Top 4 (Juara Harapan 1) di ICBC 2026 dengan membawakan konsep bisnis NEXA-Sphere.",
@@ -185,7 +185,7 @@ const ACH_PAGES = {
     en: {
       title: "GEMASTIK 2026 Main Delegate | Fauzan Al Farikhi",
       h1: "GEMASTIK 2026 — ICT Business Development",
-      desc: "Muhamad Fauzan Al Farikhi was named a main delegate of Universitas Gunadarma for GEMASTIK 2026 in the ICT Business Development division after internal selection (wave III).",
+      desc: "Muhamad Fauzan Al Farikhi was named a main delegate of Universitas Gunadarma for GEMASTIK 2026 in the ICT Business Development division (wave III).",
       lede: "Muhamad Fauzan Al Farikhi was set as a main delegate (Delegasi Utama) of Universitas Gunadarma for GEMASTIK 2026, in the ICT Business Development (Pengembangan Bisnis TIK) division.",
       facts: [["factEvent", "GEMASTIK 2026"], ["factDivision", "Pengembangan Bisnis TIK (ICT Business Development)"], ["factStatus", "Delegasi Utama, Universitas Gunadarma"], ["factSelection", "Internal selection, wave III (Seleksi Internal Gelombang III)"]],
       body: [
@@ -200,7 +200,7 @@ const ACH_PAGES = {
     id: {
       title: "Delegasi Utama GEMASTIK 2026 | Fauzan Al Farikhi",
       h1: "GEMASTIK 2026 — Pengembangan Bisnis TIK",
-      desc: "Muhamad Fauzan Al Farikhi ditetapkan sebagai delegasi utama Universitas Gunadarma di GEMASTIK 2026, divisi Pengembangan Bisnis TIK, hasil seleksi internal gelombang III.",
+      desc: "Muhamad Fauzan Al Farikhi ditetapkan sebagai delegasi utama Universitas Gunadarma di GEMASTIK 2026, divisi Pengembangan Bisnis TIK (gelombang III).",
       lede: "Muhamad Fauzan Al Farikhi ditetapkan sebagai Delegasi Utama Universitas Gunadarma untuk GEMASTIK 2026, divisi Pengembangan Bisnis TIK.",
       facts: [["factEvent", "GEMASTIK 2026"], ["factDivision", "Pengembangan Bisnis TIK"], ["factStatus", "Delegasi Utama, Universitas Gunadarma"], ["factSelection", "Seleksi Internal Gelombang III"]],
       body: [

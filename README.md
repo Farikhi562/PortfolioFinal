@@ -75,6 +75,13 @@ node tools/build-pages.js    # halaman statis + sitemap.xml
 node tools/og-build.js       # kartu OG (butuh: npm i -D playwright && npx playwright install chromium)
 node tools/seo-build.js      # blok SEO statis di index.html
 ```
+
+**Validasi SEO otomatis** (tanpa dependensi, cukup Node ≥18):
+```bash
+npm run seo:check     # audit seluruh situs — exit code 1 kalau ada Critical/High
+npm run build:check   # cek halaman hasil build masih sinkron dengan content.js
+```
+`tools/seo-check.js` memeriksa: title/description hilang & duplikat, canonical self-referencing, hreflang (ada, reciprocal, x-default, menunjuk URL yang benar-benar ada), H1, lompatan level heading, alt & dimensi gambar, link internal mati, og/twitter lengkap, JSON-LD valid + `@id` menunjuk URL ada, sitemap.xml (hanya URL indexable, canonical cocok, lastmod dari Git, hreflang reciprocal), dan robots.txt. Laporan dikelompokkan Critical / High / Medium / Low.
 - Artikel & terjemahan: `tools/pages-data.js` (`ARTICLES`, `ID_PROJECTS`, `ACH_PAGES`). Isi artikel hanya memakai fakta yang sudah ada di `content.js`; tambahkan cerita/angka aslimu di sana.
 - `_headers` (Netlify / Cloudflare Pages): cache aset 1 tahun + header keamanan dasar. GitHub Pages tidak membacanya.
 - `tools/backlink-snippet.html`: potongan footer untuk subdomain project (backlink ke portfolio).

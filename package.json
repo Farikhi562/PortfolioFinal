@@ -1,0 +1,16 @@
+{
+  "name": "fauzan-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio of Muhamad Fauzan Al Farikhi — static HTML/CSS/JS, bilingual (en/id), with SEO build & validation tooling.",
+  "scripts": {
+    "build": "node tools/build-pages.js && node tools/seo-build.js",
+    "build:check": "node tools/build-pages.js --verify",
+    "og": "node tools/og-build.js",
+    "seo:check": "node tools/seo-check.js",
+    "test": "node tools/seo-check.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

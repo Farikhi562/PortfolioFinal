@@ -1,8 +1,11 @@
 /* build-pages.js — membangun halaman statis (EN + ID) dari content.js + pages-data.js.
    Output: /projects, /achievements, /writing, /id/**, sitemap.xml, tools/og-manifest.json
-   Jalankan (dari folder site/):  node tools/build-pages.js */
+   Jalankan (dari folder site/):  node tools/build-pages.js
+   Mode verifikasi (tanpa menulis, dipakai `npm run seo:check`):
+                                 node tools/build-pages.js --verify  */
 const fs = require("fs"), path = require("path");
 const ROOT = path.join(__dirname, "..");
+const VERIFY = process.argv.includes("--verify");
 global.window = {}; require(path.join(ROOT, "content.js"));
 const C = window.CONTENT, P = C.person;
 const D = require("./pages-data.js");
@@ -31,10 +34,24 @@ function img(src, alt, cls) {
   const sz = webpSize(src);
   return '<img' + (cls ? ' class="' + cls + '"' : "") + ' src="/' + esc(src) + '" alt="' + esc(alt) + '"' + (sz ? ' width="' + sz.w + '" height="' + sz.h + '"' : "") + ' loading="lazy" decoding="async">';
 }
-const rmrf = p => fs.rmSync(path.join(ROOT, p), { recursive: true, force: true });
+const rmrf = p => { if (!VERIFY) fs.rmSync(path.join(ROOT, p), { recursive: true, force: true }); };
 const written = [];     // {url, alt:{en,id}} untuk sitemap
 const ogList = [];      // kartu OG yang dibutuhkan
-function write(rel, html) { const f = path.join(ROOT, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); }
+const drift = [];       // isi berbeda dengan file di repo (mode --verify)
+function report(relPath, fresh) {
+  const f = path.join(ROOT, relPath);
+  let cur = null;
+  try { cur = fs.readFileSync(f, "utf8"); } catch (e) { }
+  const norm = s => s.replace(/\r\n/g, "\n");
+  if (cur === null) drift.push({ relPath, kind: "HILANG (belum pernah dibuat)" });
+  else if (norm(cur) !== norm(fresh)) drift.push({ relPath, kind: "BERBEDA dengan hasil build" });
+}
+function write(relPath, html) {
+  if (VERIFY) { report(relPath, html); return; }
+  const f = path.join(ROOT, relPath);
+  fs.mkdirSync(path.dirname(f), { recursive: true });
+  fs.writeFileSync(f, html);
+}
 
 /* ---------- URL helper ---------- */
 const pre = lang => (lang === "id" ? "/id" : "");
@@ -53,7 +70,7 @@ function skillLine(s, lang) { return lang === "id" ? (D.ID_PERSON.skillLines[s.i
 /* ---------- Kerangka halaman ---------- */
 function layout(o) {
   const lang = o.lang, T = UI[lang], alt = other(lang);
-  const canonical = abs(lang, o.path), altUrl = abs(alt, o.path);
+  const canonical = o.canon || abs(lang, o.path), altUrl = abs(alt, o.path);
   const enUrl = abs("en", o.path), idUrl = abs("id", o.path);
   const ogKey = o.og;       // nama file di assets/og/ (tanpa ekstensi), atau null = og-image.jpg
   const ogImg = BASE + (ogKey ? "/assets/og/" + ogKey + ".jpg" : "/assets/og-image.jpg");
@@ -71,7 +88,8 @@ function layout(o) {
     '<meta name="description" content="' + esc(o.desc) + '">\n<meta name="author" content="Muhamad Fauzan Al Farikhi">\n' +
     '<meta name="robots" content="' + (o.robots || "index,follow,max-image-preview:large") + '">\n<meta name="theme-color" content="#0A0A09">\n' +
     '<link rel="canonical" href="' + canonical + '">\n' +
-    '<link rel="alternate" hreflang="en" href="' + enUrl + '">\n<link rel="alternate" hreflang="id" href="' + idUrl + '">\n<link rel="alternate" hreflang="x-default" href="' + enUrl + '">\n' +
+    (o.robots && o.robots.indexOf("noindex") >= 0 ? "" :
+      '<link rel="alternate" hreflang="en" href="' + enUrl + '">\n<link rel="alternate" hreflang="id" href="' + idUrl + '">\n<link rel="alternate" hreflang="x-default" href="' + enUrl + '">\n') +
     '<link rel="icon" href="/favicon.ico" sizes="48x48">\n<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">\n<link rel="icon" href="/assets/icons/favicon-48.png" type="image/png" sizes="48x48">\n<link rel="icon" href="/assets/icons/icon-192.png" type="image/png" sizes="192x192">\n<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">\n<link rel="manifest" href="/site.webmanifest">\n' +
     '<meta property="og:type" content="' + (o.ogType || "website") + '">\n<meta property="og:site_name" content="Muhamad Fauzan Al Farikhi">\n<meta property="og:title" content="' + esc(o.title) + '">\n<meta property="og:description" content="' + esc(o.desc) + '">\n' +
     '<meta property="og:url" content="' + canonical + '">\n<meta property="og:image" content="' + ogImg + '">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:image:type" content="image/jpeg">\n<meta property="og:image:alt" content="' + esc(o.h1 || o.title) + '">\n' +
@@ -136,7 +154,7 @@ function projectsHub(lang) {
   const T = UI[lang], pth = "/projects/";
   const ogKey = register(lang, pth, T.projects, "PORTFOLIO");
   const title = lang === "id" ? "Project | Muhamad Fauzan Al Farikhi" : "Projects | Muhamad Fauzan Al Farikhi";
-  const desc = lang === "id" ? "Daftar project Muhamad Fauzan Al Farikhi: platform web, data forecasting, SaaS kampus NEXA Campus, konsep AI-SaaS NEXA-Sphere, dan monitor PM2.5 BreathSafe untuk pengemudi ojol." : "Projects by Muhamad Fauzan Al Farikhi: web platforms, data forecasting, the NEXA Campus SaaS, the NEXA-Sphere AI-SaaS concept, and the BreathSafe PM2.5 monitor for ojol drivers.";
+  const desc = lang === "id" ? "Daftar project Muhamad Fauzan Al Farikhi: platform web, data forecasting, SaaS kampus NEXA Campus, konsep AI-SaaS NEXA-Sphere, dan monitor PM2.5 BreathSafe." : "Projects by Muhamad Fauzan Al Farikhi: web platforms, data forecasting, the NEXA Campus SaaS, the NEXA-Sphere AI-SaaS concept, and the BreathSafe PM2.5 monitor.";
   const items = C.projects.map(p0 => { const p = projectView(p0, lang); return '<li class="card"><p class="card__k">' + esc(p0.category) + '</p><h2><a href="' + url(lang, "/projects/" + p0.id + "/") + '">' + esc(p0.name) + "</a></h2><p>" + esc(p.desc) + "</p><p class=\"card__f\">" + pill(p0, lang) + '<a href="' + url(lang, "/projects/" + p0.id + "/") + '">' + esc(T.details) + " →</a></p></li>"; }).join("");
   const body = '<section class="pg"><header class="ph"><p class="ph__k">' + esc(T.portfolio) + "</p><h1>" + esc(T.projects) + '</h1><p class="ph__lede">' + esc(lang === "id" ? "Project yang sudah live, konsep yang sedang dikembangkan, dan prototipe — dengan status yang ditulis apa adanya." : "Live projects, concepts in development, and prototypes, with status stated as it is.") + '</p></header><div class="pc"><ul class="cards">' + items + "</ul></div></section>";
   write((lang === "id" ? "id/" : "") + "projects/index.html", layout({ lang, path: pth, title, desc, h1: T.projects, body, og: ogKey, section: url(lang, pth),
@@ -174,7 +192,7 @@ function achievementsHub(lang) {
   const certs = C.certificates.map(c => "<tr><td>" + esc(c.date) + "</td><td>" + esc(c.title) + "</td><td>" + esc(c.issuer) + "</td><td>" + (c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">' + esc(T.verify) + " ↗</a>" : "—") + "</td></tr>").join("");
   const press = C.publications.map(w => '<li><a href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.title) + "</a> — " + esc(w.publisher) + ", " + w.year + "</li>").join("");
   const title = lang === "id" ? "Prestasi dan Sertifikat | Fauzan Al Farikhi" : "Achievements and Certificates | Fauzan Al Farikhi";
-  const desc = lang === "id" ? "Prestasi Muhamad Fauzan Al Farikhi: Top 4 (Juara Harapan 1) ICBC 2026, Delegasi Utama GEMASTIK 2026, medali olimpiade fisika dan bahasa, serta sertifikat kursus." : "Achievements of Muhamad Fauzan Al Farikhi: Top 4 (Juara Harapan 1) at ICBC 2026, Main Delegate at GEMASTIK 2026, physics and language olympiad medals, and course certificates.";
+  const desc = lang === "id" ? "Prestasi Muhamad Fauzan Al Farikhi: Top 4 (Juara Harapan 1) ICBC 2026, Delegasi Utama GEMASTIK 2026, medali olimpiade fisika dan bahasa, serta sertifikat." : "Achievements of Muhamad Fauzan Al Farikhi: Top 4 (Juara Harapan 1) at ICBC 2026, Main Delegate at GEMASTIK 2026, olympiad medals, and course certificates.";
   const body = '<section class="pg"><header class="ph"><p class="ph__k">' + esc(T.portfolio) + "</p><h1>" + esc(T.achievements) + '</h1><p class="ph__lede">' + esc(lang === "id" ? "Kompetisi, delegasi, olimpiade, dan sertifikat, 2021–2026, dengan sumber resmi bila ada." : "Competitions, delegations, olympiads, and certificates, 2021–2026, with official sources where available.") + '</p></header><div class="pc">' +
     '<h2>' + esc(T.achievementsH) + '</h2><div class="tbl"><table><thead><tr><th>' + esc(T.year) + "</th><th>" + esc(lang === "id" ? "Kompetisi" : "Competition") + "</th><th>" + esc(T.result) + "</th><th>" + esc(T.level) + "</th></tr></thead><tbody>" + rows + "</tbody></table></div>" +
     "<h2>" + esc(T.certificates) + '</h2><div class="tbl"><table><thead><tr><th>' + esc(T.date) + "</th><th>" + esc(lang === "id" ? "Sertifikat" : "Certificate") + "</th><th>" + esc(T.issuer) + "</th><th>" + esc(T.verify) + "</th></tr></thead><tbody>" + certs + "</tbody></table></div>" +
@@ -244,7 +262,7 @@ function idHome() {
 function notFound() {
   const T = UI.en, I = UI.id;
   const body = '<section class="pg"><header class="ph"><p class="ph__k">404</p><h1>' + esc(T.notFoundT) + ' <span class="serif">· ' + esc(I.notFoundT) + '</span></h1><p class="ph__lede">' + esc(T.notFoundP) + '</p><p class="ph__lede">' + esc(I.notFoundP) + '</p><p class="cta"><a class="btn" href="/">' + esc(T.home) + ' <b aria-hidden="true">→</b></a> <a class="btn" href="/id/">' + esc(I.home) + ' <b aria-hidden="true">→</b></a></p></header></section>';
-  write("404.html", layout({ lang: "en", path: "/", title: "404 — Muhamad Fauzan Al Farikhi", desc: T.notFoundP, h1: "404", body, og: null, robots: "noindex,follow", crumbs: [] }));
+  write("404.html", layout({ lang: "en", path: "/", canon: BASE + "/404.html", title: "404 — Muhamad Fauzan Al Farikhi", desc: T.notFoundP, h1: "404", body, og: null, robots: "noindex,follow", crumbs: [] }));
 }
 
 /* ---------- Jalankan ---------- */
@@ -257,16 +275,48 @@ function notFound() {
 idHome(); notFound();
 
 /* ---------- Sitemap ---------- */
+/* lastmod diambil dari riwayat Git tiap halaman (bukan tanggal build yang dikarang).
+   Kalau Git tidak tersedia, jatuh kembali ke tanggal build. */
+const { execSync } = require("child_process");
+const lastmodCache = new Map();
+function gitLastmod(relFile) {
+  if (lastmodCache.has(relFile)) return lastmodCache.get(relFile);
+  let d = null;
+  try {
+    d = execSync('git log -1 --format=%cs -- "' + relFile + '"', { cwd: ROOT, encoding: "utf8" }).trim() || null;
+  } catch (e) { d = null; }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(d || "")) d = BUILD_DATE;
+  lastmodCache.set(relFile, d);
+  return d;
+}
+/* lastmod sebuah URL = tanggal commit terakhir halaman EN atau ID-nya (yang paling baru) */
+function lastmodFor(pth) {
+  const en = gitLastmod(pth === "/" ? "index.html" : pth.replace(/^\//, "") + "index.html");
+  const idp = gitLastmod(pth === "/" ? "id/index.html" : "id" + pth.replace(/^\//, "/") + "index.html");
+  return en > idp ? en : idp;
+}
+
 const alt = (p) => '    <xhtml:link rel="alternate" hreflang="en" href="' + abs("en", p) + '"/>\n    <xhtml:link rel="alternate" hreflang="id" href="' + abs("id", p) + '"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + abs("en", p) + '"/>\n';
 let sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n';
-sm += "  <url>\n    <loc>" + BASE + "/</loc>\n    <lastmod>" + BUILD_DATE + "</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n" + alt("/") + "    <image:image><image:loc>" + BASE + "/assets/og-image.jpg</image:loc></image:image>\n  </url>\n";
-sm += "  <url>\n    <loc>" + BASE + "/id/</loc>\n    <lastmod>" + BUILD_DATE + "</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n" + alt("/") + "  </url>\n";
+sm += "  <url>\n    <loc>" + BASE + "/</loc>\n    <lastmod>" + lastmodFor("/") + "</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n" + alt("/") + "    <image:image><image:loc>" + BASE + "/assets/og-image.jpg</image:loc></image:image>\n  </url>\n";
+sm += "  <url>\n    <loc>" + BASE + "/id/</loc>\n    <lastmod>" + lastmodFor("/") + "</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n" + alt("/") + "  </url>\n";
 written.filter(w => w.p !== "/").forEach(w => {
   const hub = /^\/(projects|achievements|writing)\/$/.test(w.p), pr = hub ? "0.8" : "0.7";
-  ["en", "id"].forEach(l => { sm += "  <url>\n    <loc>" + abs(l, w.p) + "</loc>\n    <lastmod>" + BUILD_DATE + "</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>" + pr + "</priority>\n" + alt(w.p) + "  </url>\n"; });
+  const lm = lastmodFor(w.p);
+  ["en", "id"].forEach(l => { sm += "  <url>\n    <loc>" + abs(l, w.p) + "</loc>\n    <lastmod>" + lm + "</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>" + pr + "</priority>\n" + alt(w.p) + "  </url>\n"; });
 });
 sm += "</urlset>\n";
-fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sm);
+write("sitemap.xml", sm);
 const uniq = []; ogList.forEach(o => { if (!uniq.find(u => u.key === o.key)) uniq.push(o); });
-fs.writeFileSync(path.join(__dirname, "og-manifest.json"), JSON.stringify(uniq, null, 1));
-console.log("halaman:", written.length * 2 - 1 + 1, "| kartu OG:", uniq.length, "| sitemap URL:", (sm.match(/<loc>/g) || []).length);
+write(path.join("tools", "og-manifest.json"), JSON.stringify(uniq, null, 1));
+if (VERIFY) {
+  if (drift.length) {
+    console.log("SINKRONISASI: " + drift.length + " file tidak sinkron dengan content.js + tools/pages-data.js:");
+    drift.forEach(d => console.log("  " + d.kind + "  " + d.relPath));
+    process.exitCode = 1;
+  } else {
+    console.log("OK sinkron: " + (written.length * 2) + " halaman + sitemap.xml + og-manifest.json identik dengan hasil build.");
+  }
+} else {
+  console.log("halaman:", written.length * 2 - 1 + 1, "| kartu OG:", uniq.length, "| sitemap URL:", (sm.match(/<loc>/g) || []).length);
+}

@@ -43,6 +43,7 @@ window.CONTENT = {
     { name: "Universitas Gunadarma", note: "Kampus · Mahasiswa Informatika · Semester 3 · IPK 3.71",             logo: "assets/logos/gunadarma.webp" },
     { name: "NEXA Tech Labs",        note: "Perusahaan · Founder & CEO",             logo: "assets/logos/nexa.webp" },
     { name: "NCD",                   note: "Komunitas · NEXA Community Development · Founder & Vice Chairman I", logo: "assets/logos/ncd.webp" },
+    { name: "AIR (Alpha Indonesia Relawan)", note: "Komunitas relawan · Divisi Fundraising & Partnership · Okt–Des 2026", logo: "assets/logos/air.webp" },
     { name: "Prudential Indonesia", note: "Pengalaman · Agency Business Partner · Financial Consulting · 2026", logo: "assets/logos/prudential.webp" },
     { name: "SMA Taman Madya 1 Jakarta", note: "Sekolah · MIPA · 2021–2024", logo: "assets/logos/tamansiswa.webp" }
   ],
