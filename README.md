@@ -79,3 +79,8 @@ node tools/seo-build.js      # blok SEO statis di index.html
 - `_headers` (Netlify / Cloudflare Pages): cache aset 1 tahun + header keamanan dasar. GitHub Pages tidak membacanya.
 - `tools/backlink-snippet.html`: potongan footer untuk subdomain project (backlink ke portfolio).
 - Analytics: belum dipasang (butuh akun). Cloudflare Web Analytics / Plausible cukup dengan satu `<script>` di `index.html` dan `tools/build-pages.js` (fungsi `layout`).
+
+## Catatan update terbaru
+- **Affiliations**: field `url` membuat logo bisa diklik (NEXA → nexatechlabs.my.id, NCD → ncd.web.id); `big: true` memperbesar logo yang terlalu kecil.
+- **Project**: field `visual: { src, alt }` menampilkan gambar desain tambahan di modal dan halaman project.
+- **Relawan AIR**: entri di `affiliations`, `path` (type `Volunteer`), dan bukti skill Business & Entrepreneurship.

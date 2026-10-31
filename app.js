@@ -52,10 +52,13 @@
   /* ---------- Affiliations ---------- */
   var aff = $("#aff");
   C.affiliations.forEach(function (a) {
-    var li = el("li", "aff__item"); li.setAttribute("data-reveal", "");
+    var li = el("li", "aff__item" + (a.big ? " aff__item--big" : "")); li.setAttribute("data-reveal", "");
     var logo = el("div", "aff__logo");
-    if (a.logo) { var im = new Image(); im.src = a.logo; im.alt = a.name; im.loading = "lazy"; logo.appendChild(im); }
-    else { var w = el("span", "aff__word", a.name); logo.appendChild(w); }
+    var mark;
+    if (a.logo) { mark = new Image(); mark.src = a.logo; mark.alt = a.name; mark.loading = "lazy"; }
+    else { mark = el("span", "aff__word", a.name); }
+    if (a.url) { var lk = el("a"); lk.href = a.url; lk.target = "_blank"; lk.rel = "noopener noreferrer"; lk.setAttribute("aria-label", a.name + " (buka situs di tab baru)"); lk.appendChild(mark); logo.appendChild(lk); }
+    else logo.appendChild(mark);
     li.appendChild(logo); li.appendChild(el("p", "aff__note", a.note)); aff.appendChild(li);
   });
   aff.setAttribute("data-stagger", "");
@@ -567,6 +570,7 @@
     var meta = el("p", "pd__meta"); meta.appendChild(pill(p)); if (p.program) meta.appendChild(el("span", null, p.program)); ht.appendChild(meta);
     head.appendChild(ht); pd.appendChild(head);
     var body = el("div", "pd__body");
+    if (p.visual) { var fg = el("figure", "pd__fig"); var vi = new Image(); vi.src = p.visual.src; vi.alt = p.visual.alt; vi.loading = "lazy"; vi.decoding = "async"; fg.appendChild(vi); body.appendChild(fg); }
     field(body, "Problem", p.problem); field(body, "Solution", p.solution);
     field(body, "My Role", p.role ? p.role : null);
     if (p.contribution) field(body, "Contribution focus", p.contribution);

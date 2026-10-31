@@ -551,3 +551,11 @@ dialog[open]{animation:dlg .5s var(--ease)}
 
 .hero__edu{display:flex;align-items:center;gap:.6rem;margin-bottom:1.1rem;font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--grey)}
 .hero__edu::before{content:"";flex:none;width:.5rem;height:.5rem;border-radius:50%;background:var(--red)}
+
+/* logo afiliasi yang bisa diklik */
+.aff__logo a{display:flex;align-items:center;height:100%;color:inherit;text-decoration:none}
+.aff__logo a:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+/* gambar desain di detail project */
+.pd__fig{margin:0 0 1.4rem;grid-column:1/-1}
+.pd__fig img{display:block;width:100%;height:auto;border-radius:2px;background:#121211}
+.aff__item--big .aff__logo img{height:140%;margin:-.35rem 0}
