@@ -68,6 +68,8 @@ function projectView(p, lang) {
 function skillLine(s, lang) { return lang === "id" ? (D.ID_PERSON.skillLines[s.id] || s.line) : s.line; }
 
 /* ---------- Kerangka halaman ---------- */
+// Cloudflare Web Analytics — disisipkan ke semua halaman hasil build (index.html root punya salinan sendiri).
+const CF_BEACON = "<!-- Cloudflare Web Analytics -->\n<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"bf16e1e51c5b46dea311ddee54bcda96\"}'></script>\n<!-- End Cloudflare Web Analytics -->\n";
 function layout(o) {
   const lang = o.lang, T = UI[lang], alt = other(lang);
   const canonical = o.canon || abs(lang, o.path), altUrl = abs(alt, o.path);
@@ -104,7 +106,7 @@ function layout(o) {
     '<main id="main">\n' + crumbHtml + o.body + "\n</main>\n" +
     '<footer class="pfoot"><div class="pfoot__in"><p class="pfoot__t">' + esc(T.contact) + '</p><p class="pfoot__l">' + esc(T.contactLead) + '</p>' +
     '<ul class="pfoot__links"><li><a href="mailto:' + esc(P.email) + '">' + esc(T.email) + '</a></li><li><a href="' + esc(P.linkedin) + '" target="_blank" rel="noopener me">LinkedIn</a></li><li><a href="' + esc(P.github) + '" target="_blank" rel="noopener me">GitHub</a></li><li><a href="' + esc(P.instagram.url) + '" target="_blank" rel="noopener me">Instagram</a></li><li><a href="/' + esc(P.cv.file) + '">' + esc(T.cv) + '</a></li></ul>' +
-    '<p class="pfoot__c">© 2026 Muhamad Fauzan Al Farikhi · <a href="' + homeHref + '">' + esc(T.fullPortfolio) + "</a></p></div></footer>\n</body>\n</html>\n";
+    '<p class="pfoot__c">© 2026 Muhamad Fauzan Al Farikhi · <a href="' + homeHref + '">' + esc(T.fullPortfolio) + "</a></p></div></footer>\n" + CF_BEACON + "</body>\n</html>\n";
 }
 
 function register(lang, p, title, kicker, ogOverride) {
