@@ -4,7 +4,7 @@
    Format paragraf: **tebal**, [teks](url). Blok: {h}, {p}, {ul:[...]}. */
 
 const BASE = "https://frikhii.my.id";
-const BUILD_DATE = "2026-10-26";
+const BUILD_DATE = "2026-11-01";
 
 /* ---------- Teks antarmuka ---------- */
 const UI = {
@@ -47,10 +47,10 @@ const GROUP_EN = { "Kompetisi": "Competition", "Kursus": "Course", "Olimpiade": 
 /* ---------- Terjemahan Indonesia: profil ---------- */
 const ID_PERSON = {
   tagline: "Saya tidak hanya membangun teknologi. Saya membangun apa yang akan menjalankan masa depan.",
-  roles: ["Entrepreneur", "Data Scientist", "Product Management"],
+  roles: ["Entrepreneur", "Product Management", "Data Scientist"],
   edu: "Mahasiswa Informatika · Semester 3 · Universitas Gunadarma · 2025–sekarang",
   bio: [
-    "Saya mahasiswa Informatika Universitas Gunadarma, berkuliah sejak 2025 dan kini di semester 3, sekaligus antusias di bidang teknologi, dengan fokus pada AI Engineering, Software Development, dan Product Management. Saya senang mengubah masalah yang rumit menjadi solusi praktis dengan memadukan rekayasa, pemikiran strategis, dan pemahaman mendalam tentang kebutuhan pengguna. Bagi saya, teknologi bukan sekadar menulis kode, tetapi menciptakan sesuatu yang bermakna, skalabel, dan berdampak.",
+    "Saya mahasiswa Informatika Universitas Gunadarma, berkuliah sejak 2025 dan kini di semester 3, sekaligus founder dan antusias di bidang teknologi, dengan fokus pada Product Management, AI Engineering & Data Science, dan Software Development. Saya senang mengubah masalah yang rumit menjadi solusi praktis dengan memadukan rekayasa, pemikiran strategis, dan pemahaman mendalam tentang kebutuhan pengguna. Bagi saya, teknologi bukan sekadar menulis kode, tetapi menciptakan sesuatu yang bermakna, skalabel, dan berdampak.",
     "Ambisi saya adalah membangun produk yang menyelesaikan masalah nyata, menciptakan nilai, dan mendorong batas. Dari bereksperimen dengan AI, mengembangkan produk perangkat lunak, hingga menjajaki peluang bisnis, saya percaya setiap proyek adalah langkah menuju sesuatu yang lebih besar. Saya tidak sekadar mengikuti masa depan, saya ikut membangunnya."
   ],
   skillLines: {
@@ -64,6 +64,14 @@ const ID_PERSON = {
     "Agency Business Partner · Financial Consulting": "Agency Business Partner · Financial Consulting",
     "SMA, jurusan MIPA": "SMA, jurusan MIPA",
     "Anggota OSIS · Divisi Acara": "Anggota OSIS · Divisi Acara"
+  },
+  upcoming: {
+    h: "Sesi mendatang",
+    title: "NCD Learning Session — Team Formation 101: From Strangers to One Team",
+    when: "Senin, 16 November 2026 · 20.00–21.00 WIB · Live via Discord",
+    desc: "Saya akan menjadi pemateri: cara membangun tim yang efektif dari nol, mulai dari chemistry dan kepercayaan, memahami potensi individu, pembagian peran dan tanggung jawab, komunikasi dan koordinasi, mengelola konflik tim, hingga simulasi pembentukan tim interaktif.",
+    cta: "Daftar di ncd.web.id",
+    url: "https://ncd.web.id"
   },
   descShort: "Portofolio Muhamad Fauzan Al Farikhi, mahasiswa Informatika semester 3 Universitas Gunadarma dan pendiri NEXA Tech Labs. Top 4 ICBC 2026, delegasi GEMASTIK 2026."
 };
@@ -93,7 +101,10 @@ const ID_PROJECTS = {
     cta: "Kunjungi project live",
     desc: "Platform SaaS berfokus kampus yang dikembangkan di bawah NEXA Tech Labs untuk mendukung kebutuhan mahasiswa lewat ekosistem digital.",
     solution: "Platform SaaS berfokus kampus yang mendukung kebutuhan mahasiswa lewat ekosistem digital.",
-    statusNote: "Live — sudah di-deploy di tautan di halaman ini."
+    statusNote: "Live — sudah di-deploy di tautan di halaman ini. Penggunaan awal: 17 pengguna, 7 di antaranya merasa terbantu karena NEXA Campus mengingatkan deadline yang mereka catat.",
+    extra: [
+      { title: "Penggunaan awal", label: "Dilaporkan", items: ["17 pengguna sejauh ini", "7 dari 17 pengguna (sekitar 41%) merasa terbantu karena NEXA Campus mengingatkan deadline yang mereka catat", "Sampel awal yang kecil — angka yang dilaporkan, bukan studi terkontrol"] }
+    ]
   },
   "nexa-sphere": {
     cta: "Lihat detail project",
@@ -111,20 +122,19 @@ const ID_PROJECTS = {
       { title: "Belum tervalidasi", label: "Belum tervalidasi", items: ["Akurasi forecast (kalibrasi direncanakan pada 4–6 minggu pertama klien)", "Pengurangan food waste yang terukur", "Ukuran pasar, harga, dan proyeksi pendapatan (hanya indikatif)"] }
     ]
   },
-  loki: {
+  breathsafe: {
     cta: "Lihat detail project",
-    desc: "Konsep smart locker bersama untuk lingkungan kampus, memadukan Progressive Web App (PWA), otorisasi backend, kontrol IoT berbasis ESP32, kunci solenoid elektronik, dan pemantauan status pintu.",
-    problem: "Pengguna kampus butuh penyimpanan sementara yang mudah diakses, dengan akses loker yang tercatat dan aman.",
-    solution: "LOKi adalah konsep smart locker bersama untuk lingkungan kampus, memadukan Progressive Web App (PWA), otorisasi backend, kontrol IoT berbasis ESP32, kunci solenoid elektronik, dan pemantauan status pintu. Tujuannya membuat penyimpanan sementara lebih mudah diakses sambil mencatat akses loker dan meningkatkan keamanan.",
-    role: "Product Manager",
-    contribution: "Kebutuhan produk, prioritas fitur, perencanaan validasi, roadmap, penganggaran, dan koordinasi tim.",
-    stack: ["Progressive Web App (PWA)", "Otorisasi backend", "ESP32 (kontrol IoT)", "Kunci solenoid elektronik", "Pemantauan status pintu"],
-    statusNote: "Berlangsung — konsep yang sedang dikembangkan dalam program GDGoC ITB 2026. Belum di-deploy atau diadopsi resmi di kampus mana pun.",
+    desc: "Monitor PM2.5 pribadi yang dijepit di masker untuk pengemudi ojek online: modul sensor di masker, terhubung kabel ke baterai di pinggang, dengan indikator LED kualitas udara dan Progressive Web App yang merangkum paparan setiap shift.",
+    problem: "Sekitar tujuh juta pengemudi ojek online bekerja di Indonesia, tetapi stasiun kualitas udara tetap tidak bisa mengukur udara di sekitar tiap pengendara. Pada 30 Oktober 2026, stasiun rooftop RSUD Tanjung Priok mencatat PM2.5 sebesar 102,87 µg/m³ dan ISPU 175 (“Tidak Sehat”).",
+    solution: "BreathSafe adalah modul sensor di masker pengendara yang terhubung kabel ke baterai di pinggang. Sensor PMS5003 dan blower 5 V mengambil sampel udara di dekat wajah; tiga LED menunjukkan pita PM2.5, LED merah saat berhenti di tempat aman mengingatkan untuk memeriksa masker, lalu aplikasi menampilkan kapan dan di mana paparan memuncak. Pengendara bisa berbagi ringkasan anonim (hanya waktu per pita) dengan kelompoknya.",
+    role: "Anggota tim",
+    stack: ["Progressive Web App Chrome di Android (Web Bluetooth)", "Sensor PM2.5 PMS5003", "Board nRF52840", "Sensor kelembapan AHT20", "Blower 5 V untuk pengambilan sampel udara"],
+    statusNote: "Berlangsung — karya kompetisi untuk STACK 2026 oleh GDGoC ITB (Case 2: Stronger Communities and Everyday Services), tim “Mirza Batagor Phd”. Abstrak sudah ditulis; perangkat keras belum dibuat atau diuji, dan gambar yang tampil adalah render konsep, bukan foto prototipe. Hardware freeze: 27 November 2026. Final Day, jika terpilih: 16 Desember 2026.",
     extra: [
-      { title: "Arsitektur (desain)", label: "Desain", items: ["PWA — aplikasi untuk pengguna", "Backend — otorisasi akses loker dan pencatatan akses", "ESP32 — pengendali IoT di loker", "Kunci solenoid elektronik — penguncian fisik", "Sensor status pintu — memantau pintu terbuka atau tertutup"] },
-      { title: "Fitur PWA yang direncanakan", label: "Rencana", items: ["Melihat loker yang kosong atau terpakai", "Riwayat penggunaan", "Notifikasi saat waktu pemakaian hampir habis", "Dashboard pemantauan admin"] },
-      { title: "Roadmap", label: "Akan didokumentasikan", items: null },
-      { title: "Target", label: "Akan didokumentasikan", items: null }
+      { title: "Catatan lapangan di balik masalah", label: "Eksploratif", items: ["Enam wawancara eksploratif pada Oktober 2026: lima pengemudi dan satu pekerja-mahasiswa", "Empat orang melaporkan iritasi mata akibat debu; empat orang berkendara 5–10 jam per hari", "Satu orang batuk hingga berhenti bekerja", "Cerita ini bersifat eksploratif dan tidak membuktikan prevalensi maupun sebab-akibat"] },
+      { title: "Alur pengguna inti (desain)", label: "Desain", items: ["Tiga LED menyala tetap menunjukkan pita PM2.5 yang ditetapkan project", "Saat berhenti di tempat aman, LED merah meminta pengecekan masker", "Aplikasi menampilkan kapan dan di mana paparan memuncak, plus ringkasan pribadi akhir shift dalam bahasa Indonesia", "Opsional: ringkasan kelompok anonim untuk perencanaan cek masker (direncanakan; data sintetis di demo). Data lokasi tetap di ponsel pengendara"] },
+      { title: "MVP dan validasi yang direncanakan", label: "Rencana", items: ["PWA Chrome di Android dengan Web Bluetooth, dengan kelembapan dicatat untuk koreksi bias", "Uji bobot dan kecocokan di semua masker, konektor lepas-cepat, uji LED siang dan malam, serta validasi helm di jalan", "Dua iterasi: satu unit bench dan dua unit pilot", "Uji kesesuaian antarunit dan, jika akses referensi terkonfirmasi, R² > 0,90"] },
+      { title: "Belum tervalidasi", label: "Belum tervalidasi", items: ["Keterbacaan LED dan tindak lanjut pengecekan masker", "Apakah ringkasan kelompok bisa disusun lebih cepat daripada menghitung manual", "Daya tahan baterai (3–5 jam belum terverifikasi dan perlu duty-cycling)"] }
     ]
   }
 };
@@ -259,43 +269,45 @@ const ARTICLES = [
     }
   },
   {
-    slug: "loki-smart-locker-product-notes", date: BUILD_DATE, read: 3, project: "loki", ach: null, cover: "assets/projects/loki.webp",
+    slug: "breathsafe-pm25-monitor-ojol", date: BUILD_DATE, read: 3, project: "breathsafe", ach: null, cover: "assets/projects/breathsafe-board.webp",
     en: {
-      title: "LOKi: product notes on a campus IoT smart locker (GDGoC ITB 2026)",
-      seo: "LOKi: Product Notes on a Campus IoT Smart Locker",
-      desc: "Notes on LOKi, a campus smart-locker concept with a PWA, backend authorization, ESP32 control, solenoid locks, and door sensing (GDGoC ITB 2026).",
+      title: "BreathSafe: a clip-on PM2.5 monitor for ojol drivers (STACK 2026 by GDGoC ITB)",
+      seo: "BreathSafe: A Clip-On PM2.5 Monitor for Ojol Drivers",
+      desc: "Notes on BreathSafe, a clip-on personal PM2.5 monitor for online motorcycle-taxi drivers, entered in STACK 2026 by GDGoC ITB.",
       body: [
         { h: "The problem" },
-        { p: "Campus users need accessible temporary storage, and locker access should be recorded and secure." },
+        { p: "Around seven million online motorcycle-taxi (ojol) drivers work in Indonesia, but fixed air-quality stations cannot measure the air alongside each rider. On 30 October 2026, the RSUD Tanjung Priok rooftop station reported PM2.5 of 102.87 µg/m³ and an ISPU of 175 (“Unhealthy”)." },
+        { h: "What we heard in the field" },
+        { p: "In October 2026 the team held six exploratory interviews: five drivers and one student-worker. Four reported dust-related eye irritation, four reported riding 5–10 hours per day, and one had a cough that made them stop working. These accounts are exploratory and give no evidence of prevalence or causation." },
         { h: "The concept" },
-        { p: "LOKi is a shared smart-locker concept for campus environments. It combines a Progressive Web App (PWA), backend authorization, ESP32-based IoT control, electronic solenoid locks, and door-state monitoring. The aim is to make temporary storage more accessible while recording locker access and improving security." },
-        { h: "Architecture (design)" },
-        { ul: ["PWA: the user-facing app", "Backend: authorizes locker access and keeps access records", "ESP32: the IoT controller at the locker", "Electronic solenoid lock: physical locking", "Door-state sensing: monitors whether the door is open or closed"] },
-        { h: "Planned PWA features" },
-        { ul: ["See which lockers are free or occupied", "Usage history", "Notification when usage time is almost up", "Admin monitoring dashboard"] },
-        { h: "My role as Product Manager" },
-        { p: "Product requirements, feature prioritization, validation planning, roadmap, budgeting, and team coordination." },
+        { p: "BreathSafe is a sensor module on the rider’s mask, cabled to a waist-worn battery. A PMS5003 sensor and a 5 V blower sample the air near the face." },
+        { ul: ["Three steady LEDs show project-defined PM2.5 bands", "At a safe stop, red prompts a mask check", "The app then shows when and where exposure peaked", "Optionally, riders share an anonymous summary (time per band only) with their group. This is planned, with synthetic data in the demo"] },
+        { h: "Planned MVP" },
+        { p: "A Chrome progressive web app on Android using Web Bluetooth, with a PMS5003, an nRF52840 board, and an AHT20 humidity sensor. The plan includes weight and fit testing across masks, a breakaway connector, day-and-night LED tests, and on-road helmet validation." },
+        { h: "My role" },
+        { p: "Team member, on team “Mirza Batagor Phd”." },
         { h: "Status" },
-        { p: "Ongoing. LOKi is a concept under development in the GDGoC ITB 2026 program and has not been deployed or officially adopted at any campus. The roadmap and targets are still to be documented. Full details are on the [LOKi project page](/projects/loki/)." }
+        { p: "Ongoing. BreathSafe is a competition entry for STACK 2026 by GDGoC ITB (Case 2: Stronger Communities and Everyday Services). The hardware is not yet built or tested, and the images are concept renders, not photos of a prototype. Hardware freeze is 27 November 2026; the Final Day, if selected, is 16 December 2026. Full details are on the [BreathSafe project page](/projects/breathsafe/)." }
       ]
     },
     id: {
-      title: "LOKi: catatan produk smart locker IoT untuk kampus (GDGoC ITB 2026)",
-      seo: "LOKi: Catatan Produk Smart Locker IoT Kampus",
-      desc: "Catatan tentang LOKi, konsep smart locker kampus dengan PWA, otorisasi backend, kontrol ESP32, kunci solenoid, dan sensor pintu (GDGoC ITB 2026).",
+      title: "BreathSafe: monitor PM2.5 jepit untuk pengemudi ojol (STACK 2026 oleh GDGoC ITB)",
+      seo: "BreathSafe: Monitor PM2.5 Jepit untuk Pengemudi Ojol",
+      desc: "Catatan tentang BreathSafe, monitor PM2.5 pribadi yang dijepit di masker untuk pengemudi ojek online, karya untuk STACK 2026 oleh GDGoC ITB.",
       body: [
         { h: "Masalahnya" },
-        { p: "Pengguna kampus butuh penyimpanan sementara yang mudah diakses, dan akses loker harus tercatat serta aman." },
+        { p: "Sekitar tujuh juta pengemudi ojek online (ojol) bekerja di Indonesia, tetapi stasiun kualitas udara tetap tidak bisa mengukur udara di sekitar tiap pengendara. Pada 30 Oktober 2026, stasiun rooftop RSUD Tanjung Priok mencatat PM2.5 sebesar 102,87 µg/m³ dan ISPU 175 (“Tidak Sehat”)." },
+        { h: "Yang kami dengar di lapangan" },
+        { p: "Pada Oktober 2026 tim melakukan enam wawancara eksploratif: lima pengemudi dan satu pekerja-mahasiswa. Empat orang melaporkan iritasi mata akibat debu, empat orang berkendara 5–10 jam per hari, dan satu orang batuk hingga berhenti bekerja. Cerita ini bersifat eksploratif dan tidak membuktikan prevalensi maupun sebab-akibat." },
         { h: "Konsepnya" },
-        { p: "LOKi adalah konsep smart locker bersama untuk lingkungan kampus. Konsep ini memadukan Progressive Web App (PWA), otorisasi backend, kontrol IoT berbasis ESP32, kunci solenoid elektronik, dan pemantauan status pintu. Tujuannya membuat penyimpanan sementara lebih mudah diakses sambil mencatat akses loker dan meningkatkan keamanan." },
-        { h: "Arsitektur (desain)" },
-        { ul: ["PWA: aplikasi untuk pengguna", "Backend: mengotorisasi akses loker dan menyimpan catatan akses", "ESP32: pengendali IoT di loker", "Kunci solenoid elektronik: penguncian fisik", "Sensor status pintu: memantau pintu terbuka atau tertutup"] },
-        { h: "Fitur PWA yang direncanakan" },
-        { ul: ["Melihat loker yang kosong atau terpakai", "Riwayat penggunaan", "Notifikasi saat waktu pemakaian hampir habis", "Dashboard pemantauan admin"] },
-        { h: "Peran saya sebagai Product Manager" },
-        { p: "Kebutuhan produk, prioritas fitur, perencanaan validasi, roadmap, penganggaran, dan koordinasi tim." },
+        { p: "BreathSafe adalah modul sensor di masker pengendara yang terhubung kabel ke baterai di pinggang. Sensor PMS5003 dan blower 5 V mengambil sampel udara di dekat wajah." },
+        { ul: ["Tiga LED menyala tetap menunjukkan pita PM2.5 yang ditetapkan project", "Saat berhenti di tempat aman, LED merah meminta pengecekan masker", "Aplikasi lalu menampilkan kapan dan di mana paparan memuncak", "Opsional: pengendara berbagi ringkasan anonim (hanya waktu per pita) dengan kelompoknya. Ini masih rencana, dengan data sintetis di demo"] },
+        { h: "MVP yang direncanakan" },
+        { p: "Progressive web app Chrome di Android memakai Web Bluetooth, dengan PMS5003, board nRF52840, dan sensor kelembapan AHT20. Rencananya mencakup uji bobot dan kecocokan di berbagai masker, konektor lepas-cepat, uji LED siang dan malam, serta validasi helm di jalan." },
+        { h: "Peran saya" },
+        { p: "Anggota tim, pada tim “Mirza Batagor Phd”." },
         { h: "Status" },
-        { p: "Berlangsung. LOKi adalah konsep yang sedang dikembangkan dalam program GDGoC ITB 2026 dan belum di-deploy atau diadopsi resmi di kampus mana pun. Roadmap dan target masih akan didokumentasikan. Detail lengkap ada di [halaman project LOKi](/id/projects/loki/)." }
+        { p: "Berlangsung. BreathSafe adalah karya kompetisi untuk STACK 2026 oleh GDGoC ITB (Case 2: Stronger Communities and Everyday Services). Perangkat keras belum dibuat atau diuji, dan gambar yang tampil adalah render konsep, bukan foto prototipe. Hardware freeze 27 November 2026; Final Day, jika terpilih, 16 Desember 2026. Detail lengkap ada di [halaman project BreathSafe](/id/projects/breathsafe/)." }
       ]
     }
   },

@@ -45,7 +45,7 @@ python3 -m http.server 8000      # lalu buka http://localhost:8000
 
 ## Update terbaru
 - **Skill**: 5 bidang di `skills` (urutan 1 = AI Engineering & Data Science). Kubus otomatis mengikuti jumlah item.
-- **Stage**: entri di `stage.items` (jumlah di section = jumlah entri; kategori di `stage.categories`). Foto = aset asli per acara.
+- **Stage**: entri di `stage.items` (angka besar = acara yang sudah lewat; kategori di `stage.categories`). Foto = aset asli per acara. Acara mendatang: `upcoming: true` + `date` (blok tanggal, foto boleh kosong) + `cta` (tombol daftar). Setelah acara lewat, hapus `upcoming` dan `cta`, lalu ganti `date` dengan `photo`.
 - **Recommendations**: array `recommendations`. Kutipan jangan diedit. `photo: null` = kartu tanpa foto; file siap di `assets/testimonials/photo-a.webp` & `photo-b.webp` — isi path hanya setelah identitas foto dikonfirmasi.
 - **CV**: file di `assets/cv/`, diatur lewat `person.cv` (tombol hero + baris di Connect). Hapus `person.cv` untuk menyembunyikan tombol.
 - **Project**: field `supports` menampilkan skill yang didukung di modal detail. Status "Live" hanya untuk project yang terverifikasi.

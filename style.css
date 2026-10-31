@@ -214,7 +214,7 @@ input[type=range]::-moz-range-thumb{width:.9rem;height:.9rem;border-radius:50%;b
 .pcard__disc{position:absolute;left:50%;top:38%;width:78%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:var(--red)}
 .pcard figcaption{display:flex;justify-content:space-between;margin-top:.9rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
 .pcard figcaption::after{content:"FA.";color:var(--red);font-weight:700}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.8rem,2vw,1.6rem);margin-top:clamp(3rem,7vw,6rem);perspective:1200px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.8rem,2vw,1.6rem);margin-top:clamp(3rem,7vw,6rem);perspective:1200px}
 .stat{position:relative;overflow:hidden;background:var(--warm);border:1px solid var(--line-l);padding:clamp(1.2rem,2.4vw,2.2rem);min-height:clamp(11rem,18vw,16rem);display:flex;flex-direction:column;justify-content:space-between;transform-style:preserve-3d;will-change:transform}
 .stat__v{font-family:var(--f-head);font-weight:900;letter-spacing:-.05em;line-height:.85;font-size:clamp(3.4rem,8.5vw,8rem);font-variant-numeric:tabular-nums}
 li:first-child>.stat .stat__v{color:var(--red)}
@@ -539,6 +539,16 @@ dialog[open]{animation:dlg .5s var(--ease)}
 .rrow__src:hover{color:var(--ink)}
 .sx__src{align-self:flex-start;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--cream);border-bottom:1px solid var(--red);padding-bottom:.1rem;transition:color .3s}
 .sx__src:hover{color:var(--red)}
+
+/* Kartu sesi mendatang: blok tanggal (tanpa foto) + tombol daftar */
+.sx__ph--date{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.15rem;padding:clamp(1.1rem,2.6vw,2rem);cursor:default;background:linear-gradient(135deg,#1a1a18,#0d0d0c);border-bottom:1px solid var(--line-d)}
+.sx__dm{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--red)}
+.sx__dd{font-family:var(--f-head);font-weight:900;letter-spacing:-.06em;line-height:.85;font-size:clamp(4rem,9vw,6.5rem);color:var(--cream)}
+.sx__dy{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--grey);margin-top:.5rem}
+.sx__dw{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--cream)}
+.sx__status--live{background:var(--red);color:var(--ink)}
+.sx__cta{align-self:flex-start;display:inline-flex;align-items:center;gap:.6rem;margin-top:.4rem;padding:.8rem 1.3rem;border-radius:999px;background:var(--red);color:var(--ink);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border:1px solid var(--red);transition:background .3s,color .3s}
+.sx__cta:hover{background:transparent;color:var(--red)}
 
 /* Blok SEO statis: tampil hanya tanpa JS */
 .js #seo-static{display:none}

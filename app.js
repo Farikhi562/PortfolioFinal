@@ -592,8 +592,9 @@
     var T = C.stage, items = T.items, f = "All";
     var top = el("div", "stagebox"); top.setAttribute("data-reveal", "");
     var left = el("div", "stagebox__txt");
-    left.appendChild(el("p", "stagebox__n", String(items.length).padStart(2, "0")));
-    left.appendChild(el("p", "stagebox__l", items.length === 1 ? "Stage experience" : "Stage experiences"));
+    var done = items.filter(function (it) { return !it.upcoming; }).length;
+    left.appendChild(el("p", "stagebox__n", String(done).padStart(2, "0")));
+    left.appendChild(el("p", "stagebox__l", done === 1 ? "Stage experience" : "Stage experiences"));
     left.appendChild(el("p", "stagebox__p", T.intro));
     top.appendChild(left);
     var chips = el("div", "sxchips"); chips.setAttribute("role", "group"); chips.setAttribute("aria-label", "Filter kategori");
@@ -611,16 +612,27 @@
       list.textContent = "";
       items.filter(function (it) { return f === "All" || it.category === f; }).forEach(function (it, i) {
         var li = el("li", "sx"); var card = el("article", "sx__card");
-        var ph = el("button", "sx__ph"); ph.type = "button"; ph.setAttribute("aria-label", "Buka foto: " + it.title);
-        var im = new Image(); im.src = it.photo; im.alt = it.alt; im.loading = "lazy"; im.decoding = "async"; im.style.objectPosition = it.fit === "top" ? "50% 18%" : "50% 50%";
-        ph.appendChild(im); ph.addEventListener("click", function () { openLightbox([it.photo], it.title, ph, { desc: it.desc, meta: it.meta }); });
+        var ph;
+        if (it.photo) {
+          ph = el("button", "sx__ph"); ph.type = "button"; ph.setAttribute("aria-label", "Buka foto: " + it.title);
+          var im = new Image(); im.src = it.photo; im.alt = it.alt; im.loading = "lazy"; im.decoding = "async"; im.style.objectPosition = it.fit === "top" ? "50% 18%" : "50% 50%";
+          ph.appendChild(im); ph.addEventListener("click", function () { openLightbox([it.photo], it.title, ph, { desc: it.desc, meta: it.meta }); });
+        } else {
+          /* Tanpa foto (mis. sesi mendatang): blok tanggal dari `date` */
+          ph = el("div", "sx__ph sx__ph--date"); var dt = it.date || {};
+          ph.appendChild(el("span", "sx__dm", dt.month || ""));
+          ph.appendChild(el("span", "sx__dd", dt.day || ""));
+          ph.appendChild(el("span", "sx__dy", [dt.year, dt.time].filter(Boolean).join(" · ")));
+          if (dt.where) ph.appendChild(el("span", "sx__dw", dt.where));
+        }
         var body = el("div", "sx__body");
         body.appendChild(el("p", "sx__cat", it.category));
         body.appendChild(el("h3", "sx__t", it.title));
         body.appendChild(el("p", "sx__role", it.role));
         body.appendChild(el("p", "sx__meta", it.meta));
-        if (it.status) body.appendChild(el("p", "sx__status", it.status));
+        if (it.status) body.appendChild(el("p", "sx__status" + (it.upcoming ? " sx__status--live" : ""), it.status));
         body.appendChild(el("p", "sx__d", it.desc));
+        if (it.cta) { var cb = el("a", "sx__cta", it.cta.label + " ↗"); cb.href = it.cta.url; cb.target = "_blank"; cb.rel = "noopener noreferrer"; body.appendChild(cb); }
         if (it.source) { var sl = el("a", "sx__src", it.source.label + " ↗"); sl.href = it.source.url; sl.target = "_blank"; sl.rel = "noopener noreferrer"; body.appendChild(sl); }
         if (it.skills && it.skills.length) { var ul = el("ul", "chips"); it.skills.forEach(function (w) { ul.appendChild(el("li", null, w)); }); body.appendChild(ul); }
         card.appendChild(ph); card.appendChild(body); li.appendChild(card); list.appendChild(li);

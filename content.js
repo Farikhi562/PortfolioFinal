@@ -5,7 +5,7 @@ window.CONTENT = {
   person: {
     first: "Muhamad Fauzan",          // baris 1 (sans tebal)
     last: "Al Farikhi",               // baris 2 (serif italic, diakhiri titik merah)
-    roles: ["Entrepreneur", "Data Scientist", "Product Management"],
+    roles: ["Entrepreneur", "Product Management", "Data Scientist"],
     tagline: "I don’t just build technology. I build what the future runs on.",
     edu: "Informatics Student · Semester 3 · Universitas Gunadarma · 2025–Now",   // baris status di hero
     city: "Jakarta Pusat",
@@ -41,16 +41,18 @@ window.CONTENT = {
      Kalau kosong, otomatis tampil sebagai wordmark teks. */
   affiliations: [
     { name: "Universitas Gunadarma", note: "Kampus · Mahasiswa Informatika · Semester 3 · IPK 3.71",             logo: "assets/logos/gunadarma.webp" },
-    { name: "NEXA Tech Labs",        note: "Perusahaan · Founder & CEO",             logo: "assets/logos/nexa.webp", url: "https://nexatechlabs.my.id" },
-    { name: "NCD",                   note: "Komunitas · NEXA Community Development · Vice Chairman I", logo: "assets/logos/ncd.webp", url: "https://ncd.web.id" },
-    { name: "Alpha Indonesia Relawan (AIR)", note: "Relawan · Fundraising & Partnership · 3 bulan", logo: "assets/logos/air.webp", big: true },
+    { name: "NEXA Tech Labs",        note: "Perusahaan · Founder & CEO",             logo: "assets/logos/nexa.webp" },
+    { name: "NCD",                   note: "Komunitas · NEXA Community Development · Founder & Vice Chairman I", logo: "assets/logos/ncd.webp" },
+    { name: "Prudential Indonesia", note: "Pengalaman · Agency Business Partner · Financial Consulting · 2026", logo: "assets/logos/prudential.webp" },
     { name: "SMA Taman Madya 1 Jakarta", note: "Sekolah · MIPA · 2021–2024", logo: "assets/logos/tamansiswa.webp" }
   ],
 
   /* Pengalaman & pendidikan (tampil di section Person). type: Experience | Education | Organization */
   path: [
     { years: "2025–Now",  role: "S1 Informatika · Semester 3 (mahasiswa aktif)",   place: "Universitas Gunadarma", type: "Education" },
-    { years: "2026 · 3 bulan", role: "Relawan · Divisi Fundraising & Partnership", place: "Alpha Indonesia Relawan (AIR)", type: "Volunteer" },
+    { years: "Okt–Des 2026", role: "Divisi Fundraising & Partnership",             place: "AIR (Alpha Indonesia Relawan)", type: "Organization" },
+    { years: "Sep 2026–Now", role: "Founder & Vice Chairman I",                  place: "NCD (NEXA Community Development)", type: "Organization" },
+    { years: "2026",      role: "Agency Business Partner · Financial Consulting", place: "Prudential Indonesia", type: "Experience" },
     { years: "2021–2024", role: "SMA, jurusan MIPA",                               place: "SMA Taman Madya 1 Jakarta", type: "Education" },
     { years: "2021–2022", role: "Anggota OSIS · Divisi Acara",                     place: "SMA Taman Madya 1 Jakarta", type: "Organization" }
   ],
@@ -140,8 +142,14 @@ window.CONTENT = {
       url: "https://campus.nexatechlabs.my.id", cta: "Visit Live Project",
       problem: null,
       solution: "A campus-focused SaaS platform that supports student needs through a digital ecosystem.",
-      role: null, stack: null, statusNote: "Live — deployed at the link below.", repo: null,
-      supports: ["Software Development", "System Architecture", "Product Management"] },
+      role: null, stack: null, statusNote: "Live — deployed at the link below. Early usage: 17 users, 7 of whom said NEXA Campus helped them because it reminds them of deadlines they have recorded.", repo: null,
+      supports: ["Software Development", "System Architecture", "Product Management"],
+      extra: [
+        { title: "Early usage", label: "Reported", items: [
+            "17 users so far",
+            "7 of 17 users (about 41%) said NEXA Campus helped them, because it reminds them of the deadlines they recorded",
+            "Small early sample — a reported figure, not a controlled study"] }
+      ] },
     { id: "nexa-sphere", name: "NEXA-Sphere", category: "AI-SaaS · NEXA Tech Labs", status: "Prototype", motif: "chain", tone: "ink", thumb: null,
       desc: "A B2B AI-SaaS platform concept for optimizing inventory and supply-chain operations of multi-outlet F&B businesses, built around demand forecasting, procurement recommendations, and a centralized dashboard.",
       url: null, cta: "View Project Details",
@@ -159,56 +167,51 @@ window.CONTENT = {
         { title: "Planned, not yet built", label: "Planned", items: ["Integration with local POS providers (Moka, Pawoon, Majoo, ESB)", "Phased rollout: API sync → shadow-mode validation → active recommendations", "Supplier B2B integration (year-2 roadmap)", "Regional expansion in Southeast Asia"] },
         { title: "Not yet validated", label: "Unvalidated", items: ["Forecast accuracy (calibration planned over a client’s first 4–6 weeks)", "Measured food-waste reduction", "Market-size, pricing, and revenue projections (indicative only)"] }
       ] },
-    { id: "breathsafe", name: "BreathSafe", category: "IoT · PWA · GDGoC STACK ITB 2026", status: "Ongoing", motif: "chart", tone: "red", thumb: "assets/projects/breathsafe.webp", thumbRatio: "1380/307", thumbAlt: "Sampul project BreathSafe — Clip-on PM2.5 Monitor for Ojol Drivers — In Development; render desain modul sensor yang terpasang di masker pengemudi ojol", featured: true,
-      program: "GDGoC STACK ITB 2026",
-      desc: "A clip-on personal PM2.5 monitor for online motorcycle-taxi (ojol) drivers: a sensor module on the rider’s mask with glanceable LED feedback, a waist-worn battery, and a Bluetooth-connected progressive web app.",
+    { id: "breathsafe", name: "BreathSafe", category: "IoT · PWA · STACK 2026 (GDGoC ITB)", status: "Ongoing", motif: "chart", tone: "ink", thumb: "assets/projects/breathsafe.webp", thumbRatio: "1380/307", thumbAlt: "Logo BreathSafe dan ilustrasi exploded view: masker, klip pengait, modul sensor, blower 5 V, kabel penghubung, dan baterai 5.000 mAh", featured: true,
+      program: "STACK 2026 — GDGoC ITB",
+      desc: "A clip-on personal PM2.5 monitor for online motorcycle-taxi (ojol) drivers: a sensor module on the rider’s mask, cabled to a waist-worn battery, with glanceable LED air-quality bands and a Progressive Web App that summarizes each shift’s exposure.",
       url: null, cta: "View Project Details",
-      problem: "Around seven million online motorcycle-taxi drivers work in Indonesia, but fixed air-quality stations cannot measure the air alongside each rider. Risk estimates for these drivers rely on station data.",
-      solution: "BreathSafe is a sensor module clipped to the rider’s mask and cabled to a waist-worn battery. A PMS5003 sensor and a 5 V blower sample air near the face, and three LEDs show project-defined PM2.5 bands without the rider looking at a phone. The app then shows when and where exposure peaked, with an optional anonymous summary riders can share with their group.",
-      role: "Team Member",
+      problem: "Around seven million online motorcycle-taxi drivers work in Indonesia, but fixed air-quality stations cannot measure the air alongside each rider. On 30 October 2026, the RSUD Tanjung Priok rooftop station reported PM2.5 of 102.87 µg/m³ and an ISPU of 175 (“Unhealthy”).",
+      solution: "BreathSafe is a sensor module on the rider’s mask, cabled to a waist-worn battery. A PMS5003 sensor and a 5 V blower sample the air near the face; three LEDs show PM2.5 bands, a red LED at a safe stop prompts a mask check, and the app then shows when and where exposure peaked. Riders can optionally share an anonymous summary (time per band only) with their driver group.",
+      role: "Team member",
       contribution: null,
-      stack: ["Progressive Web App (Chrome, Web Bluetooth) on Android", "PMS5003 PM2.5 sensor", "nRF52840 board (BLE)", "AHT20 humidity sensor", "5 V blower for air sampling", "Waist-worn 5,000 mAh battery"],
-      statusNote: "Ongoing — a concept in development for GDGoC STACK ITB 2026 (Case 2: Stronger Communities and Everyday Services), built with a four-person team. Hardware freeze is planned for 27 November 2026 and the Final Day, if selected, is 16 December 2026. Not yet deployed or field-validated; the images are design renders, not a working unit.",
+      stack: ["Chrome Progressive Web App on Android (Web Bluetooth)", "PMS5003 PM2.5 sensor", "nRF52840 board", "AHT20 humidity sensor", "5 V blower for air sampling"],
+      statusNote: "Ongoing — a competition entry for STACK 2026 by GDGoC ITB (Case 2: Stronger Communities and Everyday Services), team “Mirza Batagor Phd”. The abstract is written; the hardware is not yet built or tested, and the images are concept renders, not photos of a prototype. Hardware freeze: 27 November 2026. Final Day, if selected: 16 December 2026.",
       repo: null,
-      visual: { src: "assets/projects/breathsafe-design.webp", alt: "Poster desain BreathSafe: tiga varian masker, detail modul sensor, baterai di pinggang, dan exploded view komponen utama" },
+      supports: ["IoT product development", "Data Science", "User research"],
       extra: [
-        { title: "Core user flow (design)", label: "Design", items: [
-            "Three steady LEDs show project-defined PM2.5 bands (green, yellow, red)",
-            "At a safe stop, red prompts a mask check",
-            "The app shows when and where exposure peaked",
-            "Optionally, riders share an anonymous summary (time per band only) with their group"] },
-        { title: "Planned MVP", label: "Planned", items: [
-            "Chrome progressive web app on Android using Web Bluetooth",
-            "Humidity logged for bias correction",
-            "End-of-shift private summary in Indonesian: time per band and route hotspots",
-            "Location data stays on the rider’s phone",
-            "Group sharing is planned (synthetic data in the demo)",
-            "Designed for everyday masks: duckbill, 3-ply medical, and KF94"] },
-        { title: "Evidence so far", label: "Exploratory", items: [
+        { title: "Field notes behind the problem", label: "Exploratory", items: [
             "Six exploratory interviews in October 2026: five drivers and one student-worker",
-            "Four reported dust-related eye irritation, four reported riding 5–10 hours a day, and one had a cough that made them stop working",
-            "These accounts do not show prevalence or causation"] },
-        { title: "Planned testing", label: "Planned", items: [
-            "Weight and fit testing across all mask types",
-            "Breakaway connector, day-and-night LED tests, and on-road helmet validation",
-            "Unit-agreement tests and, if reference access is confirmed, R² > 0.90",
-            "The 3–5 hour runtime is unverified and will need duty-cycling"] },
+            "Four reported dust-related eye irritation; four reported riding 5–10 hours per day",
+            "One had a cough that made them stop working",
+            "These accounts are exploratory and give no evidence of prevalence or causation"] },
+        { title: "Core user flow (design)", label: "Design", items: [
+            "Three steady LEDs show project-defined PM2.5 bands",
+            "At a safe stop, red prompts a mask check",
+            "The app shows when and where exposure peaked, plus a private end-of-shift summary in Indonesian",
+            "Optional: an anonymous group summary for mask-check planning (planned; synthetic data in the demo). Location data stays on the rider’s phone"] },
+        { title: "Planned MVP and validation", label: "Planned", items: [
+            "Chrome PWA on Android using Web Bluetooth, with humidity logged for bias correction",
+            "Weight and fit testing across all masks, a breakaway connector, day-and-night LED tests, and on-road helmet validation",
+            "Two iterations: one bench unit and two pilot units",
+            "Unit-agreement tests and, if reference access is confirmed, R² > 0.90"] },
         { title: "Not yet validated", label: "Unvalidated", items: [
-            "Sensor accuracy against a reference",
-            "Battery runtime",
-            "Whether riders notice high-exposure moments and follow through on mask checks (to be tested)"] }
+            "LED readability and mask-check follow-through",
+            "Whether shared group summaries are compiled faster than manual counting",
+            "Battery runtime (3–5 hours is unverified and will need duty-cycling)"] }
       ] }
   ],
 
   bio: [
-    "I’m an Informatics student at Universitas Gunadarma, studying since 2025 and now in semester 3, and a technology enthusiast focused on AI Engineering, Software Development, and Product Management. I enjoy turning complex problems into practical solutions by combining engineering, strategic thinking, and a deep understanding of user needs. For me, technology is not just about writing code, it’s about creating something meaningful, scalable, and impactful.",
+    "I’m an Informatics student at Universitas Gunadarma, studying since 2025 and now in semester 3, and a founder and technology enthusiast focused on Product Management, AI Engineering & Data Science, and Software Development. I enjoy turning complex problems into practical solutions by combining engineering, strategic thinking, and a deep understanding of user needs. For me, technology is not just about writing code, it’s about creating something meaningful, scalable, and impactful.",
     "My ambition is to build products that solve real-world problems, create value, and push boundaries. From experimenting with AI to developing software products and exploring business opportunities, I believe every project is a step toward something bigger. I’m not here just to follow the future, I’m here to help build it."
   ],
 
   stats: [
     { value: "3.71", label: "IPK" },
     { value: "CEO",  label: "Founder & CEO, NEXA Tech Labs" },
-    { value: "1",    label: "Year experience as Python Developer" }
+    { value: "1",    label: "Year experience as Python Developer" },
+    { value: "17",   label: "Users on NEXA Campus, 7 of them helped by deadline reminders" }
   ],
 
   skills: [
@@ -217,13 +220,13 @@ window.CONTENT = {
         "Sertifikat Gunadarma: Dasar Pemrograman Python · 2026, dan Dicoding: Memulai Pemrograman dengan Python",
         "NEXA Assistant — asisten belajar berbasis NLP dan RAG di NEXA Campus (flashcard, kuis, latihan soal, ringkasan)",
         "NEXA-Sphere — konsep AI-SaaS (demand forecasting, rekomendasi pengadaan) dengan prototipe antarmuka; Team Lead & AI/ML Engineer · Top 4 ICBC 2026",
-        "Project Forecasting — eksplorasi analisis data historis dan prediksi"],
+        "Project Forecasting — eksplorasi analisis data historis dan prediksi",
+        "Peserta KOMPRES 16, Divisi AI Innovation · 2026 (tahap registrasi)"],
       title: "AI Engineering & Data Science",
       line: "Designing and building AI-driven solutions by combining machine learning, data analysis, predictive modeling, and software engineering to solve real-world problems.",
       keywords: ["Artificial Intelligence", "Machine Learning", "Data Science", "Predictive Analytics", "Time-Series Forecasting", "AI Integration"] },
     { id: "software", proof: [
         "1 tahun pengalaman sebagai Python Developer",
-        "Peserta Unlimited Software Building (USB), Divisi Desain UI/UX · 2026",
         "Sertifikat Gunadarma: Dasar Pemrograman Python (Flask, MySQL, CRUD) · 2026",
         "Sertifikat Dicoding: Memulai Pemrograman dengan Python",
         "Sertifikat Dicoding: Spec-Driven Development dengan Kiro",
@@ -233,7 +236,6 @@ window.CONTENT = {
       keywords: ["Web Development", "Backend", "Frontend", "API Integration", "Database", "System Architecture"] },
     { id: "product", proof: [
         "Founder & CEO NEXA Tech Labs",
-        "Peserta Unlimited Software Building (USB), Divisi Desain UI/UX · 2026",
         "Delegasi Utama GEMASTIK 2026, Divisi Pengembangan Bisnis TIK"],
       title: "Product Management",
       line: "Turning user problems into valuable products through strategic planning, validation, and execution.",
@@ -241,15 +243,16 @@ window.CONTENT = {
     { id: "business", proof: [
         "Top 4 (Juara Harapan 1) International Canvas Business Competition (ICBC) · 2026",
         "Delegasi Utama Universitas Gunadarma, GEMASTIK 2026 (Pengembangan Bisnis TIK, nasional)",
-        "Peserta Business Plan Competition HIMAMEN · 2026",
-        "Relawan Fundraising & Partnership, Alpha Indonesia Relawan (AIR) · 3 bulan",
+        "Peserta Business Plan Competition HIMAMEN dan UG GBIC · 2026",
+        "Divisi Fundraising & Partnership, AIR (Alpha Indonesia Relawan), komunitas relawan anak muda untuk Panti Asuhan Fadhilah Ihsan di bawah Yayasan Alpha Indonesia · Okt–Des 2026",
         "Founder & CEO NEXA Tech Labs"],
       title: "Business & Entrepreneurship",
       line: "Identifying business opportunities and developing sustainable models that create measurable value.",
       keywords: ["Business Strategy", "Market Research", "Business Model", "Financial Analysis", "Market Validation", "Growth Strategy"] },
     { id: "leadership", proof: [
         "Founder & CEO NEXA Tech Labs",
-        "Vice Chairman I NCD (NEXA Community Development)",
+        "Founder & Vice Chairman I NCD (NEXA Community Development)",
+        "Pemateri sesi NCD Learning Session: Team Formation 101 · 16 Nov 2026",
         "Presentasi internal online tentang profil, tujuan, dan kegiatan NCD"],
       title: "Leadership & Project Management",
       line: "Leading collaborative teams, coordinating execution, and driving projects toward shared goals.",
@@ -261,7 +264,7 @@ window.CONTENT = {
     { year: 2026, name: "Delegasi Utama Universitas Gunadarma — GEMASTIK 2026, Divisi Pengembangan Bisnis TIK", rank: "Delegasi Utama", level: "Nasional", url: "https://kemahasiswaan.gunadarma.ac.id/pengumuman-penetapan-delegasi-universitas-gunadarma-pada-gemastik-tahun-2026-hasil-seleksi-internal-gelombang-iii", src: "Kemahasiswaan Universitas Gunadarma", page: "/achievements/gemastik-2026/" },
     { year: 2026, name: "International Canvas Business Competition (ICBC), Universitas Dian Nuswantoro", rank: "Top 4 (Juara Harapan 1)", level: "Internasional", url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026", src: "Kemahasiswaan Universitas Gunadarma", page: "/achievements/icbc-2026/" },
     { year: 2026, name: "Business Plan Competition HIMAMEN Universitas Gunadarma", rank: "Peserta", level: "Universitas" },
-    { year: 2026, name: "Unlimited Software Building (USB) — Divisi Desain UI/UX", rank: "Peserta", level: "Universitas" },
+    { year: 2026, name: "UG GBIC — diselenggarakan UGpreneurs", rank: "Peserta", level: "Universitas" },
     { year: 2022, name: "Olimpiade Bahasa dan Sastra Indonesia — Liga Olimpiade", rank: "Medali Perak", level: "Olimpiade" },
     { year: 2022, name: "Olimpiade Fisika — Telkom University Competition", rank: "Medali Perak", level: "Olimpiade" },
     { year: 2022, name: "Olimpiade Fisika Nasional — Liga Olimpiade", rank: "Medali Perunggu", level: "Nasional" },
@@ -272,9 +275,20 @@ window.CONTENT = {
      Jumlah di section = jumlah entri di `items` (tiap acara dihitung sekali). Foto = aset asli per acara.
      Tidak ada klaim audiens / juara / penghargaan di luar yang tercatat. */
   stage: {
-    categories: ["Pitching & Competition", "Event Participation", "Community Leadership"],
+    categories: ["Pitching & Competition", "Professional Presentation", "Event Participation", "Community Leadership"],
     intro: "Pitching, presenting, and showing up — documented with the original photos from each event.",
     items: [
+      /* Sesi mendatang: `upcoming: true` → badge + tidak dihitung di angka besar. `photo` boleh dihilangkan
+         (kartu menampilkan blok tanggal dari `date`). `cta` = tombol daftar. */
+      { id: "ncd-team-formation", category: "Community Leadership", upcoming: true,
+        title: "NCD Learning Session — Team Formation 101",
+        role: "Speaker — NCD (NEXA Community Development)",
+        meta: "Mon, Nov 16, 2026 · 20.00–21.00 WIB · Live via Discord",
+        desc: "Speaking on “Team Formation 101: From Strangers to One Team” — how to build an effective team from scratch: team chemistry and trust, understanding individual potential, assigning roles and responsibilities, communication and coordination, managing team conflicts, and an interactive team formation simulation.",
+        status: "Upcoming · Open for registration",
+        date: { day: "16", month: "Nov", year: "2026", time: "20.00–21.00 WIB", where: "Live via Discord" },
+        cta: { label: "Daftar di ncd.web.id", url: "https://ncd.web.id" },
+        skills: ["Leadership & Project Management", "Communication"] },
       { id: "icbc", category: "Pitching & Competition",
         title: "International Canvas Business Competition (ICBC) 2026",
         role: "Team Lead / Presenter — NEXA Tech Labs",
@@ -284,6 +298,14 @@ window.CONTENT = {
         source: { label: "Official announcement — Kemahasiswaan Universitas Gunadarma", url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026" },
         skills: ["AI Engineering & Data Science", "Product Management", "Business & Entrepreneurship"],
         photo: "assets/icbc-pitch.webp", alt: "Tim berjas almamater biru presentasi di depan juri ICBC 2026 dengan penghitung waktu di layar", fit: "center" },
+      { id: "prudential", category: "Professional Presentation",
+        title: "Agency Partner Briefing — Prudential Indonesia",
+        role: "Agency Partner representative",
+        meta: "Prudential Indonesia · 2026",
+        desc: "Delivered a presentation in the “So, What Are You Waiting For?” session as an Agency Partner representative at Prudential Indonesia.",
+        status: null,
+        skills: ["Communication", "Business & Entrepreneurship"],
+        photo: "assets/flipchart.webp", alt: "Presentasi di depan flipchart dan layar “So what are you waiting for?”", fit: "top" },
       { id: "gief", category: "Event Participation",
         title: "Gunadarma Industrial Engineering Fair (GIEF) 2026",
         role: "Participant",
@@ -294,7 +316,7 @@ window.CONTENT = {
         photo: "assets/certificate.webp", alt: "Foto bersama sambil memegang sertifikat GIEF 2026", fit: "center" },
       { id: "ncd", category: "Community Leadership",
         title: "NCD Internal Presentation",
-        role: "Vice Chairman I — NCD",
+        role: "Founder & Vice Chairman I — NCD",
         meta: "NEXA Community Development · Online · Internal",
         desc: "Online internal presentation explaining NCD’s profile, goals, and activities to its members.",
         status: null,
@@ -313,12 +335,16 @@ window.CONTENT = {
     { kicker: "Appreciation", name: "Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.",
       role: "Kaprodi Informatika", org: "Universitas Gunadarma",
       quote: "Terimakasih telah berusaha dan berjuang tim tim NEXA, jangan pernah patah semangat",
-      tags: ["Effort", "Perseverance", "Team NEXA"], photo: "assets/testimonials/photo-b.webp", photoAlt: "Foto Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc." }
+      tags: ["Effort", "Perseverance", "Team NEXA"], photo: "assets/testimonials/photo-b.webp", photoAlt: "Foto Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc." },
+    { kicker: "Team Endorsement", name: "Rayyan Fathan Addani",
+      role: "Vice Chairman II", org: "NCD (NEXA Community Development)",
+      quote: "Fauzan cocok dijadikan leader karena dia punya visi yang matang, dia bisa mendelegasikan serta mengarahkan anggotanya",
+      tags: ["Vision", "Delegation", "Leadership"], photo: "assets/testimonials/photo-c.webp", photoAlt: "Foto Rayyan Fathan Addani" }
   ],
 
   publications: [
     { title: "NEXA-Sphere: an AI-SaaS concept for multi-outlet F&B inventory, and the road to ICBC 2026 Top 4", publisher: "frikhii.my.id", year: 2026, url: "/writing/nexa-sphere-icbc-2026/", internal: true },
-    { title: "BreathSafe: notes on a clip-on PM2.5 monitor for ojol drivers (GDGoC STACK ITB 2026)", publisher: "frikhii.my.id", year: 2026, url: "/writing/breathsafe-pm25-monitor-notes/", internal: true },
+    { title: "BreathSafe: a clip-on PM2.5 monitor for ojol drivers (STACK 2026 by GDGoC ITB)", publisher: "frikhii.my.id", year: 2026, url: "/writing/breathsafe-pm25-monitor-ojol/", internal: true },
     { title: "My 2026 learning path: from Python fundamentals to data science and cloud AI", publisher: "frikhii.my.id", year: 2026, url: "/writing/python-to-ai-learning-path-2026/", internal: true },
     { title: "Tim Mahasiswa Universitas Gunadarma Raih Juara Harapan I pada International Canvas Business Competition 2026", publisher: "Kemahasiswaan Universitas Gunadarma", year: 2026,
       url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026" },
@@ -330,6 +356,9 @@ window.CONTENT = {
   /* Galeri: `title` & `meta` tampil di bawah foto; klik "Read the story" membuka `desc`.
      Item video: isi `video`, `src` dipakai sebagai poster. */
   gallery: [
+    { src: "assets/flipchart.webp", alt: "Presentasi di depan flipchart dan layar “So what are you waiting for?”", caption: "So, What Are You Waiting For?",
+      title: "So, What Are You Waiting For?", meta: "Agency Partner Briefing · Prudential Indonesia · 2026",
+      desc: "Presentation documentation from the “So, What Are You Waiting For?” session, delivered as an Agency Partner representative at Prudential Indonesia." },
     { src: "assets/stage.webp", alt: "Tim berjas almamater biru berdiri di depan layar presentasi pada acara final ICBC 2026", caption: "ICBC 2026 — Finalist Presentation",
       title: "ICBC 2026 — Finalist Presentation", meta: "ICBC 2026 · Universitas Dian Nuswantoro",
       desc: "Team photo in alma mater jackets at the final presentation of the International Canvas Business Competition 2026, held on April 25, 2026 under the theme “Digital Business Ecosystem for Global Market Expansion.” Our team reached the finals." },
@@ -342,6 +371,9 @@ window.CONTENT = {
     { src: "assets/cafe.webp", alt: "Foto bersama anggota NCD di sebuah kafe", caption: "NCD Community Gathering",
       title: "NCD Community Gathering", meta: "NEXA Community Development",
       desc: "Group photo with NCD (NEXA Community Development) members at a café." },
+    { src: "assets/warteg-interview.webp", alt: "Berjabat tangan dengan pemilik warteg saat wawancara validasi ide", caption: "Ground Truth",
+      title: "Ground Truth", meta: "Idea validation · AI Innovation division",
+      desc: "Interviewing a warteg owner face to face to validate the “Kompres” idea for the AI Innovation division — talking to real users before building." },
     { src: "assets/icbc-pitch.webp", alt: "Tim berjas almamater biru presentasi di depan juri dengan penghitung waktu di layar", caption: "Live on the Floor",
       title: "Live on the Floor", meta: "ICBC 2026",
       desc: "Pitching in front of the judges at ICBC 2026, with the countdown timer running on the screen behind us." },

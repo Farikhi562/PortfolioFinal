@@ -136,7 +136,7 @@ function projectsHub(lang) {
   const T = UI[lang], pth = "/projects/";
   const ogKey = register(lang, pth, T.projects, "PORTFOLIO");
   const title = lang === "id" ? "Project | Muhamad Fauzan Al Farikhi" : "Projects | Muhamad Fauzan Al Farikhi";
-  const desc = lang === "id" ? "Daftar project Muhamad Fauzan Al Farikhi: platform web, data forecasting, SaaS kampus NEXA Campus, konsep AI-SaaS NEXA-Sphere, dan smart locker IoT LOKi." : "Projects by Muhamad Fauzan Al Farikhi: web platforms, data forecasting, the NEXA Campus SaaS, the NEXA-Sphere AI-SaaS concept, and the LOKi IoT smart locker.";
+  const desc = lang === "id" ? "Daftar project Muhamad Fauzan Al Farikhi: platform web, data forecasting, SaaS kampus NEXA Campus, konsep AI-SaaS NEXA-Sphere, dan monitor PM2.5 BreathSafe untuk pengemudi ojol." : "Projects by Muhamad Fauzan Al Farikhi: web platforms, data forecasting, the NEXA Campus SaaS, the NEXA-Sphere AI-SaaS concept, and the BreathSafe PM2.5 monitor for ojol drivers.";
   const items = C.projects.map(p0 => { const p = projectView(p0, lang); return '<li class="card"><p class="card__k">' + esc(p0.category) + '</p><h2><a href="' + url(lang, "/projects/" + p0.id + "/") + '">' + esc(p0.name) + "</a></h2><p>" + esc(p.desc) + "</p><p class=\"card__f\">" + pill(p0, lang) + '<a href="' + url(lang, "/projects/" + p0.id + "/") + '">' + esc(T.details) + " →</a></p></li>"; }).join("");
   const body = '<section class="pg"><header class="ph"><p class="ph__k">' + esc(T.portfolio) + "</p><h1>" + esc(T.projects) + '</h1><p class="ph__lede">' + esc(lang === "id" ? "Project yang sudah live, konsep yang sedang dikembangkan, dan prototipe — dengan status yang ditulis apa adanya." : "Live projects, concepts in development, and prototypes, with status stated as it is.") + '</p></header><div class="pc"><ul class="cards">' + items + "</ul></div></section>";
   write((lang === "id" ? "id/" : "") + "projects/index.html", layout({ lang, path: pth, title, desc, h1: T.projects, body, og: ogKey, section: url(lang, pth),
@@ -232,6 +232,7 @@ function idHome() {
     "<h2>" + esc(T.skillsH) + '</h2><ul class="cards">' + skills + "</ul>" +
     "<h2>" + esc(T.projectsH) + '</h2><ul class="cards">' + projects + '</ul><p><a href="/id/projects/">' + esc(T.allProjects) + " →</a></p>" +
     "<h2>" + esc(T.achievementsH) + '</h2><ul class="plain">' + ach + '</ul><p><a href="/id/achievements/">' + esc(T.allAchievements) + " →</a></p>" +
+    "<h2>" + esc(I.upcoming.h) + '</h2><ul class="plain"><li><strong>' + esc(I.upcoming.title) + "</strong><br>" + esc(I.upcoming.when) + "<br>" + esc(I.upcoming.desc) + ' <a href="' + esc(I.upcoming.url) + '" rel="noopener">' + esc(I.upcoming.cta) + " ↗</a></li></ul>" +
     "<h2>" + esc(T.pathH) + '</h2><ul class="plain">' + path + "</ul>" +
     "<h2>" + esc(T.writing) + '</h2><ul class="plain">' + arts + '</ul><p><a href="/id/writing/">' + esc(T.allWriting) + " →</a></p></div></section>";
   const ldo = [{ "@type": "ProfilePage", "@id": BASE + "/id/#profile", url: BASE + "/id/", name: title, inLanguage: "id", dateModified: BUILD_DATE, mainEntity: { "@id": BASE + "/#person" },
