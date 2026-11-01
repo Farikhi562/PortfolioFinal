@@ -282,6 +282,8 @@ window.CONTENT = {
       /* Sesi mendatang: `upcoming: true` → badge + tidak dihitung di angka besar. `photo` boleh dihilangkan
          (kartu menampilkan blok tanggal dari `date`). `cta` = tombol daftar. */
       { id: "ncd-team-formation", category: "Community Leadership", upcoming: true,
+        photo: "assets/ncd-team-formation-101.webp", poster: true,
+        alt: "Poster NCD Learning Session 01: Team Formation 101 — From Strangers to One Team, pembicara Muhamad Fauzan Al Farikhi, Senin 16 November 2026 pukul 20.00–21.00 WIB, live via Discord",
         title: "NCD Learning Session — Team Formation 101",
         role: "Speaker — NCD (NEXA Community Development)",
         meta: "Mon, Nov 16, 2026 · 20.00–21.00 WIB · Live via Discord",

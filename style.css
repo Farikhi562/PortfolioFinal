@@ -79,9 +79,9 @@ h1,h2,h3,p{margin:0}
 .line__in{display:inline-block;will-change:transform}
 .hero__name .serif{text-transform:none;letter-spacing:-.02em;font-size:1.06em;line-height:.9}
 .hero__name .dot{color:var(--red)}
-.roles{display:flex;flex-wrap:wrap;gap:.5rem 1.8rem;margin-bottom:1.6rem}
-.roles li{display:flex;align-items:center;gap:.7rem;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
-.roles li::before{content:"";width:1.6rem;height:1px;background:var(--red)}
+.roles{display:flex;flex-wrap:wrap;gap:.4rem 0;margin-bottom:1.6rem}
+.roles li{display:flex;align-items:center;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.roles li+li::before{content:"|";margin:0 .9rem;color:var(--red);font-weight:700;letter-spacing:0}
 .hero__tag{max-width:30ch;font-size:clamp(1.1rem,1rem + .7vw,1.5rem);line-height:1.35;color:var(--cream);margin-bottom:2.2rem}
 .hero__cta{display:flex;flex-wrap:wrap;gap:.8rem}
 
@@ -600,3 +600,6 @@ dialog[open]{animation:dlg .5s var(--ease)}
   .snap{flex:0 0 min(74%,19rem);scroll-snap-align:start}
 }
 @media (prefers-reduced-motion:reduce){.snap__fig img,.toast{transition:none}}
+
+.sx__ph--poster{aspect-ratio:4/5}
+.sx__ph--poster img{object-position:50% 18%}

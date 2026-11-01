@@ -614,7 +614,7 @@
         var li = el("li", "sx"); var card = el("article", "sx__card");
         var ph;
         if (it.photo) {
-          ph = el("button", "sx__ph"); ph.type = "button"; ph.setAttribute("aria-label", "Buka foto: " + it.title);
+          ph = el("button", "sx__ph" + (it.poster ? " sx__ph--poster" : "")); ph.type = "button"; ph.setAttribute("aria-label", "Buka foto: " + it.title);
           var im = new Image(); im.src = it.photo; im.alt = it.alt; im.loading = "lazy"; im.decoding = "async"; im.style.objectPosition = it.fit === "top" ? "50% 18%" : "50% 50%";
           ph.appendChild(im); ph.addEventListener("click", function () { openLightbox([it.photo], it.title, ph, { desc: it.desc, meta: it.meta }); });
         } else {
