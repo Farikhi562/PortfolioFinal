@@ -381,5 +381,30 @@ window.CONTENT = {
     { src: "assets/video/icbc-reel-poster.webp", video: "assets/video/icbc-reel.mp4", alt: "Cuplikan video tim saat pitching di ICBC 2026", caption: "ICBC, in Motion",
       title: "ICBC, in Motion", meta: "ICBC 2026 · 17-second reel",
       desc: "A short reel from ICBC 2026 — the team on stage during the pitching session." }
+  ],
+
+  /* ====== PHOTO DUMP (kartu story 9:16 + tombol Share ke WhatsApp) ======
+     Tambah foto baru: taruh file di assets/life/, lalu salin satu blok di bawah.
+     card  = kalimat pendek yang tampil di foto DAN di kartu hasil share (lowercase, nada santai).
+     share = teks yang ikut terkirim ke WhatsApp (hook → perasaan relatable → ajakan tag teman).
+     Foto portrait 9:16 paling pas untuk Status WhatsApp. */
+  snapsIntro: { label: "photo dump", hint: "tap share → kirim ke WhatsApp temanmu", cta: "Share ke WhatsApp", save: "Simpan kartu" },
+  snaps: [
+    { src: "assets/life/butterflies.webp", alt: "Lemari kaca berisi ratusan kupu-kupu sayap burung (Papilionidae) yang diawetkan, dengan lampu LED kuning",
+      title: "Wall of wings", meta: "Papilionidae · kupu sayap burung",
+      card: "satu dinding penuh kupu-kupu. warnanya kayak filter, padahal asli.",
+      share: "ada tempat yang isinya kupu-kupu satu dinding penuh 🦋 warnanya kayak filter, padahal asli. save buat list jalan-jalanmu ✨\n\ntag temen yang harus kamu ajak ke sini 👇" },
+    { src: "assets/life/baby-tortoises.webp", alt: "Empat kura-kura kecil berkerumun makan selada di atas piring",
+      title: "Salad club", meta: "baby tortoises · lunch break",
+      card: "4 kura-kura, 1 piring selada, nol drama.",
+      share: "4 kura-kura kecil, 1 piring selada, nol drama 🐢🥬 ini energi yang aku mau buat minggu depan.\n\nsiapa yang butuh vibes ini? tag 👇" },
+    { src: "assets/life/sea-turtles.webp", alt: "Dua kepala penyu hijau muncul di permukaan air dangkal",
+      title: "No rush", meta: "sea turtles · slow mode",
+      card: "pelan-pelan juga gapapa. tetap sampai kok.",
+      share: "pelan-pelan juga gapapa 🐢🌊 penyu ini gak pernah buru-buru, tetap sampai kok. reminder buat kamu yang lagi capek ngejar semuanya.\n\nkirim ke temen yang butuh denger ini 💛" },
+    { src: "assets/life/white-tiger.webp", alt: "Harimau putih berendam di kolam di Lembang Park & Zoo",
+      title: "Cool down", meta: "Lembang Park & Zoo",
+      card: "white tiger lagi berendam. aku yang ngerasa adem.",
+      share: "white tiger lagi berendam, aku yang ngerasa adem 🐯💧 Lembang Park & Zoo.\n\nayo healing bareng, tag temen yang wajib ikut 👇" }
   ]
 };

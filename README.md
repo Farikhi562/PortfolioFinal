@@ -91,3 +91,5 @@ npm run build:check   # cek halaman hasil build masih sinkron dengan content.js
 - **Affiliations**: field `url` membuat logo bisa diklik (NEXA → nexatechlabs.my.id, NCD → ncd.web.id); `big: true` memperbesar logo yang terlalu kecil.
 - **Project**: field `visual: { src, alt }` menampilkan gambar desain tambahan di modal dan halaman project.
 - **Relawan AIR**: entri di `affiliations`, `path` (type `Volunteer`), dan bukti skill Business & Entrepreneurship.
+
+- **Photo dump + Share WhatsApp** (section Life): array `snaps` di `content.js`. Tiap foto jadi kartu story 9:16; tombol "Share ke WhatsApp" membuat kartu estetik (grain film, caption serif, handle IG) lalu membukanya lewat menu share HP (gambar + caption). Di desktop membuka `wa.me` dengan teks, dan "Simpan kartu" mengunduh gambar 1080×1920 untuk Status. Tambah foto baru: taruh di `assets/life/`, salin satu blok di `snaps`, isi `card` (teks di foto) dan `share` (teks WhatsApp). Teks `snapsIntro` mengatur label tombol.

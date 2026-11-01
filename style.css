@@ -569,3 +569,34 @@ dialog[open]{animation:dlg .5s var(--ease)}
 .pd__fig{margin:0 0 1.4rem;grid-column:1/-1}
 .pd__fig img{display:block;width:100%;height:auto;border-radius:2px;background:#121211}
 .aff__item--big .aff__logo img{height:140%;margin:-.35rem 0}
+
+/* ==========================================================================
+   08 / Life — photo dump (kartu story 9:16 + share WhatsApp)
+   ========================================================================== */
+.snaps{margin-top:clamp(3.5rem,8vw,7rem);scroll-margin-top:6rem}
+.snaps__head{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem 1.5rem;flex-wrap:wrap;margin-bottom:1.5rem;padding-top:1.4rem;border-top:1px solid var(--line-d)}
+.snaps__t{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.9rem,3.8vw,3.2rem);line-height:1;color:var(--red)}
+.snaps__h{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.snaps__row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.8rem,1.6vw,1.4rem)}
+.snap{display:flex;flex-direction:column;gap:.75rem;min-width:0}
+.snap__fig{position:relative;margin:0;aspect-ratio:9/16;overflow:hidden;border-radius:1.1rem;background:#121211;isolation:isolate}
+.snap__fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.snap:hover .snap__fig img{transform:scale(1.045)}
+.snap__fig::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,10,9,.94) 0,rgba(10,10,9,.7) 30%,rgba(10,10,9,0) 62%)}
+.snap__txt{position:absolute;z-index:2;left:1.05rem;right:1.05rem;bottom:1.05rem;display:block}
+.snap__meta{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:.45rem}
+.snap__card{display:block;font-family:var(--f-serif);font-style:italic;font-size:clamp(1.2rem,1.9vw,1.65rem);line-height:1.12;color:var(--cream);text-wrap:balance}
+.snap__acts{display:flex;flex-direction:column;gap:.5rem}
+.snap__wa,.snap__save{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.9rem;padding:.7rem 1rem;border-radius:999px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s}
+.snap__wa{background:#25D366;color:var(--ink)}
+.snap__wa:hover{background:var(--cream);transform:translateY(-2px)}
+.snap__save{border:1px solid var(--line-d);color:var(--cream)}
+.snap__save:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.toast{position:fixed;left:50%;bottom:1.4rem;z-index:90;max-width:min(92vw,30rem);translate:-50% 140%;padding:.9rem 1.3rem;border-radius:999px;background:var(--cream);color:var(--ink);font-size:.82rem;font-weight:500;line-height:1.4;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.4);transition:translate .5s var(--ease);pointer-events:none}
+.toast.on{translate:-50% 0}
+@media (max-width:900px){
+  .snaps__row{display:flex;gap:.9rem;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--pad) * -1);padding:0 var(--pad) .6rem;scroll-padding-inline:var(--pad);-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .snaps__row::-webkit-scrollbar{display:none}
+  .snap{flex:0 0 min(74%,19rem);scroll-snap-align:start}
+}
+@media (prefers-reduced-motion:reduce){.snap__fig img,.toast{transition:none}}

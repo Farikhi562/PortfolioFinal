@@ -746,6 +746,95 @@
     stage.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); openItem(); } });
     stage.appendChild(slide(0)); label(0);
     G.forEach(function (g) { var p = new Image(); p.src = g.src; });
+    buildSnaps(sec);
+  }
+
+  /* ---------- 08 / Life: photo dump (kartu story 9:16 + share ke WhatsApp) ---------- */
+  function buildSnaps(sec) {
+    var S = C.snaps; if (!S || !S.length) return;
+    var T = C.snapsIntro || {};
+    var canon = document.querySelector('link[rel="canonical"]');
+    var SITE = ((canon && canon.href) || location.origin + "/").replace(/#.*$/, "") + "#life";
+    var coarse = window.matchMedia && window.matchMedia("(pointer:coarse)").matches;
+    var wrap = el("div", "snaps"); wrap.setAttribute("data-reveal", "");
+    var head = el("div", "snaps__head"); head.appendChild(el("p", "snaps__t", T.label || "photo dump")); head.appendChild(el("p", "snaps__h", T.hint || ""));
+    var row = el("ul", "snaps__row"); row.setAttribute("aria-label", T.label || "photo dump");
+    var toast = el("p", "toast"); toast.setAttribute("role", "status"); toast.setAttribute("aria-live", "polite"); document.body.appendChild(toast);
+    var toastT; function say(t) { toast.textContent = t; toast.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(function () { toast.classList.remove("on"); }, 3800); }
+
+    function slug(s) { return (s.title || "photo").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+    function loadImg(src) { return new Promise(function (ok, no) { var i = new Image(); i.onload = function () { ok(i); }; i.onerror = no; i.src = src; }); }
+    function lines(x, text, maxW) {
+      var w = text.split(" "), out = [], cur = "";
+      w.forEach(function (t) { var tr = cur ? cur + " " + t : t; if (x.measureText(tr).width > maxW && cur) { out.push(cur); cur = t; } else cur = tr; });
+      if (cur) out.push(cur); return out;
+    }
+    /* Kartu 1080×1920 (rasio Status WhatsApp): foto + vignette + grain film + caption serif + handle */
+    function renderCard(s) {
+      var fonts = document.fonts && document.fonts.load ? Promise.all([document.fonts.load('italic 400 90px "Instrument Serif"'), document.fonts.load('500 30px "DM Sans"')]).catch(function () {}) : Promise.resolve();
+      return Promise.all([loadImg(s.src), fonts]).then(function (r) {
+        var img = r[0], W = 1080, H = 1920, c = document.createElement("canvas"); c.width = W; c.height = H;
+        var x = c.getContext("2d"), k = Math.max(W / img.width, H / img.height), dw = img.width * k, dh = img.height * k;
+        x.imageSmoothingQuality = "high"; x.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+        var v = x.createRadialGradient(W / 2, H * .42, H * .22, W / 2, H * .5, H * .78); v.addColorStop(0, "rgba(10,10,9,0)"); v.addColorStop(1, "rgba(10,10,9,.55)"); x.fillStyle = v; x.fillRect(0, 0, W, H);
+        var g = x.createLinearGradient(0, H * .4, 0, H); g.addColorStop(0, "rgba(10,10,9,0)"); g.addColorStop(.45, "rgba(10,10,9,.62)"); g.addColorStop(.7, "rgba(10,10,9,.86)"); g.addColorStop(1, "rgba(10,10,9,.95)"); x.fillStyle = g; x.fillRect(0, H * .4, W, H * .6);
+        var n = document.createElement("canvas"); n.width = n.height = 220; var nx = n.getContext("2d"), d = nx.createImageData(220, 220);
+        for (var i = 0; i < d.data.length; i += 4) { var t = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = t; d.data[i + 3] = 255; }
+        nx.putImageData(d, 0, 0); x.save(); x.globalAlpha = .1; x.globalCompositeOperation = "overlay"; x.fillStyle = x.createPattern(n, "repeat"); x.fillRect(0, 0, W, H); x.restore();
+        function sp(px) { if ("letterSpacing" in x) x.letterSpacing = px + "px"; }
+        var PAD = 88;
+        x.textBaseline = "alphabetic"; x.fillStyle = "rgba(236,233,225,.85)"; x.textAlign = "right"; x.font = '500 28px "DM Sans", system-ui, sans-serif'; sp(7);
+        x.fillText((T.label || "photo dump").toUpperCase() + "  ✦", W - PAD, 196);
+        x.textAlign = "left";
+        x.font = 'italic 400 96px "Instrument Serif", Georgia, serif'; sp(-1);
+        var L = lines(x, s.card || s.title, W - PAD * 2), lh = 104, bottom = H - 360, top = bottom - (L.length - 1) * lh;
+        x.fillStyle = "#ECE9E1"; L.forEach(function (ln, j) { x.fillText(ln, PAD, top + j * lh); });
+        x.font = '700 27px "DM Sans", system-ui, sans-serif'; sp(6); x.fillStyle = "#EE4B3B"; x.fillText((s.meta || "").toUpperCase(), PAD, top - 96 - 10);
+        x.fillStyle = "rgba(236,233,225,.28)"; x.fillRect(PAD, H - 300, W - PAD * 2, 2);
+        x.font = '500 34px "DM Sans", system-ui, sans-serif'; sp(1); x.fillStyle = "#ECE9E1"; x.fillText(P.instagram.handle, PAD, H - 236);
+        x.textAlign = "right"; x.fillStyle = "rgba(236,233,225,.6)"; x.font = '400 30px "DM Sans", system-ui, sans-serif'; x.fillText(SITE.replace(/^https?:\/\//, "").replace(/\/?#life$/, ""), W - PAD, H - 236);
+        return new Promise(function (ok, no) { c.toBlob(function (b) { b ? ok(b) : no(new Error("blob")); }, "image/jpeg", .92); });
+      });
+    }
+    function blobOf(s) { return s._p || (s._p = renderCard(s).then(function (b) { s._blob = b; return b; })); }
+    function fileOf(s) { return new File([s._blob], "fauzan-" + slug(s) + ".jpg", { type: "image/jpeg" }); }
+    function waLink(s) { return "https://wa.me/?text=" + encodeURIComponent(s.share + "\n\n" + SITE); }
+    function toWA(s) { window.open(waLink(s), "_blank", "noopener"); say("WhatsApp terbuka. Mau fotonya juga? Tekan “" + (T.save || "Simpan kartu") + "”, lalu lampirkan."); }
+
+    function share(s) {
+      var text = s.share + "\n\n" + SITE;
+      if (coarse && s._blob && navigator.canShare && navigator.share) {
+        var f = fileOf(s);
+        if (navigator.canShare({ files: [f] })) { navigator.share({ files: [f], text: text }).catch(function (e) { if (e && e.name !== "AbortError") toWA(s); }); return; }
+      }
+      toWA(s);
+    }
+    function save(s) {
+      blobOf(s).then(function () {
+        var a = document.createElement("a"), u = URL.createObjectURL(s._blob); a.href = u; a.download = "fauzan-" + slug(s) + ".jpg";
+        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(u); }, 4000);
+        say("Kartu tersimpan. Pasang di Status WhatsApp-mu ✦");
+      }).catch(function () { say("Gagal membuat kartu. Coba lagi."); });
+    }
+
+    var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { blobOf(e.target.__s).catch(function () {}); io.unobserve(e.target); } }); }, { rootMargin: "300px" }) : null;
+
+    S.forEach(function (s, i) {
+      var li = el("li", "snap"); li.__s = s;
+      var fig = el("figure", "snap__fig");
+      var im = new Image(); im.src = s.src; im.alt = s.alt || s.title; im.loading = "lazy"; im.decoding = "async"; im.width = 1080; im.height = 1920; fig.appendChild(im);
+      var tx = el("figcaption", "snap__txt"); tx.appendChild(el("span", "snap__meta", s.meta || "")); tx.appendChild(el("span", "snap__card", s.card || s.title)); fig.appendChild(tx);
+      var acts = el("div", "snap__acts");
+      var wa = el("button", "snap__wa"); wa.type = "button"; wa.setAttribute("aria-label", (T.cta || "Share ke WhatsApp") + ": " + s.title);
+      wa.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c.3 3 2.6 5.6 6 6.5l1.3-1.6-2.2-1.1-.9.7c-.9-.4-1.7-1.2-2.1-2.1l.7-.9-1.1-2.2z"/></svg>';
+      wa.appendChild(el("span", null, T.cta || "Share ke WhatsApp"));
+      var sv = el("button", "snap__save", T.save || "Simpan kartu"); sv.type = "button"; sv.setAttribute("aria-label", (T.save || "Simpan kartu") + ": " + s.title);
+      wa.addEventListener("click", function () { share(s); }); sv.addEventListener("click", function () { save(s); });
+      ["pointerenter", "touchstart"].forEach(function (ev) { li.addEventListener(ev, function () { blobOf(s).catch(function () {}); }, { passive: true, once: true }); });
+      acts.appendChild(wa); acts.appendChild(sv); li.appendChild(fig); li.appendChild(acts); row.appendChild(li);
+      if (io) io.observe(li);
+    });
+    wrap.appendChild(head); wrap.appendChild(row); sec.appendChild(wrap);
   }
 
   /* ---------- 07 / Connect ---------- */
