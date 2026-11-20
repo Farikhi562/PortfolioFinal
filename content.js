@@ -261,6 +261,8 @@ window.CONTENT = {
   ],
 
   achievements: [
+    { year: 2026, name: "STACK 2026 — GDGoC ITB · proyek BreathSafe", rank: "Semifinalis", level: "Universitas" },
+    { year: 2026, name: "BPC FISIPRENEUR UNTIDAR · proyek RITMA", rank: "Tahap Penilaian Proposal · Pengumuman 27 Nov 2026", level: "Universitas" },
     { year: 2026, name: "8th Gunadarma Industrial Engineering Fair (GIEF) 2026 — Pameran Produk Inovasi Mahasiswa (sertifikat atas nama Tim Mahasiswa Informatika)", rank: "Peserta", level: "Universitas" },
     { year: 2026, name: "Delegasi Utama Universitas Gunadarma — GEMASTIK 2026, Divisi Pengembangan Bisnis TIK", rank: "Delegasi Utama", level: "Nasional", url: "https://kemahasiswaan.gunadarma.ac.id/pengumuman-penetapan-delegasi-universitas-gunadarma-pada-gemastik-tahun-2026-hasil-seleksi-internal-gelombang-iii", src: "Kemahasiswaan Universitas Gunadarma", page: "/achievements/gemastik-2026/" },
     { year: 2026, name: "International Canvas Business Competition (ICBC), Universitas Dian Nuswantoro", rank: "Top 4 (Juara Harapan 1)", level: "Internasional", url: "https://kemahasiswaan.gunadarma.ac.id/tim-mahasiswa-universitas-gunadarma-raih-juara-harapan-i-pada-international-canvas-business-competition-2026", src: "Kemahasiswaan Universitas Gunadarma", page: "/achievements/icbc-2026/" },

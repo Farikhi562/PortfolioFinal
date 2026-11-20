@@ -39,7 +39,7 @@ const UI = {
 };
 
 /* Peta peringkat / tingkat (nama kompetisi tetap memakai judul resmi) */
-const RANK_EN = { "Peserta": "Participant", "Delegasi Utama": "Main Delegate", "Medali Perak": "Silver Medal", "Medali Perunggu": "Bronze Medal", "Medali Emas": "Gold Medal", "Top 4 (Juara Harapan 1)": "Top 4 (Juara Harapan 1)" };
+const RANK_EN = { "Peserta": "Participant", "Delegasi Utama": "Main Delegate", "Medali Perak": "Silver Medal", "Medali Perunggu": "Bronze Medal", "Medali Emas": "Gold Medal", "Top 4 (Juara Harapan 1)": "Top 4 (Juara Harapan 1)", "Semifinalis": "Semifinalist", "Tahap Penilaian Proposal · Pengumuman 27 Nov 2026": "Proposal Under Review · Results 27 Nov 2026" };
 const LEVEL_EN = { "Universitas": "University", "Nasional": "National", "Internasional": "International", "Olimpiade": "Olympiad" };
 const LEVEL_ID = { "Universitas": "Universitas", "Nasional": "Nasional", "Internasional": "Internasional", "Olimpiade": "Olimpiade" };
 const GROUP_EN = { "Kompetisi": "Competition", "Kursus": "Course", "Olimpiade": "Olympiad" };
