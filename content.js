@@ -177,7 +177,7 @@ window.CONTENT = {
       role: "Team member",
       contribution: null,
       stack: ["Chrome Progressive Web App on Android (Web Bluetooth)", "PMS5003 PM2.5 sensor", "nRF52840 board", "AHT20 humidity sensor", "5 V blower for air sampling"],
-      statusNote: "Ongoing — a competition entry for STACK 2026 by GDGoC ITB (Case 2: Stronger Communities and Everyday Services), team “Mirza Batagor Phd”. The abstract is written; the hardware is not yet built or tested, and the images are concept renders, not photos of a prototype. Hardware freeze: 27 November 2026. Final Day, if selected: 16 December 2026.",
+      statusNote: "Ongoing — semifinalist at STACK 2026 by GDGoC ITB (Case 2: Stronger Communities and Everyday Services), team “Mirza Batagor Phd”, now at the proposal-making stage. The abstract is written; the hardware is not yet built or tested, and the images are concept renders, not photos of a prototype. Hardware freeze: 27 November 2026. Final Day, if selected: 16 December 2026.",
       repo: null,
       supports: ["IoT product development", "Data Science", "User research"],
       extra: [

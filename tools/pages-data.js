@@ -129,7 +129,7 @@ const ID_PROJECTS = {
     solution: "BreathSafe adalah modul sensor di masker pengendara yang terhubung kabel ke baterai di pinggang. Sensor PMS5003 dan blower 5 V mengambil sampel udara di dekat wajah; tiga LED menunjukkan pita PM2.5, LED merah saat berhenti di tempat aman mengingatkan untuk memeriksa masker, lalu aplikasi menampilkan kapan dan di mana paparan memuncak. Pengendara bisa berbagi ringkasan anonim (hanya waktu per pita) dengan kelompoknya.",
     role: "Anggota tim",
     stack: ["Progressive Web App Chrome di Android (Web Bluetooth)", "Sensor PM2.5 PMS5003", "Board nRF52840", "Sensor kelembapan AHT20", "Blower 5 V untuk pengambilan sampel udara"],
-    statusNote: "Berlangsung — karya kompetisi untuk STACK 2026 oleh GDGoC ITB (Case 2: Stronger Communities and Everyday Services), tim “Mirza Batagor Phd”. Abstrak sudah ditulis; perangkat keras belum dibuat atau diuji, dan gambar yang tampil adalah render konsep, bukan foto prototipe. Hardware freeze: 27 November 2026. Final Day, jika terpilih: 16 Desember 2026.",
+    statusNote: "Berlangsung — lolos semifinal STACK 2026 oleh GDGoC ITB (Case 2: Stronger Communities and Everyday Services), tim “Mirza Batagor Phd”, kini di tahap pembuatan proposal. Abstrak sudah ditulis; perangkat keras belum dibuat atau diuji, dan gambar yang tampil adalah render konsep, bukan foto prototipe. Hardware freeze: 27 November 2026. Final Day, jika terpilih: 16 Desember 2026.",
     extra: [
       { title: "Catatan lapangan di balik masalah", label: "Eksploratif", items: ["Enam wawancara eksploratif pada Oktober 2026: lima pengemudi dan satu pekerja-mahasiswa", "Empat orang melaporkan iritasi mata akibat debu; empat orang berkendara 5–10 jam per hari", "Satu orang batuk hingga berhenti bekerja", "Cerita ini bersifat eksploratif dan tidak membuktikan prevalensi maupun sebab-akibat"] },
       { title: "Alur pengguna inti (desain)", label: "Desain", items: ["Tiga LED menyala tetap menunjukkan pita PM2.5 yang ditetapkan project", "Saat berhenti di tempat aman, LED merah meminta pengecekan masker", "Aplikasi menampilkan kapan dan di mana paparan memuncak, plus ringkasan pribadi akhir shift dalam bahasa Indonesia", "Opsional: ringkasan kelompok anonim untuk perencanaan cek masker (direncanakan; data sintetis di demo). Data lokasi tetap di ponsel pengendara"] },
@@ -287,7 +287,7 @@ const ARTICLES = [
         { h: "My role" },
         { p: "Team member, on team “Mirza Batagor Phd”." },
         { h: "Status" },
-        { p: "Ongoing. BreathSafe is a competition entry for STACK 2026 by GDGoC ITB (Case 2: Stronger Communities and Everyday Services). The hardware is not yet built or tested, and the images are concept renders, not photos of a prototype. Hardware freeze is 27 November 2026; the Final Day, if selected, is 16 December 2026. Full details are on the [BreathSafe project page](/projects/breathsafe/)." }
+        { p: "Ongoing. BreathSafe advanced to the semifinal of STACK 2026 by GDGoC ITB (Case 2: Stronger Communities and Everyday Services) and is now at the proposal-making stage. The hardware is not yet built or tested, and the images are concept renders, not photos of a prototype. Hardware freeze is 27 November 2026; the Final Day, if selected, is 16 December 2026. Full details are on the [BreathSafe project page](/projects/breathsafe/)." }
       ]
     },
     id: {
@@ -307,7 +307,7 @@ const ARTICLES = [
         { h: "Peran saya" },
         { p: "Anggota tim, pada tim “Mirza Batagor Phd”." },
         { h: "Status" },
-        { p: "Berlangsung. BreathSafe adalah karya kompetisi untuk STACK 2026 oleh GDGoC ITB (Case 2: Stronger Communities and Everyday Services). Perangkat keras belum dibuat atau diuji, dan gambar yang tampil adalah render konsep, bukan foto prototipe. Hardware freeze 27 November 2026; Final Day, jika terpilih, 16 Desember 2026. Detail lengkap ada di [halaman project BreathSafe](/id/projects/breathsafe/)." }
+        { p: "Berlangsung. BreathSafe lolos ke semifinal STACK 2026 oleh GDGoC ITB (Case 2: Stronger Communities and Everyday Services) dan kini di tahap pembuatan proposal. Perangkat keras belum dibuat atau diuji, dan gambar yang tampil adalah render konsep, bukan foto prototipe. Hardware freeze 27 November 2026; Final Day, jika terpilih, 16 Desember 2026. Detail lengkap ada di [halaman project BreathSafe](/id/projects/breathsafe/)." }
       ]
     }
   },
